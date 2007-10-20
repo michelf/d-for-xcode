@@ -1,0 +1,145 @@
+
+// String for GDC D compiler settings
+// Part of D for Xcode
+
+
+// Generalities
+
+"Name" = "GDC";
+"Description" = "GDC D Compiler";
+"Version" = "Default";
+
+
+// Search Paths
+
+"[SearchPaths]-category" = "Search Paths";
+
+"[GDC_MODULE_SEARCH_PATHS]-name" = "Module Search Paths";
+"[GDC_MODULE_SEARCH_PATHS]-description" = "Paths to seach for modules when importing form other modules. [GDC_MODULE_SEARCH_PATHS]";
+
+"[GDC_IMPORT_EXPRESSION_SEARCH_PATHS]-name" = "Import Expression Search Paths";
+"[GDC_IMPORT_EXPRESSION_SEARCH_PATHS]-description" = "Paths to seach for files imported using D import expressions. [GDC_IMPORT_EXPRESSION_SEARCH_PATHS]";
+
+
+// Language
+
+"[Language]-category" = "Language";
+
+"[GDC_UNIT_TEST]-name" = "Unit Test";
+"[GDC_UNIT_TEST]-description" = "Perform the unit tests upon successful compilation. [GDC_UNIT_TEST, -funittest]";
+
+"[GDC_VERSION_IDENTIFIERS]-name" = "Version Identifiers";
+"[GDC_VERSION_IDENTIFIERS]-description" = "Specify the version identifiers for sections of code you wish to allow. [GDC_VERSION_IDENTIFIERS, -fversion]";
+
+"[GDC_DEBUG_IDENTIFIERS]-name" = "Debug Identifiers";
+"[GDC_DEBUG_IDENTIFIERS]-description" = "Specify identifiers for debug sections you wish to allow. These sections are only compiled-in when the Debug option (in Code Generation) is selected. [GDC_DEBUG_IDENTIFIERS, -fdebug]";
+
+"[GDC_ALLOW_DEPRECATED]-name" = "Allow Deprecated";
+"[GDC_ALLOW_DEPRECATED]-description" = "Allow use of source code marked as deprecated. [GDC_ALLOW_DEPRECATED, -fdeprecated]";
+
+"[GDC_OTHER_FLAGS]-name" = "Other GDC Flags";
+"[GDC_OTHER_FLAGS]-description" = "Specify additional flags to be used when invoking the D compiler. [GDC_OTHER_FLAGS]";
+
+
+// Documentation
+
+"[Documentation]-category" = "Documentation";
+
+"[GDC_DDOC]-name" = "Generate Documentation";
+"[GDC_DDOC]-description" = "Generate documentation files when compiling using Ddoc. [GDC_DDOC, -fdoc]";
+
+"[GDC_DDOC_DIR]-name" = "Ddoc Output Directory";
+"[GDC_DDOC_DIR]-description" = "Directory to write Ddoc-generated files. [GDC_DDOC_DIR, -fdoc-dir]";
+
+"[GDC_DDOC_FILENAME]-name" = "Ddoc Output Filename";
+"[GDC_DDOC_FILENAME]-description" = "Filename for the Ddoc-generated files. [GDC_DDOC_FILENAME, -fdoc-file]";
+
+"[GDC_DDOC_INCLUDES]-name" = "Ddoc Include";
+"[GDC_DDOC_INCLUDES]-description" = "Documentation files for Ddoc containing macros and other things for generating code documentation. [GDC_DDOC_INCLUDE, -fdoc-inc]";
+
+
+// Code Generation
+
+"[CodeGeneration]-category" = "Code Generation";
+
+"[GDC_ENABLE_BOUNDS_CHECK]-name" = "Bounds Checking";
+"[GDC_ENABLE_BOUNDS_CHECK]-description" = "Generate code that checks access to arrays are within their bounds. [GDC_ENABLE_BOUNDS_CHECK, -fbounds-check -fno-bounds-check]";
+
+"[GDC_ENABLE_RELEASE_CODE]-name" = "Release Code";
+"[GDC_ENABLE_RELEASE_CODE]-description" = "Generate code optimized for 'release', ignoring asserts, debug sections etc... [GDC_ENABLE_RELEASE_CODE, -frelease]";
+
+"[GDC_ENABLE_DEBUG_CODE]-name" = "Debug Code";
+"[GDC_ENABLE_DEBUG_CODE]-description" = "Generate code for sections of source marked as debug. [GDC_ENABLE_DEBUG_CODE, -fdebug]";
+
+"[GDC_EMIT_TEMPLATES]-name" = "Emit Templates";
+"[GDC_EMIT_TEMPLATES]-description" = "Specify how template code is generated. [GDC_EMIT_TEMPLATES, -femit-templates -fno-emit-templates]";
+
+"[GDC_GENERATE_INTERFACE_FILES]-name" = "Generate Interface Files";
+"[GDC_GENERATE_INTERFACE_FILES]-description" = "Intermediary interface files can be generated to speedup the compilation process when compiling modules. This is particularly effective with template mixins.
+
+Interface files are generated automatically while compiling each module and are kept with intermediary product files. The corresponding module search path is added to the compiler search path. [GDC_GENERATE_INTERFACE_FILES]";
+
+
+// Code Generation (GCC Backend)
+
+"[CodeGeneration]-category" = "Code Generation";
+
+"[GDC_GENERATE_DEBUGGING_SYMBOLS]-name" = "Generate Debug Symbols";
+"[GDC_GENERATE_DEBUGGING_SYMBOLS]-description" = "Enables or disables generation of debug symbols.  When debug symbols are enabled, the level of detail can be controlled by the build 'Level of Debug Symbols' setting. [GDC_GENERATE_DEBUGGING_SYMBOLS]";
+"[GDC_GENERATE_DEBUGGING_SYMBOLS]-value-[NO]" = "No";
+"[GDC_GENERATE_DEBUGGING_SYMBOLS]-value-[YES]" = "Yes";
+
+"[GDC_DEBUGGING_SYMBOLS]-name" = "Level of Debug Symbols";
+"[GDC_DEBUGGING_SYMBOLS]-description" = "Level of debug symbols to generate.  GDC 2.95.2 supports only a default level of debug symbols.  [GDC_DEBUGGING_SYMBOLS, -g]";
+"[GDC_DEBUGGING_SYMBOLS]-value-[default]" = "Default";
+
+"[GDC_OPTIMIZATION_LEVEL]-name" = "Optimization Level";
+"[GDC_OPTIMIZATION_LEVEL]-description" = "None: Do not optimize. [-O0] 
+
+With this setting, the compiler's goal is to reduce the cost of compilation and to make debugging produce the expected results.  Statements are independent: if you stop the program with a breakpoint between statements, you can then assign a new value to any variable or change the program counter to any other statement in the function and get exactly the results you would expect from the source code. 
+
+Fast: Optimizing compilation takes somewhat more time, and a lot more memory for a large function. [-O, -O1]
+
+ With this setting, the compiler tries to reduce code size and execution time, without performing any optimizations that take a great deal of compilation time. In Apple's compiler, strict aliasing, block reordering, and inter-block scheduling are disabled by default when optimizing.  
+
+Faster: The compiler performs nearly all supported optimizations that do not involve a space-speed tradeoff. [-O2]  
+
+With this setting, the compiler does not perform loop unrolling or function inlining, or register renaming.  As compared to the 'Fast' setting, this setting increases both compilation time and the performance of the generated code.    
+
+Fastest: Turns on all optimizations specified by the 'Faster' setting and also turns on function inlining and register renaming options. This setting may result in a larger binary. [-O3]  
+
+Fastest, smallest: Optimize for size.  This setting enables all 'Faster' optimizations that do not typically increase code size.  It also performs further optimizations designed to reduce code size. [-Os]
+
+[GDC_OPTIMIZATION_LEVEL]";
+"[GDC_OPTIMIZATION_LEVEL]-value-[0]" = "None [-O0]";
+"[GDC_OPTIMIZATION_LEVEL]-value-[1]" = "Fast [-O, O1]";
+"[GDC_OPTIMIZATION_LEVEL]-value-[2]" = "Faster [-O2]";
+"[GDC_OPTIMIZATION_LEVEL]-value-[3]" = "Fastest [-O3]";
+"[GDC_OPTIMIZATION_LEVEL]-value-[s]" = "Fastest, Smallest [-Os]";
+
+"[GDC_NO_COMMON_BLOCKS]-name" = "No Common Blocks";
+"[GDC_NO_COMMON_BLOCKS]-description" = "In C, allocate even uninitialized global variables in the data section of the object file, rather than generating them as common blocks.  This has the effect that if the same variable is declared (without extern ) in two different compilations, you will get an error when you link them.  The only reason this might be useful is if you wish to verify that the program will work on other systems which always work this way.  [GDC_NO_COMMON_BLOCKS, -fno-common]";
+"[GDC_NO_COMMON_BLOCKS]-value-[NO]" = "No";
+"[GDC_NO_COMMON_BLOCKS]-value-[YES]" = "Yes";
+
+"[GDC_REUSE_STRINGS]-name" = "Make Strings Read-Only";
+"[GDC_REUSE_STRINGS]-description" = "Reuse string literals. [GDC_REUSE_STRINGS, -fwritable-strings]";
+"[GDC_REUSE_STRINGS]-value-[NO]" = "No";
+"[GDC_REUSE_STRINGS]-value-[YES]" = "Yes";
+
+"[GDC_DYNAMIC_NO_PIC]-name" = "Generate Position-Dependent Code";
+"[GDC_DYNAMIC_NO_PIC]-description" = "Faster function calls for applications. Not appropriate for shared libraries (which need to be position-independent). [GDC_DYNAMIC_NO_PIC, -mdynamic-no-pic]";
+"[GDC_DYNAMIC_NO_PIC]-value-[NO]" = "No";
+"[GDC_DYNAMIC_NO_PIC]-value-[YES]" = "Yes";
+
+
+// Warnings
+
+"[Warnings]-category" = "Warnings";
+
+"[GDC_WARNINGS]-name" = "Warnings";
+"[GDC_WARNINGS]-description" = "Display warnings about potential trouble-spots. [GDC_WARNINGS]";
+
+"[GDC_TREAT_WARNINGS_AS_ERRORS]-name" = "Treat Warnings As Error";
+"[GDC_TREAT_WARNINGS_AS_ERRORS]-description" = "Treat any warning as an error and abort compilation. The Warning option needs to be selected for this to have an effect. [GDC_TREAT_WARNINGS_AS_ERRORS]";
+

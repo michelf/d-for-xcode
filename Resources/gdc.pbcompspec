@@ -1,0 +1,290 @@
+
+// D linker specification
+// Copyright (C) 2007  Michel Fortin
+//
+// Based on the D Xcode Compiler Plugin
+// Copyright (C) 2005  2006 Alan West
+//
+// For use with the GCC D Compiler front end <http://dgcc.sourceforge.net/> 
+//   by David Friedman <d3rdclsmail@earthlink.net>
+// as packaged in GDCMac <http://gdcmac.sourceforge.net/> 
+//   by Anders F Björklund <afb@users.sourceforge.net>.
+//
+// Note: the GDC executable is expected to be at: /usr/bin/gdc
+//
+// D for Xcode is free software; you can redistribute it and/or modify it 
+// under the terms of the GNU General Public License as published by the Free 
+// Software Foundation; either version 2 of the License, or (at your option) 
+// any later version.
+//
+// D for Xcode is distributed in the hope that it will be useful, but WITHOUT 
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or 
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for 
+// more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with D for Xcode; if not, write to the Free Software Foundation, 
+// Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
+
+{
+	Type = Compiler;
+	Identifier = com.michelf.dxcode.gdc;
+	Class = DXCompilerSpecificationGDC;
+	FileTypes = (sourcecode.d);
+	Name = "GDC D Compiler";
+	Description = "GDC D Compiler";
+	Version = "Default";
+	ExecPath = "/usr/bin/gdc";
+	Architectures = (i386, ppc, ppc7400, ppc7450, ppc970, ppc64);
+	SupportsZeroLink = NO;
+	SupportsPredictiveCompilation = NO;
+	SupportsHeadermaps = NO;
+	OptionsForCommandLinePrefix = "GDC_";
+	CommandOutputParser = XCGccCommandOutputParser;
+
+	Options = (
+		{
+			Name = arch;
+			CommandLineArgs = ( "-arch", "$(value)" );
+		},
+
+		// Search Paths
+		{
+			Name = GDC_MODULE_SEARCH_PATHS;
+			Type = pathlist;
+			DefaultValue = "";
+			CommonOption = YES;
+			CommandLineArgs = ("-I", "$(value)");
+			Category = SearchPaths;
+		},
+		{
+			Name = GDC_IMPORT_EXPRESSION_SEARCH_PATHS;
+			Type = pathlist;
+			DefaultValue = "";
+			CommonOption = YES;
+			CommandLineArgs = ("-J$(value)");
+			Category = SearchPaths;
+		},
+
+		// Language
+		{
+			Name = GDC_UNIT_TEST;
+			Type = bool;
+			DefaultValue = NO;
+			CommandLineArgs = { YES = ("-funittest"); NO = (); };
+			Category = Language;
+		},
+		{
+			Name = GDC_VERSION_IDENTIFIERS;
+			Type = stringlist;
+			DefaultValue = "Posix darwin";
+			CommandLineArgs = ( "-fversion=${0}" );
+			Category = Language;
+		},
+		{
+			Name = GDC_DEBUG_IDENTIFIERS;
+			Type = stringlist;
+			DefaultValue = "";
+			CommandLineArgs = ( "-fdebug=${0}" );
+			Condition = "$(GDC_ENABLE_DEBUG_CODE)";
+			Category = Language;
+		},
+		{
+			Name = GDC_ALLOW_DEPRECATED;
+			Type = bool;
+			DefaultValue = NO;
+			CommandLineArgs = { YES = (-fdeprecated); NO = (); };
+			Category = Language;
+		},
+		{
+			Name = GDC_OTHER_FLAGS;
+			Type = stringlist; 
+			DefaultValue = ""; 
+			Category = Language;
+			CommandLineArgs = ( "${0}" );
+			FileTypes = (sourcecode.d);
+		},
+		
+		// Documentation
+		{
+			Name = GDC_DDOC;
+			Type = bool;
+			DefaultValue = NO;
+			CommandLineArgs = { YES = (-fdoc); NO = (); };
+			Category = Documentation;
+		},
+		{
+			Name = GDC_DDOC_DIR;
+			Type = string; 
+			DefaultValue = "";
+			CommandLineArgs = ( "-fdoc-dir=$(value)" );
+			Condition = "$(GDC_DDOC)";
+            AppearsOnCommandLineAfter = GDC_DDOC;
+			Category = Documentation;
+		},
+		{
+			Name = GDC_DDOC_FILENAME;
+			Type = string;
+			DefaultValue = "";
+			CommandLineArgs = ( "-fdoc-file=$(value)" );
+			Condition = "$(GDC_DDOC)";
+            AppearsOnCommandLineAfter = GDC_DDOC;
+			Category = Documentation;
+		},
+		{
+			Name = GDC_DDOC_INCLUDES;
+			Type = stringlist; 
+			DefaultValue = "";
+			CommandLineArgs = ("-fdoc-inc=${0}");
+			Condition = "$(GDC_DDOC)";
+            AppearsOnCommandLineAfter = GDC_DDOC;
+			Category = Documentation;
+		},
+		
+		// Code Generation
+		{
+			Name = GDC_ENABLE_BOUNDS_CHECK;
+			Type = bool;
+			DefaultValue = YES;
+			CommandLineArgs = { YES = (-fbounds-check); NO = (-fno-bounds-check); };
+			Category = CodeGeneration;
+			CommonOption = YES;
+		},
+		{
+			Name = GDC_ENABLE_RELEASE_CODE;
+			Type = bool;
+			DefaultValue = NO;
+			CommandLineArgs = { YES = (-frelease); NO = (); };
+			Category = CodeGeneration;
+			CommonOption = YES;
+		},
+		{
+			Name = GDC_ENABLE_DEBUG_CODE;
+			Type = bool;
+			DefaultValue = NO;
+			CommandLineArgs = { YES = (-fdebug); NO = (); };
+			Category = CodeGeneration;
+			CommonOption = YES;
+		},
+		{
+			Name = GDC_EMIT_TEMPLATES;
+			Type = enum;
+			AllowedValues = (normal, private, all, none, auto, full);
+			DefaultValue = auto;
+			CommandLineArgs = { none=(-fno-emit-templates) ; "<<otherwise>>"=("-femit-templates=${0}"); };
+			Category = CodeGeneration;
+		},
+		
+		// Gode Generation (GCC Backend)
+//		{
+//			Name = GDC_GENERATE_INTERFACE_FILES;
+//			Type = bool;
+//			DefaultValue = YES;
+//			Category = CodeGeneration;
+//			CommonOption = YES;
+//		},
+		{
+			Name = GDC_GENERATE_DEBUGGING_SYMBOLS;
+			Type = bool;
+//			DefaultValue = YES;
+			DefaultValue = "$(GDC_GENERATE_DEBUGGING_SYMBOLS)";
+			Category = CodeGeneration;
+			CommonOption = YES;
+		},
+		{
+			Name = GDC_DEBUGGING_SYMBOLS;
+			Type = enum;
+			AllowedValues = (default);
+//			DefaultValue = default;
+			DefaultValue = "$(GCC_DEBUGGING_SYMBOLS)";
+			CommandLineArgs = { default = (-g); };
+			Condition = "$(GDC_GENERATE_DEBUGGING_SYMBOLS)";
+			Category = CodeGeneration;
+		},
+		{
+			Name = GDC_OPTIMIZATION_LEVEL;
+			Type = enum;
+			AllowedValues = (0, 1, 2, 3, s);
+//			DefaultValue = s;
+			DefaultValue = "$(GCC_OPTIMIZATION_LEVEL)";
+			CommandLineArgs = ("-O${0}");
+			Category = CodeGeneration;
+		},
+		{
+			Name = GDC_GENERATE_PROFILING_CODE;
+			Type = bool;
+			DefaultValue = "$(GENERATE_PROFILING_CODE)";
+			CommandLineArgs = { YES = (-pg); NO = (); };
+		},
+		{
+			Name = GDC_NO_COMMON_BLOCKS;
+			Type = bool;
+//			DefaultValue = NO;
+			DefaultValue = "$(GCC_NO_COMMON_BLOCKS)";
+			CommandLineArgs = { YES = (-fno-common); NO = (); };
+			Category = CodeGeneration;
+		},
+		{
+			Name = GDC_REUSE_STRINGS;
+			Type = bool;
+//			DefaultValue = YES;
+			DefaultValue = "$(GCC_REUSE_STRINGS)";
+			CommandLineArgs = { YES = (); NO = (-fwritable-strings); };
+			Category = CodeGeneration;
+		},
+		{
+			Name = GDC_DYNAMIC_NO_PIC;
+			Type = bool;
+			DefaultValue = NO;
+			DefaultValue = "$(GCC_DYNAMIC_NO_PIC)";
+			//CommandLineArgs = { YES = (-mdynamic-no-pic); NO = (); };
+			// Flag mutually exclusive with -fzero-link, handled programatically.
+			Category = CodeGeneration;
+		},
+
+        // Warnings
+		{
+			Name = GDC_WARNINGS;
+			Type = bool;
+			DefaultValue = NO;
+			CommandLineArgs = { YES = (-Wall); NO = (); };
+			FileTypes = (sourcecode.c.c, sourcecode.c.objc);
+			Category = Warnings;
+			CommonOption = YES;
+        },
+		{
+			Name = GDC_TREAT_WARNINGS_AS_ERRORS;
+			Type = bool;
+//			DefaultValue = NO;
+			DefaultValue = "$(GCC_TREAT_WARNINGS_AS_ERRORS)";
+			CommandLineArgs = { YES = (-Werror); NO = (); };
+            AppearsOnCommandLineAfter = GDC_WARNINGS;
+			Category = Warnings;
+        },
+	);
+	
+	
+	OptionCategories = (
+		{
+			Name = SearchPaths;
+			IconName = "PBX-option-build";
+		},
+		{
+			Name = Language;
+			IconName = "DX-option-language-d";
+		},
+		{
+			Name = CodeGeneration;
+			IconName = "DX-option-language-d";
+		},
+		{
+			Name = Warnings;
+			IconName = "PBX-option-warning";
+		},
+		{
+			Name = Documentation;
+			IconName = "DX-option-language-d";
+		}
+	);
+
+}

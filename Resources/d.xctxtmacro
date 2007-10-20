@@ -1,0 +1,302 @@
+
+// D source code macros
+// Copyright (C) 2007  Michel Fortin
+//
+// Based on the D Xcode Compiler Plugin
+// Copyright (C) 2005, 2006  Alan West
+//
+// D for Xcode is free software; you can redistribute it and/or modify it 
+// under the terms of the GNU General Public License as published by the Free 
+// Software Foundation; either version 2 of the License, or (at your option) 
+// any later version.
+//
+// D for Xcode is distributed in the hope that it will be useful, but WITHOUT 
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or 
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for 
+// more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with D for Xcode; if not, write to the Free Software Foundation, 
+// Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
+
+(
+	//
+	// D language macros
+	//
+	{
+		Identifier = d;
+		Name = "D";
+		IsMenu = YES;
+		DefaultSettings = {
+			PreExpressionsSpacing = " ";	// space between keyword and opening paren
+			InExpressionsSpacing = "";		// space between paren and expression
+			CaseStatementSpacing = "";		// indentation of a case statement
+			BlockSeparator = "\n";			// between closing paren and brace
+			PostBlockSeparator = "\n";		// space after a brace and before a new block (can include a newline)
+		};
+		ComputerLanguages = ( d );
+	},
+		//
+		// Block Statements
+		//
+		{
+			Identifier = d.block;
+			BasedOn = d;
+			TextString = "$(Statement)$(BlockSeparator){\n\t<#!statements!#>\n}";
+			Statement = "$(Command)$(PreExpressionsSpacing)($(InExpressionsSpacing)$(Expressions)$(InExpressionsSpacing))";
+		},
+			{
+				Identifier = d.block.if;
+				BasedOn = d.block;
+				Name = "If Block";
+				IsMenuItem = YES;
+				Command = "if";
+				Expressions = "<#condition#>";
+				CompletionPrefix = if;
+				CycleList = (
+					d.block.if,
+					d.block.ifelse,
+				);
+			},
+			{
+				Identifier = d.block.ifelse;
+				BasedOn = d.block;
+				Name = "If / Else Block";
+				IsMenuItem = NO;
+				Command = "if";
+				Expressions = "<#condition#>";
+				TextString = "$(Statement)$(BlockSeparator){\n\t<#!statements!#>\n}$(PostBlockSeparator)else$(BlockSeparator){\n\t<#statements#>\n}";
+				CompletionPrefix = ifelse;
+			},
+			{
+				Identifier = d.block.elseif;
+				BasedOn = d.block;
+				Name = "Else If Block";
+				IsMenuItem = NO;
+				Command = "else if";
+				Expressions = "<#condition#>";
+				CompletionPrefix = elseif;
+			},
+
+			{
+				Identifier = d.block.for;
+				BasedOn = d.block;
+				Name = "For Loop";
+				IsMenuItem = YES;
+				Command = "for";
+				Expressions = "<#initial#>; <#condition#>; <#increment#>";
+				CompletionPrefix = for;
+				CycleList = (
+					d.block.for,
+					d.block.for.i,
+					d.block.foreach,
+				);
+			},
+			{
+				Identifier = d.block.foreach;
+				BasedOn = d.block;
+				Name = "For Each Loop";
+				IsMenuItem = YES;
+				Command = "foreach";
+				Expressions = "<#item#>; <#array#>";
+				CompletionPrefix = fore;
+			},
+			{
+				Identifier = d.block.for.i;
+				BasedOn = d.block;
+				Name = "For i Loop";
+				IsMenuItem = NO;
+				Command = "for";
+				Expressions = "int i = 0; i < <#limit#>; i++";
+				CompletionPrefix = fori;
+			},
+			
+			{
+				Identifier = d.block.while;
+				BasedOn = d.block;
+				Name = "While Loop";
+				IsMenuItem = YES;
+				Command = "while";
+				Expressions = "<#condition#>";
+				CompletionPrefix = while;
+			},
+			{
+				Identifier = d.block.dowhile;
+				BasedOn = d.block;
+				Name = "Do While Loop";
+				IsMenuItem = YES;
+				Command = "while";
+				TextString = "do$(BlockSeparator){\n\t<#!statements!#>\n}$(PreExpressionsSpacing)$(Statement)";
+				Expressions = "<#condition#>";
+				CompletionPrefix = do;
+			},
+			{
+				Identifier = d.block.switch;
+				BasedOn = d.block;
+				Name = "Switch Block";
+				IsMenuItem = YES;
+				Command = "switch";
+				TextString = "$(Statement)$(BlockSeparator){\n$(CaseStatementSpacing)case <#constant#>:\n$(CaseStatementSpacing)\t<#!statements!#>\n$(CaseStatementSpacing)\tbreak;\n$(CaseStatementSpacing)default:\n$(CaseStatementSpacing)\tbreak;\n}";
+				Expressions = "<#expression#>";
+				CompletionPrefix = switch;
+			},
+			{
+				Identifier = d.block.version;
+				BasedOn = d;
+				Name = "Version Block";
+				IsMenuItem = YES;
+				Command = "version";
+				Expressions = "<#identifier#>";
+				CompletionPrefix = version;
+		},
+
+		{
+			Identifier = d.caseblock;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Case Block";
+			TextString = "case <#constant#>:\n\t<#!statements!#>\n\tbreak;\n";
+			CompletionPrefix = case;
+		},
+
+		{
+			Identifier = d.elseblock;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Else Block";
+			TextString = "else$(BlockSeparator){\n\t<#!statements!#>\n}\n";
+			CompletionPrefix = else;
+				CycleList = (
+					d.elseblock,
+					d.block.elseif,
+				);
+		},
+		
+		{
+			Identifier = d.enum;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Enum Definition";
+			TextString = "enum$(PreExpressionsSpacing)<#enum_tag#>$(BlockSeparator){\n\t<#!values!#>\n}";
+			CompletionPrefix = enum;
+		},
+		{
+			Identifier = d.struct;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Struct Definition";
+			TextString = "struct$(PreExpressionsSpacing)<#struct_tag#>$(BlockSeparator){\n\t<#!fields!#>\n}";
+			CompletionPrefix = struct;
+		},
+		{
+			Identifier = d.union;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Union Definition";
+			TextString = "union$(PreExpressionsSpacing)<#union_tag#>$(BlockSeparator){\n\t<#!fields!#>\n}";
+			CompletionPrefix = union;
+		},
+		{
+			Identifier = d.typedef;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Type Definition";
+			TextString = "typedef$(PreExpressionsSpacing)<#!existing_type!#>$(PreExpressionsSpacing)<#new_name#>;";
+			CompletionPrefix = typedef;
+		},
+		{
+			Identifier = d.alias;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Type Alias";
+			TextString = "alias$(PreExpressionsSpacing)<#!existing_type!#>$(PreExpressionsSpacing)<#new_name#>;";
+			CompletionPrefix = alias;
+		},
+			{
+				Identifier = d.trycatch;
+				BasedOn = d;
+				Name = "Try and Catch Block";
+				IsMenuItem = YES;
+				Expression = "Exception e";
+				TextString = "try$(BlockSeparator){\n\t<#!statements!#>\n}$(PostBlockSeparator)catch$(PreExpressionsSpacing)($(InExpressionsSpacing)$(Expression)$(InExpressionsSpacing))$(BlockSeparator){\n\t<#statements#>\n}";
+				CompletionPrefix = trycatch;
+			},
+
+		{
+			Identifier = d.printf;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Call printf()";
+			TextString = "printf(\"<#message#>\");";
+			CompletionPrefix = printf;
+		},
+		
+		{
+			Identifier = d.paren;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Parenthesize Selection";
+			TextString = "($(InExpressionsSpacing)<#!expression!#>$(InExpressionsSpacing))";
+		},
+		{
+			Identifier = d.quote;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Quote Selection";
+			TextString = "\"<#!text!#>\"";
+		},
+
+		{
+			Identifier = d.import;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Import Module Statement";
+			TextString = "import <#!module!#>;";
+			CompletionPrefix = import;
+		},
+
+		{
+			Identifier = d.copyrightorganization;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Copyright (C) Year Organization";
+			TextString = "//\n// Copyright (C) $(YEAR) $(ORGANIZATIONNAME)\n// All rights are reserved.\n//\n";
+			CompletionPrefix = ocopy;
+		},
+		{
+			Identifier = d.copyrightusername;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Copyright (C) Year User Name";
+			TextString = "//\n// Copyright (C) $(YEAR) $(FULLUSERNAME)\n// All rights are reserved.\n//\n";
+			CompletionPrefix = ucopy;
+		},
+
+		{
+			Identifier = d.comment;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Comment Selection";
+			TextString = "/* <#!comment!#> */";
+			CompletionPrefix = comment;
+		},
+
+		{
+			Identifier = d.separatorcomment;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Separator Comment";
+			TextString = "//--------------------------------------------------------------------------\n";
+			CompletionPrefix = cseparat;
+		},
+
+		{
+			Identifier = d.documentationcomment;
+			BasedOn = d;
+			IsMenuItem = YES;
+			Name = "Comment Selection";
+			TextString = "/**\n * <#!description!#>\n */";
+			CompletionPrefix = ddoc;
+		},
+		
+)

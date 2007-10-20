@@ -1,0 +1,40 @@
+
+// D linker specification
+// Copyright (C) 2007  Michel Fortin
+//
+// D for Xcode is free software; you can redistribute it and/or modify it 
+// under the terms of the GNU General Public License as published by the Free 
+// Software Foundation; either version 2 of the License, or (at your option) 
+// any later version.
+//
+// D for Xcode is distributed in the hope that it will be useful, but WITHOUT 
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or 
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for 
+// more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with D for Xcode; if not, write to the Free Software Foundation, 
+// Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
+
+(
+	// Using Apple Mach-O linker with additional arguments
+	{
+		Identifier = com.michelf.dxcode.gdc.linker;
+		BasedOn = com.apple.pbx.linkers.ld;
+		Name = "GDC Linker";
+		Description = "GDC Linker";
+		ExecPath = "/usr/bin/gdc";
+		
+		// GDC forget its standard libraries when using the -filelist argument.
+		// Adding them here works around that problem.
+		Options = (
+			{
+			    Name = LINK_WITH_STANDARD_LIBRARIES;
+				
+				// Simply YES won't do for some reason:
+                CommandLineArgs = { NO = (); "<<otherwise>>" = ("-lgphobos", "-lgcc_eh"); };
+            }
+		);
+	},
+
+)
