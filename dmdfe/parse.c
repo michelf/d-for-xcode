@@ -1133,7 +1133,7 @@ Dsymbol *Parser::parseAggregate()
 	    break;
     }
 	loc.end = cc;
-	a->loc.end = cc;
+	if (a) a->loc.end = cc;
     if (a && token.value == TOKsemicolon)
     { 	nextToken();
     }
@@ -1143,7 +1143,7 @@ Dsymbol *Parser::parseAggregate()
 	nextToken();
 	Array *decl = parseDeclDefs(0);
 	loc.end = cc;
-	a->loc.end = cc;
+	if (a) a->loc.end = cc;
 	if (token.value != TOKrcurly)
 	    error("} expected following member declarations in aggregate");
 	nextToken();

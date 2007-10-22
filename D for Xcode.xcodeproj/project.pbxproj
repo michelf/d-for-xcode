@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E19BD5D0CCB7E81005508FE /* plugin.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1E19BD5C0CCB7E81005508FE /* plugin.icns */; };
 		1E1A1AC80CC571F7005B9B65 /* d.xctxtmacro in Resources */ = {isa = PBXBuildFile; fileRef = 1E6BF4140CAF52AD0022460C /* d.xctxtmacro */; };
 		1E1CC87D0CC05E4500E0F6EC /* access.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BEE770CAEBC620022460C /* access.c */; };
 		1E1CC87E0CC05E4600E0F6EC /* array.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BEE790CAEBC620022460C /* array.c */; };
@@ -105,6 +106,7 @@
 
 /* Begin PBXFileReference section */
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		1E19BD5C0CCB7E81005508FE /* plugin.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = plugin.icns; sourceTree = "<group>"; };
 		1E1CC95E0CC063B000E0F6EC /* impcnvtab.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = impcnvtab.c; sourceTree = "<group>"; };
 		1E1CC9B50CC0686500E0F6EC /* dmdfe_prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmdfe_prefix.h; sourceTree = "<group>"; };
 		1E3436870CB27C6000D15C90 /* DXDSourceScannerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDSourceScannerItem.h; sourceTree = "<group>"; };
@@ -238,7 +240,7 @@
 		6DB1DD8608B3A289004F6FFB /* d.pbfilespec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.pbfilespec; path = d.pbfilespec; sourceTree = "<group>"; };
 		6DB1DD8708B3A289004F6FFB /* gdc.pbcompspec */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = gdc.pbcompspec; sourceTree = "<group>"; };
 		6DB1DD8808B3A289004F6FFB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
-		6DB1DDED08B3A33A004F6FFB /* D for Xcode.pbplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "D for Xcode.pbplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DB1DDED08B3A33A004F6FFB /* D for Xcode.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "D for Xcode.xcplugin"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DD2FA0808C39D51003CE4D3 /* XCPBuildSystem.m */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.objc; name = XCPBuildSystem.m; path = Headers/XCPBuildSystem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -302,6 +304,7 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1E19BD5C0CCB7E81005508FE /* plugin.icns */,
 				1ED708790CAFC5690011E7A0 /* dfile.icns */,
 				1ED7082C0CAFC1280011E7A0 /* DX-option-language-d.png */,
 				6DB1DD8808B3A289004F6FFB /* Info.plist */,
@@ -319,7 +322,7 @@
 		19C28FB8FE9D52D311CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6DB1DDED08B3A33A004F6FFB /* D for Xcode.pbplugin */,
+				6DB1DDED08B3A33A004F6FFB /* D for Xcode.xcplugin */,
 				6D209C6B08EFE0A200E52803 /* D Parser Test */,
 				1EDEC3B10C906CAB00FB0C15 /* libdmdfe.a */,
 			);
@@ -528,7 +531,7 @@
 			name = "D for Xcode";
 			productInstallPath = "$(HOME)/Library/Bundles";
 			productName = OCamlPlugin;
-			productReference = 6DB1DDED08B3A33A004F6FFB /* D for Xcode.pbplugin */;
+			productReference = 6DB1DDED08B3A33A004F6FFB /* D for Xcode.xcplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -562,6 +565,7 @@
 				1EFC53D50CC4D6B000B03C7E /* gdc.pblinkspec in Resources */,
 				1E1A1AC80CC571F7005B9B65 /* d.xctxtmacro in Resources */,
 				1E8672380CC9A5A300DB0990 /* com.michelf.dxcode.gdc.strings in Resources */,
+				1E19BD5D0CCB7E81005508FE /* plugin.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,7 +799,7 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Application Support/Apple/Plugins/";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = pbplugin;
+				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Debug;
 		};
@@ -807,34 +811,35 @@
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Application Support/Apple/Plugins/";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = pbplugin;
+				STRIP_INSTALLED_PRODUCT = YES;
+				STRIP_STYLE = all;
+				WRAPPER_EXTENSION = xcplugin;
 			};
 			name = Release;
 		};
 		6D4E1A6208560B2700084599 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks";
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "XCODE_VERSION=23";
-				PREBINDING = NO;
-				ZERO_LINK = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Debug;
 		};
 		6D4E1A6308560B2700084599 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				COPY_PHASE_STRIP = YES;
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "XCODE_VERSION=23";
-				PREBINDING = NO;
-				ZERO_LINK = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				ONLY_LINK_ESSENTIAL_SYMBOLS = YES;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Release;
 		};
