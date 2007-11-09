@@ -105,15 +105,15 @@
 	// Tell Xcode to use the GDC linker.
 	[context setStringValue:@"com.michelf.dxcode.gdc.linker" forDynamicSetting:@"compiler_mandated_linker"];
 	
-	if ([context expandedBooleanValueForString:@"$(GDC_GENERATE_INTERFACE_FILES)"]) {
-		NSString *objRoot = [context expandedValueForString:@"$(OBJROOT)"];
-		NSString *interfaceDir = [objRoot stringByAppendingPathComponent:@"dinterface"];
-		[dep addArgument:@"-I"];
-		[dep addArgument:interfaceDir];
-		
-		NSString *interfaceFile = [interfaceDir stringByAppendingPathComponent:[relativePath stringByAppendingPathExtension:@"di"]];
-		[dep addArgument:[NSString stringWithFormat:@"-fintfc-file=%@", interfaceFile]];
-	}
+//	if ([context expandedBooleanValueForString:@"$(GDC_GENERATE_INTERFACE_FILES)"]) {
+//		NSString *objRoot = [context expandedValueForString:@"$(OBJROOT)"];
+//		NSString *interfaceDir = [objRoot stringByAppendingPathComponent:@"dinterface"];
+//		[dep addArgument:@"-I"];
+//		[dep addArgument:interfaceDir];
+//		
+//		NSString *interfaceFile = [interfaceDir stringByAppendingPathComponent:[relativePath stringByAppendingPathExtension:@"di"]];
+//		[dep addArgument:[NSString stringWithFormat:@"-fintfc-file=%@", interfaceFile]];
+//	}
 	
 	// update source <-> output links
 	[context setCompiledFilePath:output forSourceFilePath:input];

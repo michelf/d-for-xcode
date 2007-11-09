@@ -40,6 +40,12 @@
 "[GDC_OTHER_FLAGS]-name" = "Other GDC Flags";
 "[GDC_OTHER_FLAGS]-description" = "Specify additional flags to be used when invoking the D compiler. [GDC_OTHER_FLAGS]";
 
+"[GDC_WARNINGS]-name" = "Warnings";
+"[GDC_WARNINGS]-description" = "Display warnings about potential trouble-spots. Any warning will cause the compiler to abort. [GDC_WARNINGS]";
+
+//"[GDC_TREAT_WARNINGS_AS_ERRORS]-name" = "Treat Warnings As Error";
+//"[GDC_TREAT_WARNINGS_AS_ERRORS]-description" = "Treat any warning as an error and abort compilation. The Warning option needs to be selected for this to have an effect. [GDC_TREAT_WARNINGS_AS_ERRORS]";
+
 
 // Documentation
 
@@ -66,10 +72,13 @@
 "[GDC_ENABLE_BOUNDS_CHECK]-description" = "Generate code that checks access to arrays are within their bounds. [GDC_ENABLE_BOUNDS_CHECK, -fbounds-check -fno-bounds-check]";
 
 "[GDC_ENABLE_RELEASE_CODE]-name" = "Release Code";
-"[GDC_ENABLE_RELEASE_CODE]-description" = "Generate code optimized for 'release', ignoring asserts, debug sections etc... [GDC_ENABLE_RELEASE_CODE, -frelease]";
+"[GDC_ENABLE_RELEASE_CODE]-description" = "Generate code optimized for 'release', ignoring asserts, debug sections, etc. [GDC_ENABLE_RELEASE_CODE, -frelease]";
 
 "[GDC_ENABLE_DEBUG_CODE]-name" = "Debug Code";
 "[GDC_ENABLE_DEBUG_CODE]-description" = "Generate code for sections of source marked as debug. [GDC_ENABLE_DEBUG_CODE, -fdebug]";
+
+"[GDC_INLINE_FUNCTIONS]-name" = "Inline Functions";
+"[GDC_INLINE_FUNCTIONS]-description" = "Allow the compiler to expand functions inline. [GDC_INLINE_FUNCTIONS, -finline-functions]";
 
 "[GDC_EMIT_TEMPLATES]-name" = "Emit Templates";
 "[GDC_EMIT_TEMPLATES]-description" = "Specify how template code is generated. [GDC_EMIT_TEMPLATES, -femit-templates -fno-emit-templates]";
@@ -117,6 +126,13 @@ Fastest, smallest: Optimize for size.  This setting enables all 'Faster' optimiz
 "[GDC_OPTIMIZATION_LEVEL]-value-[3]" = "Fastest [-O3]";
 "[GDC_OPTIMIZATION_LEVEL]-value-[s]" = "Fastest, Smallest [-Os]";
 
+"[GDC_MODEL_TUNING]-name" = "Instruction Scheduling";
+"[GDC_MODEL_TUNING]-description" = "Optimize instruction scheduling for this CPU.  Generated code will run on older processors. [GDC_MODEL_TUNING, -mtune=<cpu>]";
+"[GDC_MODEL_TUNING]-value-[]" = "None";
+"[GDC_MODEL_TUNING]-value-[G3]" = "PowerPC G3 [-mtune=G3]";
+"[GDC_MODEL_TUNING]-value-[G4]" = "PowerPC G4 [-mtune=G4]";
+"[GDC_MODEL_TUNING]-value-[G5]" = "PowerPC G5 [-mtune=G5]";
+
 "[GDC_NO_COMMON_BLOCKS]-name" = "No Common Blocks";
 "[GDC_NO_COMMON_BLOCKS]-description" = "In C, allocate even uninitialized global variables in the data section of the object file, rather than generating them as common blocks.  This has the effect that if the same variable is declared (without extern ) in two different compilations, you will get an error when you link them.  The only reason this might be useful is if you wish to verify that the program will work on other systems which always work this way.  [GDC_NO_COMMON_BLOCKS, -fno-common]";
 "[GDC_NO_COMMON_BLOCKS]-value-[NO]" = "No";
@@ -131,15 +147,4 @@ Fastest, smallest: Optimize for size.  This setting enables all 'Faster' optimiz
 "[GDC_DYNAMIC_NO_PIC]-description" = "Faster function calls for applications. Not appropriate for shared libraries (which need to be position-independent). [GDC_DYNAMIC_NO_PIC, -mdynamic-no-pic]";
 "[GDC_DYNAMIC_NO_PIC]-value-[NO]" = "No";
 "[GDC_DYNAMIC_NO_PIC]-value-[YES]" = "Yes";
-
-
-// Warnings
-
-"[Warnings]-category" = "Warnings";
-
-"[GDC_WARNINGS]-name" = "Warnings";
-"[GDC_WARNINGS]-description" = "Display warnings about potential trouble-spots. [GDC_WARNINGS]";
-
-"[GDC_TREAT_WARNINGS_AS_ERRORS]-name" = "Treat Warnings As Error";
-"[GDC_TREAT_WARNINGS_AS_ERRORS]-description" = "Treat any warning as an error and abort compilation. The Warning option needs to be selected for this to have an effect. [GDC_TREAT_WARNINGS_AS_ERRORS]";
 

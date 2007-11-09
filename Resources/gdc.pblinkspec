@@ -23,16 +23,18 @@
 		BasedOn = com.apple.pbx.linkers.ld;
 		Name = "GDC Linker";
 		Description = "GDC Linker";
-		ExecPath = "/usr/bin/gdc";
+		ExecPath = "/usr/bin/gcc";
 		
-		// GDC forget its standard libraries when using the -filelist argument.
+		// GDC forgets its standard libraries when using the -filelist argument.
 		// Adding them here works around that problem.
+		//
+		// But we're using GCC to link instead since -lgphobos, implied when 
+		// calling GDC, doesn't work with SDKs. To fix that, gphobos is
+		// specified by path.
 		Options = (
 			{
 			    Name = LINK_WITH_STANDARD_LIBRARIES;
-				
-				// Simply YES won't do for some reason:
-                CommandLineArgs = { NO = (); "<<otherwise>>" = ("-lgphobos", "-lgcc_eh"); };
+                CommandLineArgs = { NO = (); "<<otherwise>>" = ("/usr/lib/libgphobos.a", "-lgcc_eh"); };
             }
 		);
 	},

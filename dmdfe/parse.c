@@ -282,7 +282,7 @@ Array *Parser::parseDeclDefs(int once)
 		if (token.value == TOKidentifier &&
 		    peek(&token)->value == TOKassign)
 		{
-		    while (1)
+		    while (token.value != TOKeof)
 		    {
 			Identifier *ident = token.ident;
 			nextToken();
@@ -2322,7 +2322,7 @@ Initializer *Parser::parseInitializer()
 	    is = new StructInitializer(loc);
 	    nextToken();
 	    comma = 0;
-	    while (1)
+	    while (token.value != TOKeof)
 	    {
 		switch (token.value)
 		{
@@ -3180,7 +3180,7 @@ Statement *Parser::parseStatement(int flags)
 	    ptoklist = &toklist;
 	    label = NULL;
 	    statements = new Statements();
-	    while (1)
+	    while (token.value != TOKeof)
 	    {
 		switch (token.value)
 		{
@@ -3389,7 +3389,7 @@ int Parser::isDeclarator(Token **pt, int *haveId, enum TOK endtok)
     if (t->value == TOKassign)
 	return FALSE;
 
-    while (1)
+    while (token.value != TOKeof)
     {
 	parens = FALSE;
 	switch (t->value)
@@ -4068,7 +4068,7 @@ Expression *Parser::parsePrimaryExp()
 	    nextToken();
 	    if (token.value != TOKrbracket)
 	    {
-		while (1)
+		while (token.value != TOKeof)
 		{
 		    Expression *e = parseAssignExp();
 		    if (token.value == TOKcolon && (keys || values->dim == 0))
@@ -4232,7 +4232,7 @@ Expression *Parser::parsePostExp(Expression *e)
 			if (token.value == TOKcomma)
 			{
 			    nextToken();
-			    while (1)
+			    while (token.value != TOKeof)
 			    {   Expression *arg;
 
 				arg = parseAssignExp();
@@ -4839,7 +4839,7 @@ Expressions *Parser::parseArguments()
 	nextToken();
 	if (token.value != endtok)
 	{
-	    while (1)
+	    while (token.value != TOKeof)
 	    {
 		arg = parseAssignExp();
 		arguments->push(arg);
