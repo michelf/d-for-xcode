@@ -16,7 +16,6 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
-
 // Use this test program to diagnose problems occuring with specific source
 // files. Tests dependency retrieval and the source scanner for the file
 // path given as first argument.
