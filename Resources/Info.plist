@@ -32,13 +32,13 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>OCamlPlugin</string>
+	<string>D for Xcode</string>
 	<key>CFBundlePackageType</key>
 	<string>BNDL</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0b1</string>
+	<string>1.0b2</string>
 	<key>LoadAtLaunch</key>
 	<string>YES</string>
 	<key>XCPluginHasUI</key>
