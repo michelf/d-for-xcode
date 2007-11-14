@@ -77,8 +77,6 @@
 		1ED7087A0CAFC5690011E7A0 /* dfile.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1ED708790CAFC5690011E7A0 /* dfile.icns */; };
 		1EFC53D50CC4D6B000B03C7E /* gdc.pblinkspec in Resources */ = {isa = PBXBuildFile; fileRef = 6DB1DD8408B3A289004F6FFB /* gdc.pblinkspec */; };
 		6D209CFB08EFE8E600E52803 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
-		6D209D0708EFEB6800E52803 /* DevToolsSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D209CFC08EFE91400E52803 /* DevToolsSupport.framework */; };
-		6D8314C8084BD22A00DF6DDA /* DevToolsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8314C7084BD22A00DF6DDA /* DevToolsCore.framework */; };
 		6DB1DD8C08B3A289004F6FFB /* d.xcbuildrules in Resources */ = {isa = PBXBuildFile; fileRef = 6DB1DD8108B3A289004F6FFB /* d.xcbuildrules */; };
 		6DB1DD9008B3A289004F6FFB /* d.pblangspec in Resources */ = {isa = PBXBuildFile; fileRef = 6DB1DD8508B3A289004F6FFB /* d.pblangspec */; };
 		6DB1DD9108B3A289004F6FFB /* d.pbfilespec in Resources */ = {isa = PBXBuildFile; fileRef = 6DB1DD8608B3A289004F6FFB /* d.pbfilespec */; };
@@ -227,13 +225,13 @@
 		1EDEC3B10C906CAB00FB0C15 /* libdmdfe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdmdfe.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D209C3F08EBCC2300E52803 /* XCPSupport.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPSupport.h; path = Headers/XCPSupport.h; sourceTree = "<group>"; };
 		6D209C6B08EFE0A200E52803 /* D Parser Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "D Parser Test"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D209CFC08EFE91400E52803 /* DevToolsSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DevToolsSupport.framework; path = /System/Library/PrivateFrameworks/DevToolsSupport.framework; sourceTree = "<absolute>"; };
+		6D209CFC08EFE91400E52803 /* DevToolsSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DevToolsSupport.framework; path = Library/PrivateFrameworks/DevToolsSupport.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
 		6D2505A908B95F2F0035335F /* XCPBuildSystem.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPBuildSystem.h; path = Headers/XCPBuildSystem.h; sourceTree = "<group>"; };
 		6D2505AA08B95F2F0035335F /* XCPDependencyGraph.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPDependencyGraph.h; path = Headers/XCPDependencyGraph.h; sourceTree = "<group>"; };
 		6D2505AB08B95F2F0035335F /* XCPSpecifications.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPSpecifications.h; path = Headers/XCPSpecifications.h; sourceTree = "<group>"; };
 		6D2505AC08B95F2F0035335F /* XCPOutputParsing.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPOutputParsing.h; path = Headers/XCPOutputParsing.h; sourceTree = "<group>"; };
 		6D2A653708EAFD9800D551FC /* XCPSourceParsing.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPSourceParsing.h; path = Headers/XCPSourceParsing.h; sourceTree = "<group>"; };
-		6D8314C7084BD22A00DF6DDA /* DevToolsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DevToolsCore.framework; path = /System/Library/PrivateFrameworks/DevToolsCore.framework; sourceTree = "<absolute>"; };
+		6D8314C7084BD22A00DF6DDA /* DevToolsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DevToolsCore.framework; path = Library/PrivateFrameworks/DevToolsCore.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
 		6DB1DD8108B3A289004F6FFB /* d.xcbuildrules */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = d.xcbuildrules; sourceTree = "<group>"; };
 		6DB1DD8408B3A289004F6FFB /* gdc.pblinkspec */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = gdc.pblinkspec; sourceTree = "<group>"; };
 		6DB1DD8508B3A289004F6FFB /* d.pblangspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.pblangspec; path = d.pblangspec; sourceTree = "<group>"; };
@@ -266,9 +264,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D209D0708EFEB6800E52803 /* DevToolsSupport.framework in Frameworks */,
 				8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */,
-				6D8314C8084BD22A00DF6DDA /* DevToolsCore.framework in Frameworks */,
 				1E6BF4410CAF570F0022460C /* libdmdfe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -798,6 +794,10 @@
 				GENERATE_PKGINFO_FILE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Application Support/Apple/Plugins/";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xcplugin;
 			};
@@ -810,6 +810,10 @@
 				GENERATE_PKGINFO_FILE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Application Support/Apple/Plugins/";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = YES;
 				STRIP_STYLE = all;
@@ -820,26 +824,21 @@
 		6D4E1A6208560B2700084599 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/PrivateFrameworks";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "XCODE_VERSION=23";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Debug;
 		};
 		6D4E1A6308560B2700084599 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = (
-					ppc,
-					i386,
-				);
+				ARCHS = ppc;
 				DEAD_CODE_STRIPPING = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/PrivateFrameworks";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "XCODE_VERSION=23";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				ONLY_LINK_ESSENTIAL_SYMBOLS = YES;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
 			};
 			name = Release;
 		};
