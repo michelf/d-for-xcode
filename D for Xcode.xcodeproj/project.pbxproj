@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E19BD5D0CCB7E81005508FE /* plugin.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1E19BD5C0CCB7E81005508FE /* plugin.icns */; };
 		1E1A1AC80CC571F7005B9B65 /* d.xctxtmacro in Resources */ = {isa = PBXBuildFile; fileRef = 1E6BF4140CAF52AD0022460C /* d.xctxtmacro */; };
 		1E1CC87D0CC05E4500E0F6EC /* access.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BEE770CAEBC620022460C /* access.c */; };
 		1E1CC87E0CC05E4600E0F6EC /* array.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BEE790CAEBC620022460C /* array.c */; };
@@ -63,7 +62,6 @@
 		1E3436890CB27C6000D15C90 /* DXDSourceScannerItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436880CB27C6000D15C90 /* DXDSourceScannerItem.mm */; };
 		1E3436A30CB27FF700D15C90 /* DXDSourceScannerItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436880CB27C6000D15C90 /* DXDSourceScannerItem.mm */; };
 		1E38AEC20CB258DA00D4E7B0 /* DXParserToolsPureDMD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E92E9720CB1EECC00285434 /* DXParserToolsPureDMD.cpp */; };
-		1E38AEE10CB25A2100D4E7B0 /* DevToolsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D8314C7084BD22A00DF6DDA /* DevToolsCore.framework */; };
 		1E6BED340CAE7BF80022460C /* DXParserTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BED2C0CAE7A760022460C /* DXParserTools.mm */; };
 		1E6BF0B10CAF006E0022460C /* DXParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BF00F0CAEFC620022460C /* DXParserTest.m */; };
 		1E6BF14D0CAF03B10022460C /* DXParserTools.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BED2C0CAE7A760022460C /* DXParserTools.mm */; };
@@ -73,8 +71,6 @@
 		1E8672380CC9A5A300DB0990 /* com.michelf.dxcode.gdc.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E8672360CC9A5A300DB0990 /* com.michelf.dxcode.gdc.strings */; };
 		1E92E9730CB1EECC00285434 /* DXParserToolsPureDMD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E92E9720CB1EECC00285434 /* DXParserToolsPureDMD.cpp */; };
 		1ED3AF8C0CC63240004BE98E /* mars.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BEEB00CAEBC620022460C /* mars.c */; };
-		1ED7082D0CAFC1280011E7A0 /* DX-option-language-d.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ED7082C0CAFC1280011E7A0 /* DX-option-language-d.png */; };
-		1ED7087A0CAFC5690011E7A0 /* dfile.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1ED708790CAFC5690011E7A0 /* dfile.icns */; };
 		1EFC53D50CC4D6B000B03C7E /* gdc.pblinkspec in Resources */ = {isa = PBXBuildFile; fileRef = 6DB1DD8408B3A289004F6FFB /* gdc.pblinkspec */; };
 		6D209CFB08EFE8E600E52803 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		6DB1DD8C08B3A289004F6FFB /* d.xcbuildrules in Resources */ = {isa = PBXBuildFile; fileRef = 6DB1DD8108B3A289004F6FFB /* d.xcbuildrules */; };
@@ -104,7 +100,6 @@
 
 /* Begin PBXFileReference section */
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		1E19BD5C0CCB7E81005508FE /* plugin.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = plugin.icns; sourceTree = "<group>"; };
 		1E1CC95E0CC063B000E0F6EC /* impcnvtab.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = impcnvtab.c; sourceTree = "<group>"; };
 		1E1CC9B50CC0686500E0F6EC /* dmdfe_prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmdfe_prefix.h; sourceTree = "<group>"; };
 		1E3436870CB27C6000D15C90 /* DXDSourceScannerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDSourceScannerItem.h; sourceTree = "<group>"; };
@@ -220,18 +215,14 @@
 		1E6BF4140CAF52AD0022460C /* d.xctxtmacro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xctxtmacro; path = d.xctxtmacro; sourceTree = "<group>"; };
 		1E8672370CC9A5A300DB0990 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/com.michelf.dxcode.gdc.strings; sourceTree = "<group>"; };
 		1E92E9720CB1EECC00285434 /* DXParserToolsPureDMD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DXParserToolsPureDMD.cpp; sourceTree = "<group>"; };
-		1ED7082C0CAFC1280011E7A0 /* DX-option-language-d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DX-option-language-d.png"; sourceTree = "<group>"; };
-		1ED708790CAFC5690011E7A0 /* dfile.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = dfile.icns; sourceTree = "<group>"; };
 		1EDEC3B10C906CAB00FB0C15 /* libdmdfe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdmdfe.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D209C3F08EBCC2300E52803 /* XCPSupport.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPSupport.h; path = Headers/XCPSupport.h; sourceTree = "<group>"; };
 		6D209C6B08EFE0A200E52803 /* D Parser Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "D Parser Test"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D209CFC08EFE91400E52803 /* DevToolsSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DevToolsSupport.framework; path = Library/PrivateFrameworks/DevToolsSupport.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
 		6D2505A908B95F2F0035335F /* XCPBuildSystem.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPBuildSystem.h; path = Headers/XCPBuildSystem.h; sourceTree = "<group>"; };
 		6D2505AA08B95F2F0035335F /* XCPDependencyGraph.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPDependencyGraph.h; path = Headers/XCPDependencyGraph.h; sourceTree = "<group>"; };
 		6D2505AB08B95F2F0035335F /* XCPSpecifications.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPSpecifications.h; path = Headers/XCPSpecifications.h; sourceTree = "<group>"; };
 		6D2505AC08B95F2F0035335F /* XCPOutputParsing.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPOutputParsing.h; path = Headers/XCPOutputParsing.h; sourceTree = "<group>"; };
 		6D2A653708EAFD9800D551FC /* XCPSourceParsing.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPSourceParsing.h; path = Headers/XCPSourceParsing.h; sourceTree = "<group>"; };
-		6D8314C7084BD22A00DF6DDA /* DevToolsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DevToolsCore.framework; path = Library/PrivateFrameworks/DevToolsCore.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
 		6DB1DD8108B3A289004F6FFB /* d.xcbuildrules */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = d.xcbuildrules; sourceTree = "<group>"; };
 		6DB1DD8408B3A289004F6FFB /* gdc.pblinkspec */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; path = gdc.pblinkspec; sourceTree = "<group>"; };
 		6DB1DD8508B3A289004F6FFB /* d.pblangspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.pblangspec; path = d.pblangspec; sourceTree = "<group>"; };
@@ -256,7 +247,6 @@
 			files = (
 				6D209CFB08EFE8E600E52803 /* Cocoa.framework in Frameworks */,
 				1E6BF19D0CAF21A10022460C /* libdmdfe.a in Frameworks */,
-				1E38AEE10CB25A2100D4E7B0 /* DevToolsCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +280,6 @@
 		089C1671FE841209C02AAC07 /* Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				6D8314C7084BD22A00DF6DDA /* DevToolsCore.framework */,
-				6D209CFC08EFE91400E52803 /* DevToolsSupport.framework */,
 				1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */,
 			);
 			name = "Frameworks and Libraries";
@@ -300,9 +288,6 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1E19BD5C0CCB7E81005508FE /* plugin.icns */,
-				1ED708790CAFC5690011E7A0 /* dfile.icns */,
-				1ED7082C0CAFC1280011E7A0 /* DX-option-language-d.png */,
 				6DB1DD8808B3A289004F6FFB /* Info.plist */,
 				1E8672360CC9A5A300DB0990 /* com.michelf.dxcode.gdc.strings */,
 				6DB1DD8608B3A289004F6FFB /* d.pbfilespec */,
@@ -556,12 +541,9 @@
 				6DB1DD9008B3A289004F6FFB /* d.pblangspec in Resources */,
 				6DB1DD9108B3A289004F6FFB /* d.pbfilespec in Resources */,
 				6DB1DD9208B3A289004F6FFB /* gdc.pbcompspec in Resources */,
-				1ED7082D0CAFC1280011E7A0 /* DX-option-language-d.png in Resources */,
-				1ED7087A0CAFC5690011E7A0 /* dfile.icns in Resources */,
 				1EFC53D50CC4D6B000B03C7E /* gdc.pblinkspec in Resources */,
 				1E1A1AC80CC571F7005B9B65 /* d.xctxtmacro in Resources */,
 				1E8672380CC9A5A300DB0990 /* com.michelf.dxcode.gdc.strings in Resources */,
-				1E19BD5D0CCB7E81005508FE /* plugin.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,12 +744,11 @@
 		6D209C7008EFE0C500E52803 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
 				OTHER_CFLAGS = "-g";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ZERO_LINK = NO;
 			};
@@ -776,12 +757,11 @@
 		6D209C7108EFE0C500E52803 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_1)",
-				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_1 = "\"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks\"";
 				OTHER_CFLAGS = "-g";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				ZERO_LINK = NO;
 			};
@@ -809,7 +789,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GENERATE_PKGINFO_FILE = YES;
 				INFOPLIST_FILE = Resources/Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Application Support/Apple/Plugins/";
+				INSTALL_PATH = "$(HOME)/Library/Application Support/Developer/2.5/Xcode/Plugins/";
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
@@ -824,7 +804,6 @@
 		6D4E1A6208560B2700084599 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/PrivateFrameworks";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "XCODE_VERSION=23";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
 			};
@@ -833,9 +812,13 @@
 		6D4E1A6308560B2700084599 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = ppc;
+				ARCHS = (
+					ppc,
+					i386,
+				);
 				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/PrivateFrameworks";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "XCODE_VERSION=23";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
 				ONLY_LINK_ESSENTIAL_SYMBOLS = YES;
