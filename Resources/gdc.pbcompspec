@@ -290,7 +290,7 @@
 	OptionCategories = (
 		{
 			Name = SearchPaths;
-			IconName = "PBX-option-build";
+			IconName = "DX-option-language-d";
 		},
 		{
 			Name = Language;
@@ -300,10 +300,6 @@
 			Name = CodeGeneration;
 			IconName = "DX-option-language-d";
 		},
-//		{
-//			Name = Warnings;
-//			IconName = "PBX-option-warning";
-//		},
 		{
 			Name = Documentation;
 			IconName = "DX-option-language-d";

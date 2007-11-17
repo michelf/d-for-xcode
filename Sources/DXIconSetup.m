@@ -1,5 +1,5 @@
 
-// D for Xcode: Source Scanner Item
+// D for Xcode: Icon Setup
 // Copyright (C) 2007  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
@@ -16,29 +16,30 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
+#import "DXIconSetup.h"
 #import <Cocoa/Cocoa.h>
-#import "XCPSourceParsing.h"
 
-struct Dsymbol;
-struct Array;
 
-void DXPopulateItemWithSymbols(PBXSourceScannerItem *item, Array *symbols);
+@implementation DXIconSetup
 
-// Scanner Item Types
-enum DXType {
-	DXTypeRoot,
-	DXTypeMark,
-	DXTypeClassDecl, DXTypeClass,
-	DXTypeMethodDecl, DXTypeMethod,
-	DXTypeFunctionDecl, DXTypeFunction,
-	DXTypePreprocessorDefine = 8,
-	DXTypeTypedef = 11,
-};
-
-@interface DXDSourceScannerItem : PBXSourceScannerItem {
-	const char *kind;
++ (void)initialize {
+	// Initialize icons.
+	NSString *dir = [[NSBundle bundleForClass:[self class]] resourcePath];
+	NSImage *img;
+	NSString *path;
+	
+	NSArray *iconList = [NSArray arrayWithObjects:
+		@"PBX-d-Icon", @"PBX-d-small-Icon",
+		@"PBX-di-Icon", @"PBX-di-small-Icon", 
+		@"DX-option-language-d", nil];
+	NSEnumerator *e = [iconList objectEnumerator];
+	NSString *name;
+	while (name = [e nextObject]) {
+		path = [NSString stringWithFormat:@"%@/%@.png", dir, name];
+		img = [[NSImage alloc] initByReferencingFile:path];
+		[img setName:name];
+		//[img release];
+	}
 }
-
-- (id)initWithSymbol:(Dsymbol *)s;
 
 @end

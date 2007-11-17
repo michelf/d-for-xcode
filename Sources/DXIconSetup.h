@@ -1,5 +1,5 @@
 
-// D for Xcode: Source Scanner Item
+// D for Xcode: Icon Setup
 // Copyright (C) 2007  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
@@ -16,29 +16,13 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
-#import <Cocoa/Cocoa.h>
-#import "XCPSourceParsing.h"
+// This class overrides the base +initialize method to register the plugin's
+// icons and make them available within Xcode.
 
-struct Dsymbol;
-struct Array;
+#import <Foundation/Foundation.h>
 
-void DXPopulateItemWithSymbols(PBXSourceScannerItem *item, Array *symbols);
+@interface DXIconSetup : NSObject {
 
-// Scanner Item Types
-enum DXType {
-	DXTypeRoot,
-	DXTypeMark,
-	DXTypeClassDecl, DXTypeClass,
-	DXTypeMethodDecl, DXTypeMethod,
-	DXTypeFunctionDecl, DXTypeFunction,
-	DXTypePreprocessorDefine = 8,
-	DXTypeTypedef = 11,
-};
-
-@interface DXDSourceScannerItem : PBXSourceScannerItem {
-	const char *kind;
 }
-
-- (id)initWithSymbol:(Dsymbol *)s;
 
 @end

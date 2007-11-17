@@ -64,8 +64,8 @@ void DXPopulateItemWithSymbols(PBXSourceScannerItem *item, Array *symbols) {
 @implementation DXDSourceScannerItem
 
 - (id)initWithSymbol:(Dsymbol *)s {
-	symbol = s;
-	char *kind = symbol->kind();
+	Dsymbol *symbol = s;
+	kind = symbol->kind();
 	unsigned int lineNum = symbol->loc.linnum;
 	Identifier *ident = symbol->ident;
 	

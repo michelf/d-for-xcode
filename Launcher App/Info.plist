@@ -9,14 +9,14 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>.d</string>
+				<string>d</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>dfile</string>
 			<key>CFBundleTypeName</key>
 			<string>D Source File</string>
 			<key>CFBundleTypeRole</key>
-			<string>None</string>
+			<string>Viewer</string>
 			<key>LSTypeIsPackage</key>
 			<false/>
 			<key>NSPersistentStoreTypeKey</key>
@@ -25,14 +25,14 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>.di</string>
+				<string>di</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
 			<string>difile</string>
 			<key>CFBundleTypeName</key>
 			<string>D Interface File</string>
 			<key>CFBundleTypeRole</key>
-			<string>None</string>
+			<string>Viewer</string>
 			<key>LSTypeIsPackage</key>
 			<false/>
 			<key>NSPersistentStoreTypeKey</key>
@@ -40,24 +40,20 @@
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
-	<string>D for Xcode</string>
+	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string>plugin</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.michelf.dxcode</string>
+	<string>com.michelf.dxcode.launcher</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>D for Xcode</string>
 	<key>CFBundlePackageType</key>
-	<string>BNDL</string>
+	<string>APPL</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0b3</string>
-	<key>LoadAtLaunch</key>
-	<string>YES</string>
-	<key>XCPluginHasUI</key>
-	<string>NO</string>
+	<string>1.0</string>
+	<key>NSUIElement</key>
+	<true/>
 </dict>
 </plist>
