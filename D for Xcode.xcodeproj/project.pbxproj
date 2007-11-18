@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E0C22720CEFF80000989F51 /* dplugin.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1E01E18F0CED3DB000C97561 /* dplugin.icns */; };
 		1E1A1AC80CC571F7005B9B65 /* d.xctxtmacro in Resources */ = {isa = PBXBuildFile; fileRef = 1E6BF4140CAF52AD0022460C /* d.xctxtmacro */; };
 		1E1CA8E20CEF8FFD008CB8B5 /* DX-option-language-d.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E1CA8E10CEF8FFD008CB8B5 /* DX-option-language-d.png */; };
 		1E1CC87D0CC05E4500E0F6EC /* access.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BEE770CAEBC620022460C /* access.c */; };
@@ -75,7 +76,6 @@
 		1E6D1D130CEF734700DD3D4F /* DXIconSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6D1D0F0CEF733700DD3D4F /* DXIconSetup.m */; };
 		1E7179330CB13DE300E82F1C /* DXCompilerSpecificationGDC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BEBF40CADF7D40022460C /* DXCompilerSpecificationGDC.m */; };
 		1E8672380CC9A5A300DB0990 /* com.michelf.dxcode.gdc.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E8672360CC9A5A300DB0990 /* com.michelf.dxcode.gdc.strings */; };
-		1E87EAE80CEF7D020038D2D3 /* plugin.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1E01E18F0CED3DB000C97561 /* plugin.icns */; };
 		1E87EAE90CEF7D040038D2D3 /* dfile.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1E536EEA0CEC76F2002E86F7 /* dfile.icns */; };
 		1E87EAF30CEF7E910038D2D3 /* PBX-d-small-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E87EAEB0CEF7E880038D2D3 /* PBX-d-small-Icon.png */; };
 		1E87EAF40CEF7E910038D2D3 /* PBX-di-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E87EAEC0CEF7E880038D2D3 /* PBX-di-Icon.png */; };
@@ -120,7 +120,7 @@
 
 /* Begin PBXFileReference section */
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		1E01E18F0CED3DB000C97561 /* plugin.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = plugin.icns; sourceTree = "<group>"; };
+		1E01E18F0CED3DB000C97561 /* dplugin.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = dplugin.icns; sourceTree = "<group>"; };
 		1E1CA8E10CEF8FFD008CB8B5 /* DX-option-language-d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DX-option-language-d.png"; sourceTree = "<group>"; };
 		1E1CC95E0CC063B000E0F6EC /* impcnvtab.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = impcnvtab.c; sourceTree = "<group>"; };
 		1E1CC9B50CC0686500E0F6EC /* dmdfe_prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmdfe_prefix.h; sourceTree = "<group>"; };
@@ -335,7 +335,7 @@
 		089C167CFE841241C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1E01E18F0CED3DB000C97561 /* plugin.icns */,
+				1E01E18F0CED3DB000C97561 /* dplugin.icns */,
 				1E536EEA0CEC76F2002E86F7 /* dfile.icns */,
 				1E536EF50CEC8A1E002E86F7 /* difile.icns */,
 				1E87EAEE0CEF7E880038D2D3 /* PBX-d-Icon.png */,
@@ -586,7 +586,7 @@
 				8D5B49B1048680CD000E48DA /* Sources */,
 				8D5B49B3048680CD000E48DA /* Frameworks */,
 				8D5B49AF048680CD000E48DA /* Resources */,
-				6DC2AF6E0A33728000AA574F /* ShellScript */,
+				6DC2AF6E0A33728000AA574F /* Install Custom Icon */,
 			);
 			buildRules = (
 			);
@@ -624,8 +624,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E23D73A0CED548E005859B9 /* difile.icns in Resources */,
-				1E87EAE80CEF7D020038D2D3 /* plugin.icns in Resources */,
 				1E87EAE90CEF7D040038D2D3 /* dfile.icns in Resources */,
+				1E0C22720CEFF80000989F51 /* dplugin.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,19 +685,19 @@
 			shellPath = /bin/sh;
 			shellScript = "GENERATOR=idgen\n\ncd \"$SRCROOT/dmdfe\"\nmkdir -p \"$DERIVED_FILE_DIR\"\n\n# Compile generator\ng++ $GENERATOR.c -o \"$DERIVED_FILE_DIR/$GENERATOR\"\n\n# Run generator\n\"$DERIVED_FILE_DIR/$GENERATOR\"\n";
 		};
-		6DC2AF6E0A33728000AA574F /* ShellScript */ = {
+		6DC2AF6E0A33728000AA574F /* Install Custom Icon */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(PROJECT_DIR)/Resources/plugin.icns",
 			);
+			name = "Install Custom Icon";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "test -e \"$(which setfileicon)\" && setfileicon \"$PROJECT_DIR/Resources/plugin.icns\" \"$BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME\"\nln -sf \"$BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME\" \"$BUILD_ROOT\"";
+			shellPath = /bin/bash;
+			shellScript = "# Requires setfileicon command line tool\ntest -e \"$(which setfileicon)\" && setfileicon \"$PROJECT_DIR/Resources/dplugin.icns\" \"$BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -16,13 +16,15 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
-// This class overrides the base +initialize method to register the plugin's
-// icons and make them available within Xcode.
+// This class registers the plugin's icons and make them available within 
+// Xcode. The +initialize method is called when the plugin is loaded.
 
 #import <Foundation/Foundation.h>
 
 @interface DXIconSetup : NSObject {
 
 }
+
++ (void)initialize;
 
 @end

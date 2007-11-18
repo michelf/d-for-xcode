@@ -5,44 +5,11 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDocumentTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>.d</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>dfile</string>
-			<key>CFBundleTypeName</key>
-			<string>D Source File</string>
-			<key>CFBundleTypeRole</key>
-			<string>None</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>.di</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>difile</string>
-			<key>CFBundleTypeName</key>
-			<string>D Interface File</string>
-			<key>CFBundleTypeRole</key>
-			<string>None</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
-		</dict>
-	</array>
+	<array/>
 	<key>CFBundleExecutable</key>
 	<string>D for Xcode</string>
 	<key>CFBundleIconFile</key>
-	<string>plugin</string>
+	<string>dplugin</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.michelf.dxcode</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -54,7 +21,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0b3</string>
+	<string>1.0</string>
 	<key>LoadAtLaunch</key>
 	<string>YES</string>
 	<key>XCPluginHasUI</key>

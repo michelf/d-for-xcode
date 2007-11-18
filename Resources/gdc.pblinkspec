@@ -25,6 +25,9 @@
 		Description = "GDC Linker";
 		ExecPath = "/usr/bin/gcc";
 		
+		// Tell Xcode 2.5 to not display the linker in the user interface.
+        IsAbstract = Yes;
+		
 		// GDC forgets its standard libraries when using the -filelist argument.
 		// Adding them here works around that problem.
 		//
