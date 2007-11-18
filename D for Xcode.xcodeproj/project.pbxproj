@@ -83,6 +83,7 @@
 		1E87EAF60CEF7E930038D2D3 /* PBX-d-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E87EAEE0CEF7E880038D2D3 /* PBX-d-Icon.png */; };
 		1E92E9730CB1EECC00285434 /* DXParserToolsPureDMD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E92E9720CB1EECC00285434 /* DXParserToolsPureDMD.cpp */; };
 		1ED3AF8C0CC63240004BE98E /* mars.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BEEB00CAEBC620022460C /* mars.c */; };
+		1ED40E260CF001C3005C46B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED40E250CF001C3005C46B3 /* InfoPlist.strings */; };
 		1EF2EE3D0CEEAAA600DD7A7D /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF2EE3C0CEEAAA600DD7A7D /* Carbon.framework */; };
 		1EFC53D50CC4D6B000B03C7E /* gdc.pblinkspec in Resources */ = {isa = PBXBuildFile; fileRef = 6DB1DD8408B3A289004F6FFB /* gdc.pblinkspec */; };
 		6D209CFB08EFE8E600E52803 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
@@ -249,6 +250,7 @@
 		1E87EAED0CEF7E880038D2D3 /* PBX-di-small-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PBX-di-small-Icon.png"; sourceTree = "<group>"; };
 		1E87EAEE0CEF7E880038D2D3 /* PBX-d-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PBX-d-Icon.png"; sourceTree = "<group>"; };
 		1E92E9720CB1EECC00285434 /* DXParserToolsPureDMD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DXParserToolsPureDMD.cpp; sourceTree = "<group>"; };
+		1ED40E210CF001B0005C46B3 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1EDEC3B10C906CAB00FB0C15 /* libdmdfe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdmdfe.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF2EE3C0CEEAAA600DD7A7D /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		6D209C3F08EBCC2300E52803 /* XCPSupport.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPSupport.h; path = Headers/XCPSupport.h; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				1E87EAED0CEF7E880038D2D3 /* PBX-di-small-Icon.png */,
 				1E1CA8E10CEF8FFD008CB8B5 /* DX-option-language-d.png */,
 				6DB1DD8808B3A289004F6FFB /* Info.plist */,
+				1ED40E250CF001C3005C46B3 /* InfoPlist.strings */,
 				1E8672360CC9A5A300DB0990 /* com.michelf.dxcode.gdc.strings */,
 				6DB1DD8608B3A289004F6FFB /* d.pbfilespec */,
 				6DB1DD8508B3A289004F6FFB /* d.pblangspec */,
@@ -646,6 +649,7 @@
 				1E87EAF60CEF7E930038D2D3 /* PBX-d-Icon.png in Resources */,
 				1E33C6A60CEF82BE00D4FB11 /* D for Xcode Launcher.app in Resources */,
 				1E1CA8E20CEF8FFD008CB8B5 /* DX-option-language-d.png in Resources */,
+				1ED40E260CF001C3005C46B3 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,6 +824,14 @@
 				1E8672370CC9A5A300DB0990 /* English */,
 			);
 			name = com.michelf.dxcode.gdc.strings;
+			sourceTree = "<group>";
+		};
+		1ED40E250CF001C3005C46B3 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1ED40E210CF001B0005C46B3 /* English */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
