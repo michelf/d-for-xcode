@@ -56,7 +56,6 @@ void openFromAppleEvent(const AppleEvent *event, LSLaunchFlags launchOption) {
 			
 			// On error, use standard method to find Xcode (will get latest version).
 			if (err != noErr || !isDir) {
-				return;
 				err = LSFindApplicationForInfo(kLSUnknownCreator,
 					CFSTR("com.apple.xcode"), NULL, &app, NULL);
 			}
