@@ -133,6 +133,7 @@
 		1E3436880CB27C6000D15C90 /* DXDSourceScannerItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DXDSourceScannerItem.mm; sourceTree = "<group>"; };
 		1E536EEA0CEC76F2002E86F7 /* dfile.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = dfile.icns; sourceTree = "<group>"; };
 		1E536EF50CEC8A1E002E86F7 /* difile.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = difile.icns; sourceTree = "<group>"; };
+		1E6951450CF30FA200C137EF /* License - GPL 2.0.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "License - GPL 2.0.txt"; sourceTree = "<group>"; };
 		1E6BEBF30CADF7D40022460C /* DXCompilerSpecificationGDC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXCompilerSpecificationGDC.h; sourceTree = "<group>"; };
 		1E6BEBF40CADF7D40022460C /* DXCompilerSpecificationGDC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXCompilerSpecificationGDC.m; sourceTree = "<group>"; };
 		1E6BED2B0CAE7A760022460C /* DXParserTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXParserTools.h; sourceTree = "<group>"; };
@@ -311,6 +312,7 @@
 		089C166AFE841209C02AAC07 /* OCamlPlugin */ = {
 			isa = PBXGroup;
 			children = (
+				1E6951450CF30FA200C137EF /* License - GPL 2.0.txt */,
 				6D209C4508EBCCC800E52803 /* Xcode API */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				1E6BEBF90CADF7DD0022460C /* Sources */,
