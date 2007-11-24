@@ -1,5 +1,5 @@
 
-// D for Xcode: Icon Setup
+// D for Xcode: Launcher Application Registration
 // Copyright (C) 2007  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
@@ -16,15 +16,26 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
-// This class registers the plugin's icons and make them available within 
-// Xcode. The +initialize method is called when the plugin is loaded.
+#import "DXLauncherRegistration.h"
 
-#import <Foundation/Foundation.h>
 
-@interface DXIconSetup : NSObject {
+@implementation DXLauncherRegistration
 
++ (void)load {
+	// Register launcher application with launch services.
+	NSString *dir = [[NSBundle bundleForClass:[self class]] resourcePath];
+	NSString *application_path = [dir stringByAppendingString:@"/D for Xcode Launcher.app"];
+	
+	// Create FSRef for application path.
+	OSErr err;
+	FSRef app;
+	Boolean isDir;
+	err = FSPathMakeRef((unsigned char *)[application_path cString], &app, &isDir);
+	
+	// Register application with Launch Services.
+	if (err == noErr) {
+		OSStatus status = LSRegisterFSRef(&app, 1);
+	}
 }
-
-+ (void)load;
 
 @end

@@ -1,5 +1,5 @@
 
-// D for Xcode: Icon Setup
+// D for Xcode: Launcher Application Registration
 // Copyright (C) 2007  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
@@ -16,12 +16,13 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
-// This class registers the plugin's icons and make them available within 
-// Xcode. The +initialize method is called when the plugin is loaded.
+// This class registers the launcher application contained within the plugin.
+// The +initialize method is called when the plugin is loaded.
 
 #import <Foundation/Foundation.h>
 
-@interface DXIconSetup : NSObject {
+
+@interface DXLauncherRegistration : NSObject {
 
 }
 

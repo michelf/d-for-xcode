@@ -22,7 +22,7 @@
 
 @implementation DXIconSetup
 
-+ (void)initialize {
++ (void)load {
 	// Initialize icons.
 	NSString *dir = [[NSBundle bundleForClass:[self class]] resourcePath];
 	NSImage *img;
