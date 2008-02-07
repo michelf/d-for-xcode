@@ -3,7 +3,7 @@
 // Copyright (C) 2007  Michel Fortin
 //
 // Based on the D Xcode Compiler Plugin
-// Copyright (C) 2005, 2006  Alan West
+// Copyright (C) 2005, 2006	 Alan West
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
 // under the terms of the GNU General Public License as published by the Free 
@@ -20,23 +20,25 @@
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
 (
-    {
-        Identifier = sourcecode.d;
-        BasedOn = sourcecode.c; // This doesn't sound technically correct, but it allows breakpoints to be set from within Xcode.
-        Name = "D source files";
-        GccDialectName = "d";
-        Extensions = (d);
-        ComputerLanguage = d;
-        AppliesToBuildRules = YES;
-        CanSetIncludeInIndex = YES;
-    },
-    {
-        Identifier = sourcecode.d.di;
-        BasedOn = sourcecode.d;
-        Name = "D interface files";
-        GccDialectName = "d";
-        Extensions = (di);
-        ComputerLanguage = d;
-        AppliesToBuildRules = NO;
-    }
+	{
+		Identifier = sourcecode.d;
+		BasedOn = sourcecode.c; // This doesn't sound technically correct, but it allows breakpoints to be set from within Xcode.
+		Name = "D source files";
+		GccDialectName = "d";
+		Extensions = (d);
+		ComputerLanguage = d;
+		Language = xcode.lang.d;
+		AppliesToBuildRules = YES;
+		CanSetIncludeInIndex = YES;
+	},
+	{
+		Identifier = sourcecode.d.di;
+		BasedOn = sourcecode.d;
+		Name = "D interface files";
+		GccDialectName = "d";
+		Extensions = (di);
+		ComputerLanguage = d;
+		Language = xcode.lang.d;
+		AppliesToBuildRules = NO;
+	}
 )

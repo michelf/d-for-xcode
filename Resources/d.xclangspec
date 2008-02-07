@@ -1,0 +1,1274 @@
+
+// D language specification fox Xcode 3
+// Copyright (C) 2007  Michel Fortin
+//
+// D for Xcode is free software; you can redistribute it and/or modify it 
+// under the terms of the GNU General Public License as published by the Free 
+// Software Foundation; either version 2 of the License, or (at your option) 
+// any later version.
+//
+// D for Xcode is distributed in the hope that it will be useful, but WITHOUT 
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or 
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for 
+// more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with D for Xcode; if not, write to the Free Software Foundation, 
+// Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
+
+(
+	// MARK: Ddoc
+	{
+		Identifier = "xcode.lang.d.comment.ddoc.keyword";
+		Syntax = {
+			StartChars = "@";
+			Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			Words = (
+				"@author",
+				"@beaninfo",
+				"@deprecated",
+				"@docRoot",
+				"@exception",
+				"@inheritDoc",
+				"@link",
+				"@linkplain",
+				"@param",
+				"@return",
+				"@see",
+				"@serial",
+				"@serialData",
+				"@serialField",
+				"@since",
+				"@throws",
+				"@value",
+				"@version"
+			);
+			Type = "xcode.syntax.comment.doc.keyword";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.comment.ddoc";
+		Syntax = {
+			Start = "/**";
+			End = "*/";
+			Foldable = YES;
+			ParseEndBeforeIncludedRules = YES;
+			IncludeRules = ( "xcode.lang.d.comment.ddoc.keyword", "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
+			Type = "xcode.syntax.comment.doc";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.comment.ddoc.singleline";
+		Syntax = {
+			Start = "///";
+			Until = "\n";
+			Foldable = NO;
+			IncludeRules = ( "xcode.lang.d.comment.ddoc.keyword", "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
+			Type = "xcode.syntax.comment.doc";
+		};
+	},
+	{
+		// Handle the degenerate case of '/**/' comments. They look like the start of a Ddoc comment, but they aren't.
+		Identifier = "xcode.lang.d.comment.degenerate";
+		Syntax = {
+			StartChars = "/";
+			Chars = "/*";
+			Words = ( "/**/" );
+			Type = "xcode.syntax.comment";
+		};
+	},
+	
+	
+	// MARK: D Nesting Comments
+	{
+		Identifier = "xcode.lang.d.comment.nesting";
+		Syntax = {
+			Start = "/+";
+			End = "+/";
+			Foldable = YES;
+//			ParseEndBeforeIncludedRules = YES;
+			IncludeRules = ( "xcode.lang.d.comment.nesting.inner", "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
+			Type = "xcode.syntax.comment";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.comment.ddoc.nesting";
+		Syntax = {
+			Start = "/++";
+			End = "+/";
+			Foldable = YES;
+//			ParseEndBeforeIncludedRules = YES;
+			IncludeRules = ( "xcode.lang.d.comment.nesting.inner", "xcode.lang.d.comment.ddoc.keyword", "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
+			Type = "xcode.syntax.comment.doc";
+		};
+	},
+	{
+		// Handle comments nested inside nesting comments
+		Identifier = "xcode.lang.d.comment.nesting.inner";
+		Syntax = {
+			Start = "/+";
+			End = "+/";
+			Foldable = NO;
+			IncludeRules = ( "xcode.lang.d.comment.nesting.inner", "xcode.lang.d.comment.ddoc.keyword", "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
+		};
+	},
+	{
+		// Handle the degenerate case of '/++/' comments.
+		Identifier = "xcode.lang.d.comment.nesting.degenerate";
+		Syntax = {
+			StartChars = "/";
+			Chars = "/+";
+			Words = ( "/++/" );
+			Type = "xcode.syntax.comment";
+		};
+	},
+
+
+	// MARK: D Keywords
+	{
+		Identifier = "xcode.lang.d.identifier";
+		Syntax = {
+            StartChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_";
+            Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_";
+			Words = (
+				"abstract",
+				"alias",
+				"align",
+				"asm",
+				"assert",
+				"auto",
+
+				"body",
+				"bool",
+				"break",
+				"byte",
+
+				"case",
+				"cast",
+				"catch",
+				"cdouble",
+				"cent",
+				"cfloat",
+				"char",
+				"class",
+				"const",
+				"continue",
+				"creal",
+
+				"dchar",
+				"debug",
+				"default",
+				"delegate",
+				"delete",
+				"deprecated",
+				"do",
+				"double",
+
+				"else",
+				"enum",
+				"export",
+				"extern",
+
+				"false",
+				"final",
+				"finally",
+				"float",
+				"for",
+				"foreach",
+				"foreach_reverse",
+				"function",
+
+				"goto",
+
+				"idouble",
+				"if",
+				"ifloat",
+				"import",
+				"in",
+				"inout",
+				"int",
+				"interface",
+				"invariant",
+				"ireal",
+				"is",
+
+				"lazy",
+				"long",
+
+				"macro",
+				"mixin",
+				"module",
+
+				"new",
+				"null",
+
+				"out",
+				"override",
+
+				"package",
+				"pragma",
+				"private",
+				"protected",
+				"public",
+
+				"real",
+				"ref",
+				"return",
+
+				"scope",
+				"short",
+				"static",
+				"struct",
+				"super",
+				"switch",
+				"synchronized",
+
+				"template",
+				"this",
+				"throw",
+				"__traits",
+				"true",
+				"try",
+				"typedef",
+				"typeid",
+				"typeof",
+
+				"ubyte",
+				"ucent",
+				"uint",
+				"ulong",
+				"union",
+				"unittest",
+				"ushort",
+
+				"version",
+				"void",
+				"volatile",
+
+				"wchar",
+				"while",
+				"with",
+			 );
+			Type = "xcode.syntax.keyword";
+			AltType = "xcode.syntax.identifier";	// non-keywords are identifiers
+		};
+	},
+
+	{
+		Identifier = "xcode.lang.d.interestingOperators";
+		Syntax = {
+			Words = (
+				".",
+			 );
+			Type = "xcode.syntax.plain";
+		};
+	},
+	
+    {
+        Identifier = "xcode.lang.d.number";
+        Syntax = {
+//          SourceScannerClassName = "XCNumberScanner";			// do FAST recognition of integers
+            StartChars = "0123456789.";
+            // look at all alpha chars so that we don't recognize "9Z" as two tokens
+            Chars = "0123456789+-.abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_";
+            Match = (
+				// integers:
+				"^[1-9][0-9_]*([Uu][Ll]?|[Ll][Uu]?)?$", // dec
+				"^0[0-7_]([Uu][Ll]?|[Ll][Uu]?)?$", // oct
+                "^0[xX][0-9a-fA-F_]+([Uu][Ll]?|[Ll][Uu]?)?$", // hex
+                "^0[bB][01_]+([Uu][Ll]?|[Ll][Uu]?)?$", // bin
+				// floats:
+                "^[0-9_]+((\\.[0-9_]*)?([eE][+-]?[0-9_]+)?)?([lL]|[fF])?i?$",
+                "^[0-9_]*\\.[0-9_]+([eE][+-]?[0-9_]+)?([lL]|[fF])?i?$",
+                "^0[xX][0-9a-fA-F_]+((\\.[0-9a-fA-F_]*)?([pP][+-]?[0-9_]+)?)?([lL]|[fF])?i?$", // hex
+                "^0[xX][0-9a-fA-F_]*\\.[0-9a-fA-F_]+([pP][+-]?[0-9_]+)?([lL]|[fF])?i?$" // hex
+            );
+            Type = "xcode.syntax.number";
+        };
+    },
+	
+	
+	// MARK: D Strings
+	{
+		Identifier = "xcode.lang.d.string.wysiwyg";
+		Syntax = {
+			Start = "r\"";
+			End = "\"";
+			Type = "xcode.syntax.string";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.string.wysiwyg.alternate";
+		Syntax = {
+			Start = "`";
+			End = "`";
+			Type = "xcode.syntax.string";
+		};
+	},
+	{
+        Identifier = "xcode.lang.d.string.escapesequence";
+        Syntax = {
+            StartChars = "\\";
+            Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&;'\"?";
+            Match = (
+				"^\\\\['\"?\\abfnrtv]$",
+				"^\\\\x[0-9a-fA-F]{2}$", // Hex
+				"^\\\\[0-8]{1,3}$", // Octal
+				"^\\\\u[0-9a-fA-F]{4}$", // UTF-32 code unit
+				"^\\\\U[0-9a-fA-F]{8}$", // Unicode code point
+				"^\\\\&[0-8a-zA-Z]+;$", // named chracter entity
+            );
+            Type = "xcode.syntax.string";
+        };
+	},
+	{
+		Identifier = "xcode.lang.d.string.hex";
+		Syntax = {
+			Start = "x\"";
+			End = "\"";
+			Type = "xcode.syntax.string";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.string.delimited.bracket";
+		Syntax = {
+			Start = "q\"[";
+			End = "]\"";
+			IncludeRules = (
+				"xcode.lang.d.string.delimited.bracket.nesting",
+			);
+			Type = "xcode.syntax.string";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.string.delimited.bracket.nesting";
+		Syntax = {
+			Start = "[";
+			End = "]";
+			Recursive = YES;
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.string.delimited.paren";
+		Syntax = {
+			Start = "q\"(";
+			End = ")\"";
+			IncludeRules = (
+				"xcode.lang.d.string.delimited.paren.nesting",
+			);
+			Type = "xcode.syntax.string";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.string.delimited.paren.nesting";
+		Syntax = {
+			Start = "(";
+			End = ")";
+			Recursive = YES;
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.string.delimited.angle";
+		Syntax = {
+			Start = "q\"<";
+			End = ">\"";
+			IncludeRules = (
+				"xcode.lang.d.string.delimited.angle.nesting",
+			);
+			Type = "xcode.syntax.string";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.string.delimited.angle.nesting";
+		Syntax = {
+			Start = "<";
+			End = ">";
+			Recursive = YES;
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.string.delimited.brace";
+		Syntax = {
+			Start = "q\"{";
+			End = "}\"";
+			IncludeRules = (
+				"xcode.lang.d.string.delimited.brace.nesting",
+			);
+			Type = "xcode.syntax.string";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.string.delimited.brace.nesting";
+		Syntax = {
+			Start = "{";
+			End = "}";
+			Recursive = YES;
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.string.delimited";
+		Syntax = {
+			Start = "q\"";
+			End = "\"";
+			Match = (
+				"^q\"([a-zA-Z_][a-zA-Z_0-9]*)\n.*?\n\1\"$",
+				"^q\"(.).*?\1\"$",
+				"^q\"@.*?@\"$",
+			);
+			Type = "xcode.syntax.string";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.string.token";
+		Syntax = {
+			Start = "q{";
+			End = "}";
+			IncludeRules = (
+				"xcode.lang.d.braceexpr",
+			);
+			Type = "xcode.syntax.string";
+		};
+	},
+
+	// MARK: D Top Level
+	{
+		Identifier = "xcode.lang.d";
+		Description = "D Coloring";
+		BasedOn = "xcode.lang.simpleColoring";
+		IncludeInMenu = YES;
+		Name = "D";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			IncludeRules = (
+				"xcode.lang.d.module",
+				"xcode.lang.d.import",
+				"xcode.lang.d.template",
+				"xcode.lang.d.struct",
+				"xcode.lang.d.class",
+				"xcode.lang.d.interface",
+				"xcode.lang.d.function.definition",
+				"xcode.lang.d.function.declaration",
+				"xcode.lang.d.ctor.static.definition",
+				"xcode.lang.d.ctor.static.declaration",
+				"xcode.lang.d.dtor.static.definition",
+				"xcode.lang.d.dtor.static.declaration",
+				"xcode.lang.d.unittest",
+				"xcode.lang.d.bracketexpr",
+				"xcode.lang.d.parenexpr",
+			);
+			Type = "xcode.syntax.plain";
+		};
+	},
+	
+	// MARK: Lexers
+
+	// The following rule returns tokens to the other rules
+	{
+		Identifier = "xcode.lang.d.lexer";
+		Syntax = {
+			IncludeRules = (
+				"xcode.lang.d.string.escapesequence",
+				// Comments
+				"xcode.lang.d.comment.degenerate",
+				"xcode.lang.d.comment.nesting.degenerate",
+				"xcode.lang.d.comment.ddoc",
+				"xcode.lang.d.comment.ddoc.nesting",
+				"xcode.lang.d.comment.ddoc.singleline",
+				"xcode.lang.comment",
+				"xcode.lang.d.comment.nesting",
+				"xcode.lang.comment.singleline",
+				// Strings and character literals
+				"xcode.lang.d.string.wysiwyg",
+				"xcode.lang.d.string.wysiwyg.alternate",
+				"xcode.lang.d.string.hex",
+				"xcode.lang.d.string.delimited.bracket",
+				"xcode.lang.d.string.delimited.paren",
+				"xcode.lang.d.string.delimited.angle",
+				"xcode.lang.d.string.delimited.brace",
+				"xcode.lang.d.string.delimited",
+				"xcode.lang.d.string.token",
+				"xcode.lang.string",
+				"xcode.lang.character",
+				// Other
+				"xcode.lang.completionplaceholder",
+				"xcode.lang.d.identifier",
+				"xcode.lang.d.number",
+			);
+		};
+	},
+
+	// MARK: Template/Structs/Classes/Interfaces
+	{
+		Identifier = "xcode.lang.d.template";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Foldable = YES;
+			Recursive = YES;
+			Rules = (
+				"xcode.lang.d.template.declarator",
+				"xcode.lang.d.template.block",
+			);
+			Type = "xcode.syntax.definition.d.template";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.template.declarator";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"template",
+				"xcode.lang.d.struct.name",
+			);
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.struct";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Foldable = YES;
+			Recursive = YES;
+			Rules = (
+				"xcode.lang.d.struct.declarator",
+				"xcode.lang.d.aggregate.block",
+			);
+			Type = "xcode.syntax.definition.d.struct";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.struct.declarator";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"struct",
+				"xcode.lang.d.struct.name",
+				"xcode.lang.d.struct.declarator.super?",
+			);
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.struct.name";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.identifier",
+				"xcode.lang.d.templateclause?",
+			);
+			Type = "xcode.syntax.name.partial";
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.class";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Foldable = YES;
+			Recursive = YES;
+			Rules = (
+				"xcode.lang.d.class.declarator",
+				"xcode.lang.d.aggregate.block",
+			);
+			Type = "xcode.syntax.definition.d.class";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.class.declarator";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"class",
+				"xcode.lang.d.class.name",
+				"xcode.lang.d.class.declarator.super?",
+			);
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.class.name";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.identifier",
+				"xcode.lang.d.templateclause?",
+			);
+			Type = "xcode.syntax.name.partial";
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.class.declarator.super";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				":",
+				"xcode.lang.d.qualifiedname",
+				"xcode.lang.d.classnames.list*",
+			);
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.interface";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Foldable = YES;
+			Recursive = YES;
+			Rules = (
+				"xcode.lang.d.interface.declarator",
+				"xcode.lang.d.aggregate.block",
+			);
+			Type = "xcode.syntax.declaration.d.interface";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.interface.declarator";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"interface",
+				"xcode.lang.d.class.name",
+				"xcode.lang.d.interface.declarator.super?",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.interface.declarator.super";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				":",
+				"xcode.lang.d.qualifiedname",
+				"xcode.lang.d.classnames.list*",
+			);
+		};
+	},
+
+	{
+		Identifier = "xcode.lang.d.classnames.list";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				",",
+				"xcode.lang.d.qualifiedname",
+			);
+		};
+	},
+
+	{
+		Identifier = "xcode.lang.d.qualifiedname";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.identifier",
+				"xcode.lang.d.qualifiedname.more*",
+				"xcode.lang.d.templateclause?",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.templateclause";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Start = "(";
+			End = ")";
+			Recursive = YES;
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.module.qualifiedname";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.identifier",
+				"xcode.lang.d.import.qualifiedname.more*",
+			);
+			Type = "xcode.syntax.d.module";
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.import.qualifiedname";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.identifier",
+				"xcode.lang.d.import.qualifiedname.more*",
+				"*?",
+			);
+			Type = "xcode.syntax.d.import";
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.import.qualifiedname.more";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				".",
+				"xcode.lang.d.identifier?",
+			);
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.qualifiedname.more";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				".",
+				"xcode.lang.d.identifier",
+			);
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.module";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"module",
+				"xcode.lang.d.module.qualifiedname",
+				";",
+			);
+		};
+	},
+
+	{
+		Identifier = "xcode.lang.d.import";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"import",
+				"xcode.lang.d.import.qualifiedname",
+				";",
+			);
+		};
+	},
+
+	// MARK: Functions & Methods
+	{
+		Identifier = "xcode.lang.d.function.declaration";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.function.declarator",
+				";",
+			);
+			Type = "xcode.syntax.declaration.d.function";
+		};
+	},
+
+	{
+		Identifier = "xcode.lang.d.function.definition";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.function.declarator",
+				"xcode.lang.d.function.contracts?",
+				"xcode.lang.d.function.block",
+			);
+			Type = "xcode.syntax.definition.d.function";
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.method.declaration";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.function.declarator",
+				";",
+			);
+			Type = "xcode.syntax.declaration.d.method";
+		};
+	},
+
+	{
+		Identifier = "xcode.lang.d.method.definition";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.function.declarator",
+				"xcode.lang.d.function.body",
+			);
+			Type = "xcode.syntax.definition.d.method";
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.function.declarator";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.identifier",
+				"xcode.lang.d.parenexpr",
+				"xcode.lang.d.templateclause?",
+			);
+			Type = "xcode.syntax.name.partial";
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.function.body";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.function.block",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.function.contracts";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.function.contracts.in?",
+				"xcode.lang.d.function.contracts.out?",
+				"xcode.lang.d.function.contracts.in?",
+				"body",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.function.contracts.in";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"in",
+				"xcode.lang.d.function.block",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.function.contracts.out";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"out",
+				"xcode.lang.d.parenexpr?",
+				"xcode.lang.d.function.block",
+			);
+		};
+	},
+
+
+	// MARK: Constructors & Destructors
+	{
+		Identifier = "xcode.lang.d.ctor.declaration";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.ctor.declarator",
+				";",
+			);
+			Type = "xcode.syntax.declaration.d.ctor";
+		};
+	},
+
+	{
+		Identifier = "xcode.lang.d.ctor.definition";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.ctor.declarator",
+				"xcode.lang.d.function.block",
+			);
+			Type = "xcode.syntax.definition.d.ctor";
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.dtor.declaration";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.dtor.declarator",
+				";",
+			);
+			Type = "xcode.syntax.declaration.d.dtor";
+		};
+	},
+
+	{
+		Identifier = "xcode.lang.d.dtor.definition";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.dtor.declarator",
+				"xcode.lang.d.function.block",
+			);
+			Type = "xcode.syntax.definition.dtor";
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.ctor.declarator";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"this",
+				"xcode.lang.d.parenexpr",
+				"xcode.lang.d.templateclause?",
+			);
+			Type = "xcode.syntax.name.partial";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.dtor.declarator";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"~",
+				"this",
+				"(",
+				")",
+			);
+			Type = "xcode.syntax.name.partial";
+		};
+	},
+	
+	// MARK: Static Constructors & Destructors
+	{
+		Identifier = "xcode.lang.d.ctor.static.declaration";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.ctor.static.declarator",
+				";",
+			);
+			Type = "xcode.syntax.declaration.d.ctor.static";
+		};
+	},
+
+	{
+		Identifier = "xcode.lang.d.ctor.static.definition";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.ctor.static.declarator",
+				"xcode.lang.d.function.block",
+			);
+			Type = "xcode.syntax.definition.d.ctor.static";
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.dtor.static.declaration";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.dtor.static.declarator",
+				";",
+			);
+			Type = "xcode.syntax.declaration.d.dtor.static";
+		};
+	},
+
+	{
+		Identifier = "xcode.lang.d.dtor.static.definition";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.dtor.static.declarator",
+				"xcode.lang.d.function.block",
+			);
+			Type = "xcode.syntax.definition.d.dtor.static";
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.ctor.static.declarator";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"static",
+				"this",
+				"(",
+				")",
+			);
+			Type = "xcode.syntax.name.partial";
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.dtor.static.declarator";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"static",
+				"~",
+				"this",
+				"(",
+				")",
+			);
+			Type = "xcode.syntax.name.partial";
+		};
+	},
+	
+	
+	// MARK: Invariant, Unittest
+	
+	{
+		Identifier = "xcode.lang.d.invariant.declaration";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"invariant",
+				"(",
+				")",
+				";",
+			);
+			Type = "xcode.syntax.declaration.d.invariant";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.invariant.definition";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"invariant",
+				"(",
+				")",
+				"xcode.lang.d.function.block",
+			);
+			Type = "xcode.syntax.definition.d.invariant";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.unittest";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"unittest",
+				"xcode.lang.d.function.block",
+			);
+			Type = "xcode.syntax.definition.d.unittest";
+		};
+	},
+	
+	
+	// MARK: Allocator, Deallocator
+	
+	{
+		Identifier = "xcode.lang.d.allocator.declaration";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.allocator.declarator",
+				";",
+			);
+			Type = "xcode.syntax.declaration.d.allocator";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.allocator.definition";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.allocator.declarator",
+				"xcode.lang.d.function.block",
+			);
+			Type = "xcode.syntax.definition.d.allocator";
+		};
+	},
+	
+	{
+		Identifier = "xcode.lang.d.deallocator.declaration";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.deallocator.declarator",
+				";",
+			);
+			Type = "xcode.syntax.declaration.d.deallocator";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.deallocator.definition";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"xcode.lang.d.deallocator.declarator",
+				"xcode.lang.d.function.block",
+			);
+			Type = "xcode.syntax.definition.d.deallocator";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.allocator.declarator";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"new",
+				"xcode.lang.d.parenexpr",
+			);
+			Type = "xcode.syntax.name.partial";
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.deallocator.declarator";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Rules = (
+				"delete",
+				"xcode.lang.d.parenexpr",
+			);
+			Type = "xcode.syntax.name.partial";
+		};
+	},
+	
+	
+	// MARK: Blocks
+	{
+		Identifier = "xcode.lang.d.function.block";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Start = "{";
+			End = "}";
+			Foldable = YES;
+			Recursive = YES;
+			IncludeRules = (
+				"xcode.lang.d.template",
+				"xcode.lang.d.struct",
+				"xcode.lang.d.class",
+				"xcode.lang.d.interface",
+				"xcode.lang.d.function.definition",
+				"xcode.lang.d.bracketexpr",
+				"xcode.lang.d.parenexpr",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.declarations.block";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Start = "{";
+			End = "}";
+			Foldable = YES;
+			Recursive = YES;
+			IncludeRules = (
+				"xcode.lang.d.template",
+				"xcode.lang.d.struct",
+				"xcode.lang.d.class",
+				"xcode.lang.d.interface",
+				"xcode.lang.d.function.definition",
+				"xcode.lang.d.function.declaration",
+				"xcode.lang.d.ctor.static",
+				"xcode.lang.d.dtor.static",
+				"xcode.lang.d.unittest",
+				"xcode.lang.d.bracketexpr",
+				"xcode.lang.d.parenexpr",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.aggregate.block";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Start = "{";
+			End = "}";
+			Foldable = YES;
+			Recursive = YES;
+			IncludeRules = (
+				"xcode.lang.d.template",
+				"xcode.lang.d.struct",
+				"xcode.lang.d.class",
+				"xcode.lang.d.interface",
+				"xcode.lang.d.method.definition",
+				"xcode.lang.d.method.declaration",
+				"xcode.lang.d.ctor.static.definition",
+				"xcode.lang.d.ctor.static.declaration",
+				"xcode.lang.d.dtor.static.definition",
+				"xcode.lang.d.dtor.static.declaration",
+				"xcode.lang.d.ctor.definition",
+				"xcode.lang.d.ctor.declaration",
+				"xcode.lang.d.dtor.definition",
+				"xcode.lang.d.dtor.declaration",
+				"xcode.lang.d.allocator.definition",
+				"xcode.lang.d.deallocator.declaration",
+				"xcode.lang.d.allocator.definition",
+				"xcode.lang.d.deallocator.declaration",
+				"xcode.lang.d.unittest",
+				"xcode.lang.d.invariant.declaration",
+				"xcode.lang.d.invariant.definition",
+				"xcode.lang.d.bracketexpr",
+				"xcode.lang.d.parenexpr",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.template.block";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Start = "{";
+			End = "}";
+			Foldable = YES;
+			Recursive = YES;
+			IncludeRules = (
+				"xcode.lang.d.template",
+				"xcode.lang.d.struct",
+				"xcode.lang.d.class",
+				"xcode.lang.d.interface",
+				"xcode.lang.d.function.definition",
+				"xcode.lang.d.function.declaration",
+				"xcode.lang.d.ctor.static.definition",
+				"xcode.lang.d.ctor.static.declaration",
+				"xcode.lang.d.dtor.static.definition",
+				"xcode.lang.d.dtor.static.declaration",
+				"xcode.lang.d.ctor.definition",
+				"xcode.lang.d.ctor.declaration",
+				"xcode.lang.d.dtor.definition",
+				"xcode.lang.d.dtor.declaration",
+				"xcode.lang.d.allocator.definition",
+				"xcode.lang.d.deallocator.declaration",
+				"xcode.lang.d.allocator.definition",
+				"xcode.lang.d.deallocator.declaration",
+				"xcode.lang.d.unittest",
+				"xcode.lang.d.invariant.declaration",
+				"xcode.lang.d.invariant.definition",
+				"xcode.lang.d.bracketexpr",
+				"xcode.lang.d.parenexpr",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.parenexpr";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Start = "(";
+			End = ")";
+			Recursive = YES;
+			IncludeRules = (
+				"xcode.lang.d.bracketexpr",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.bracketexpr";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Start = "[";
+			End = "]";
+			Recursive = YES;
+			IncludeRules = (
+				"xcode.lang.d.parenexpr",
+			);
+		};
+	},
+	{
+		Identifier = "xcode.lang.d.braceexpr";
+		Syntax = {
+			Tokenizer = "xcode.lang.d.lexer";
+			Start = "{";
+			End = "}";
+			Recursive = YES;
+			IncludeRules = (
+				"xcode.lang.d.parenexpr",
+				"xcode.lang.d.bracketexpr",
+			);
+		};
+	},
+
+)

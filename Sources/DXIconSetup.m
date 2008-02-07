@@ -19,6 +19,8 @@
 #import "DXIconSetup.h"
 #import <Cocoa/Cocoa.h>
 
+// Retain images here for the Objective-C 2.0 garbage collector.
+NSMutableArray *iconKeeper;
 
 @implementation DXIconSetup
 
@@ -27,18 +29,22 @@
 	NSString *dir = [[NSBundle bundleForClass:[self class]] resourcePath];
 	NSImage *img;
 	NSString *path;
+	unsigned int index = 0;
 	
 	NSArray *iconList = [NSArray arrayWithObjects:
 		@"PBX-d-Icon", @"PBX-d-small-Icon",
 		@"PBX-di-Icon", @"PBX-di-small-Icon", 
 		@"DX-option-language-d", nil];
+	iconKeeper = [[NSMutableArray alloc] init];
+	
 	NSEnumerator *e = [iconList objectEnumerator];
 	NSString *name;
 	while (name = [e nextObject]) {
 		path = [NSString stringWithFormat:@"%@/%@.png", dir, name];
 		img = [[NSImage alloc] initByReferencingFile:path];
 		[img setName:name];
-		//[img release];
+		[iconKeeper addObject:img];
+		[img release];
 	}
 }
 

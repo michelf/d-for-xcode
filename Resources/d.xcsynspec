@@ -1,0 +1,172 @@
+
+// D syntax specification fox Xcode 3
+// Copyright (C) 2007  Michel Fortin
+//
+// D for Xcode is free software; you can redistribute it and/or modify it 
+// under the terms of the GNU General Public License as published by the Free 
+// Software Foundation; either version 2 of the License, or (at your option) 
+// any later version.
+//
+// D for Xcode is distributed in the hope that it will be useful, but WITHOUT 
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or 
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for 
+// more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with D for Xcode; if not, write to the Free Software Foundation, 
+// Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
+
+(
+    {
+        Identifier = "xcode.syntax.d.module";
+        IncludeInPrefs = NO;
+		NameFormat = "module %@";
+    },
+    {
+        Identifier = "xcode.syntax.d.import";
+        IncludeInPrefs = NO;
+		NameFormat = "import %@";
+    },
+	
+	// MARK: Functions and Methods
+	{
+		Identifier = "xcode.syntax.definition.d.function";
+		BasedOn = "xcode.syntax.definition.function";
+		IncludeInPrefs = NO;
+	},
+	{
+		Identifier = "xcode.syntax.declaration.d.function";
+		BasedOn = "xcode.syntax.declaration.function";
+		IncludeInPrefs = NO;
+	},
+	{
+		Identifier = "xcode.syntax.definition.d.method";
+		BasedOn = "xcode.syntax.definition.method";
+		IncludeInPrefs = NO;
+	},
+	{
+		Identifier = "xcode.syntax.declaration.d.method";
+		BasedOn = "xcode.syntax.declaration.method";
+		IncludeInPrefs = NO;
+	},
+	
+	// MARK: Constructors, Destructors, Unittests, Invariants
+	{
+		Identifier = "xcode.syntax.declaration.d.ctor";
+		BasedOn = "xcode.syntax.declaration.method";
+		IncludeInPrefs = NO;
+	},
+	{
+		Identifier = "xcode.syntax.definition.d.ctor";
+		BasedOn = "xcode.syntax.definition.method";
+		IncludeInPrefs = NO;
+	},
+	{
+		Identifier = "xcode.syntax.declaration.d.dtor";
+		BasedOn = "xcode.syntax.declaration.method";
+		IncludeInPrefs = NO;
+		NameFormat = "~this()";
+	},
+	{
+		Identifier = "xcode.syntax.definition.d.dtor";
+		BasedOn = "xcode.syntax.definition.method";
+		IncludeInPrefs = NO;
+		NameFormat = "~this()";
+	},
+	{
+		Identifier = "xcode.syntax.declaration.d.ctor.static";
+		BasedOn = "xcode.syntax.declaration.function";
+		IncludeInPrefs = NO;
+		NameFormat = "static this()";
+	},
+	{
+		Identifier = "xcode.syntax.definition.d.ctor.static";
+		BasedOn = "xcode.syntax.definition.function";
+		IncludeInPrefs = NO;
+		NameFormat = "static this()";
+	},
+	{
+		Identifier = "xcode.syntax.declaration.d.dtor.static";
+		BasedOn = "xcode.syntax.declaration.function";
+		IncludeInPrefs = NO;
+		NameFormat = "static ~this()";
+	},
+	{
+		Identifier = "xcode.syntax.definition.d.dtor.static";
+		BasedOn = "xcode.syntax.definition.function";
+		IncludeInPrefs = NO;
+		NameFormat = "static ~this()";
+	},
+	{
+		Identifier = "xcode.syntax.declaration.d.unittest";
+		BasedOn = "xcode.syntax.declaration.function";
+		IncludeInPrefs = NO;
+		NameFormat = "unittest";
+	},
+	{
+		Identifier = "xcode.syntax.definition.d.unittest";
+		BasedOn = "xcode.syntax.definition.function";
+		IncludeInPrefs = NO;
+		NameFormat = "unittest";
+	},
+	{
+		Identifier = "xcode.syntax.declaration.d.invariant";
+		BasedOn = "xcode.syntax.declaration.method";
+		IncludeInPrefs = NO;
+		NameFormat = "invariant()";
+	},
+	{
+		Identifier = "xcode.syntax.definition.d.invariant";
+		BasedOn = "xcode.syntax.definition.method";
+		IncludeInPrefs = NO;
+		NameFormat = "invariant()";
+	},
+	{
+		Identifier = "xcode.syntax.declaration.d.allocator";
+		BasedOn = "xcode.syntax.declaration.method";
+		IncludeInPrefs = NO;
+	},
+	{
+		Identifier = "xcode.syntax.definition.d.allocator";
+		BasedOn = "xcode.syntax.definition.method";
+		IncludeInPrefs = NO;
+	},
+	{
+		Identifier = "xcode.syntax.declaration.d.deallocator";
+		BasedOn = "xcode.syntax.declaration.method";
+		IncludeInPrefs = NO;
+	},
+	{
+		Identifier = "xcode.syntax.definition.d.deallocator";
+		BasedOn = "xcode.syntax.definition.method";
+		IncludeInPrefs = NO;
+	},
+	
+	// MARK: Structs, Classes, and Interfaces
+	{
+		Identifier = "xcode.syntax.definition.d.struct";
+		BasedOn = "xcode.syntax.definition.class";
+		IncludeInPrefs = NO;
+		NameFormat = "struct %@";
+	},
+	{
+		Identifier = "xcode.syntax.definition.d.class";
+		BasedOn = "xcode.syntax.definition.class";
+		IncludeInPrefs = NO;
+		NameFormat = "class %@";
+	},
+	{
+		Identifier = "xcode.syntax.definition.d.interface";
+		BasedOn = "xcode.syntax.definition.class";
+		IncludeInPrefs = NO;
+		NameFormat = "interface %@";
+	},
+	
+	// MARK: Templates
+	{
+		Identifier = "xcode.syntax.definition.d.template";
+		BasedOn = "xcode.syntax.definition.class";
+		IncludeInPrefs = NO;
+		NameFormat = "template %@";
+	},
+)
