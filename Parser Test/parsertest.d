@@ -12,7 +12,13 @@ import module4, aliased = module5, module6 : bindigns, aliased = module7 : bindi
 /* import not.an.import_; */
 /+ Test: /+ +/ import not.an.import_; +/
 
-struct A {
++01234_12349
+1.23_45
+0x123
+0b101
+
+struct A
+{
 
 }
 
@@ -20,13 +26,34 @@ static ~this();
 
 int var;
 void functionDecl();
-void functionDef() { byte[] a = import("file"); }
-final class Class {
+void functionDef()
+body {
+	byte[] a = import("file");
+}
+
+final class Class(A)
+{
 	this() { }
+	~this() { }
 	int member_var;
-	void methodDecl();
-	void methodDef() { }
+	void methodDecl(int a);
+	void methodDef(A)(int a)
+	{
+		void test()
+		in {
+			void test();
+		}
+		out (a)
+		{
+		}
+		body {
+			test
+		}
+	}
 	static void staticMethodDef() { }
+	unittest
+	{
+	}
 }
 final struct Struct {
 	int smember_var;
@@ -34,6 +61,9 @@ final struct Struct {
 	else {void testDecl();}
 	void smethodDef() { }
 	static void sstaticMethodDef() { }
+}
+unittest {
+
 }
 template Tmpl() {
 
@@ -46,12 +76,31 @@ typedef int TypeDef;
  * Returns: test
  */
 /++
- + Returns: test
+ + Returns: test /++/
  +/
 /// Test: Returns
 /// Returns: Test
 
 // Invalid characters
+
+r"test"c
+r"test"w
+"@aabc@"
+
+\n\r\t\xff
+
+x"abcdef012345678"d
+
+0b01234_123
+
+q{ [test]{} } fd
+
+q"@ABC"abc"ABC@";
+
+q"ABC
+abc ABC"
+ABC";
+
 
 klasdjf kjsdahf kasjldhfl asdf;asd ( {
 
