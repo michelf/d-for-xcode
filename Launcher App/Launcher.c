@@ -17,9 +17,7 @@
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
 // This launcher program respond to open and print documents AppleEvents 
-// by passing them to Xcode. On Mac OS X 10.5 Leopard, it tries to use 
-// Xcode 2.5 by looking at its default installation path so to avoid 
-// Xcode 3 which is incopatible (for now) with D for Xcode.
+// by passing them to Xcode.
 
 #include <ApplicationServices/ApplicationServices.h>
 #include <Carbon/Carbon.h>
@@ -49,26 +47,18 @@ void openFromAppleEvent(const AppleEvent *event, LSLaunchFlags launchOption) {
 			LSApplicationParameters params;
 			FSRef app;
 			Boolean isDir;
-			
-			// First try with specific Xcode location on Leopard to avoid
-			// launching Xcode 3.
-			err = FSPathMakeRef((unsigned char *)"/Xcode2.5/Applications/Xcode.app", &app, &isDir);
-			
-			// On error, use standard method to find Xcode (will get latest version).
-			if (err != noErr || !isDir) {
-				err = LSFindApplicationForInfo(kLSUnknownCreator,
-					CFSTR("com.apple.xcode"), NULL, &app, NULL);
-			}
-			
-			params.version = 0;
-			params.flags = launchOption;
-			params.application = &app;
-			params.asyncLaunchRefCon = NULL;
-			params.environment = NULL;
-			params.argv = NULL;
-			params.initialEvent = NULL;
+
+			err = LSFindApplicationForInfo(kLSUnknownCreator, CFSTR("com.apple.xcode"), NULL, &app, NULL);
 			
 			if (err == noErr) {
+				params.version = 0;
+				params.flags = launchOption;
+				params.application = &app;
+				params.asyncLaunchRefCon = NULL;
+				params.environment = NULL;
+				params.argv = NULL;
+				params.initialEvent = NULL;
+			
 				LSOpenItemsWithRole(documents, documentCount,
 					0, NULL, &params, NULL, 0);
 			}
