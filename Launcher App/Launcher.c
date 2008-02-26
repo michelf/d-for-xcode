@@ -95,7 +95,7 @@ int main(unsigned int argc, char **argv) {
 		&handlePrintDocument, 0, FALSE);
 	
 	{
-		// Installing quit timer after one second
+		// Installing quit timer after some fraction of a second
 		EventLoopTimerUPP timerUPP = NewEventLoopTimerUPP(&doQuit);
 		EventLoopTimerRef theTimer;
 	
