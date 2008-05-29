@@ -275,22 +275,12 @@
     {
         Identifier = "xcode.lang.d.number";
         Syntax = {
-//          SourceScannerClassName = "XCNumberScanner";			// do FAST recognition of integers
-            StartChars = "0123456789.";
-            // look at all alpha chars so that we don't recognize "9Z" as two tokens
-            Chars = "0123456789+-.abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_";
-            Match = (
-				// integers:
-				"^[1-9][0-9_]*([Uu][Ll]?|[Ll][Uu]?)?$", // dec
-				"^0[0-7_]([Uu][Ll]?|[Ll][Uu]?)?$", // oct
-                "^0[xX][0-9a-fA-F_]+([Uu][Ll]?|[Ll][Uu]?)?$", // hex
-                "^0[bB][01_]+([Uu][Ll]?|[Ll][Uu]?)?$", // bin
-				// floats:
-                "^[0-9_]+((\\.[0-9_]*)?([eE][+-]?[0-9_]+)?)?([lL]|[fF])?i?$",
-                "^[0-9_]*\\.[0-9_]+([eE][+-]?[0-9_]+)?([lL]|[fF])?i?$",
-                "^0[xX][0-9a-fA-F_]+((\\.[0-9a-fA-F_]*)?([pP][+-]?[0-9_]+)?)?([lL]|[fF])?i?$", // hex
-                "^0[xX][0-9a-fA-F_]*\\.[0-9a-fA-F_]+([pP][+-]?[0-9_]+)?([lL]|[fF])?i?$" // hex
-            );
+			SourceScannerClassName = "DXDNumberScanner";
+			StartChars = "0123456789.";
+			// look at all alpha chars so that we don't recognize "9Z" as two tokens
+			Chars = "0123456789+-.abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_";
+			Match = (
+			);
             Type = "xcode.syntax.number";
         };
     },

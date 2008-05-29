@@ -12,7 +12,8 @@ import module4, aliased = module5, module6 : bindigns, aliased = module7 : bindi
 /* import not.an.import_; */
 /+ Test: /+ +/ import not.an.import_; +/
 
-+01234_12349
++1234_12349
+-1234_56789
 1.23_45
 0x123
 0b101
@@ -91,7 +92,8 @@ r"test"w
 
 x"abcdef012345678"d
 
-0b01234_123
+0x01234_123
+0b010100101
 
 q{ [test]{} } fd
 
