@@ -206,6 +206,7 @@
 				"module",
 
 				"new",
+				"nothrow",
 				"null",
 
 				"out",
@@ -216,6 +217,7 @@
 				"private",
 				"protected",
 				"public",
+				"pure",
 
 				"real",
 				"ref",
