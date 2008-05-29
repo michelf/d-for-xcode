@@ -1177,7 +1177,7 @@
 			Tokenizer = "xcode.lang.d.lexer";
 			Start = "{";
 			End = "}";
-			Foldable = YES;
+			Foldable = NO;
 			Recursive = YES;
 			IncludeRules = (
 				"xcode.lang.d.template",
