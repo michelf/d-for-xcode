@@ -49,8 +49,13 @@
 	{
 		Identifier = "xcode.lang.d.comment.ddoc";
 		Syntax = {
-			Start = "/**";
-			End = "*/";
+//			SourceScannerClassName = "DXDDdocNumberScanner"; // FAST recognition of Ddoc comments
+			StartChars = "/";
+			Match = (
+				"^///[^\n]*\n",
+				"^/\\+\\+([^+]*|[+])+?\\+/",
+				"^/\\*\\*([^*]*|[*])+?\\*/"
+			);
 			Foldable = YES;
 			ParseEndBeforeIncludedRules = YES;
 			IncludeRules = ( "xcode.lang.d.comment.ddoc.keyword", "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
@@ -86,8 +91,8 @@
 			Start = "/+";
 			End = "+/";
 			Foldable = YES;
-//			ParseEndBeforeIncludedRules = YES;
-			IncludeRules = ( "xcode.lang.d.comment.nesting.inner", "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
+			ParseEndBeforeIncludedRules = YES;
+			IncludeRules = ( /*"xcode.lang.d.comment.nesting.inner",*/ "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
 			Type = "xcode.syntax.comment";
 		};
 	},
@@ -97,8 +102,8 @@
 			Start = "/++";
 			End = "+/";
 			Foldable = YES;
-//			ParseEndBeforeIncludedRules = YES;
-			IncludeRules = ( "xcode.lang.d.comment.nesting.inner", "xcode.lang.d.comment.ddoc.keyword", "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
+			ParseEndBeforeIncludedRules = YES;
+			IncludeRules = ( /*"xcode.lang.d.comment.nesting.inner",*/ "xcode.lang.d.comment.ddoc.keyword", "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
 			Type = "xcode.syntax.comment.doc";
 		};
 	},
@@ -109,7 +114,8 @@
 			Start = "/+";
 			End = "+/";
 			Foldable = NO;
-			IncludeRules = ( "xcode.lang.d.comment.nesting.inner", "xcode.lang.d.comment.ddoc.keyword", "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
+			Recursive = YES;
+			IncludeRules = ( "xcode.lang.d.comment.ddoc.keyword", "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
 		};
 	},
 	{
@@ -469,24 +475,24 @@
 			IncludeRules = (
 				"xcode.lang.d.string.escapesequence",
 				// Comments
-				"xcode.lang.d.comment.degenerate",
-				"xcode.lang.d.comment.nesting.degenerate",
-				"xcode.lang.d.comment.ddoc",
-				"xcode.lang.d.comment.ddoc.nesting",
-				"xcode.lang.d.comment.ddoc.singleline",
+//				"xcode.lang.d.comment.degenerate",
+//				"xcode.lang.d.comment.nesting.degenerate",
+//				"xcode.lang.d.comment.ddoc",
+//				"xcode.lang.d.comment.ddoc.nesting",
+//				"xcode.lang.d.comment.ddoc.singleline",
 				"xcode.lang.comment",
-				"xcode.lang.d.comment.nesting",
+//				"xcode.lang.d.comment.nesting",
 				"xcode.lang.comment.singleline",
 				// Strings and character literals
 				"xcode.lang.d.string.wysiwyg",
 				"xcode.lang.d.string.wysiwyg.alternate",
 				"xcode.lang.d.string.hex",
-				"xcode.lang.d.string.delimited.bracket",
-				"xcode.lang.d.string.delimited.paren",
-				"xcode.lang.d.string.delimited.angle",
-				"xcode.lang.d.string.delimited.brace",
-				"xcode.lang.d.string.delimited",
-				"xcode.lang.d.string.token",
+//				"xcode.lang.d.string.delimited.bracket",
+//				"xcode.lang.d.string.delimited.paren",
+//				"xcode.lang.d.string.delimited.angle",
+//				"xcode.lang.d.string.delimited.brace",
+//				"xcode.lang.d.string.delimited",
+//				"xcode.lang.d.string.token",
 				"xcode.lang.string",
 				"xcode.lang.character",
 				// Other
