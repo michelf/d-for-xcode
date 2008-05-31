@@ -1,0 +1,42 @@
+D for Xcode: Release Notes
+==========================
+
+Known Issues:
+
+*	Nested comments and documentation comments are ignored by the syntax
+	highlighter in Xcode 3.
+
+*	Code folding in Xcode 3 doesn't always work correctly.
+
+*	Files with the .d extensions are given the "sourcecode.dtrace" type
+	instead of "sourcecode.d" while first added to a project. This is because
+	Xcode already has a rule associating .d files with dtrace which takes
+	precedence. You must open the info panel for your files and manually select
+	the "sourcecode.d" file type. This does not apply to Xcode 2.x.
+
+*	The debugger doesn't demangle function names. This can probably be fixed
+	by patching GDB.
+
+*	The debugger does not show very intelligently the content of objects.
+
+
+1.1b1 (31 May 2008):
+
+*	Updated the build process and other parts of the plugin to work with
+	Xcode 3 on Leopard. The plugin continue to work with all previously
+	supported versions of Xcode (2.4 and 2.5).
+
+*	Created a new set of rules for syntax highlighting suitable for Xcode 3
+	and allowing code folding.
+
+
+1.0.1 (23 Nov 2007)
+
+*	The plugin now registers its launcher application when loaded into Xcode.
+	Previously it was counting on the Finder to register it while copying the
+	plugin, but that isn't always reliable; hence the need for a backup plan.
+
+
+1.0 (21 Oct 2007):
+
+Initial release.

@@ -67,6 +67,7 @@
 		1E1D72410CB1946800CC12F8 /* DXDSourceLexer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BF3CE0CAF493C0022460C /* DXDSourceLexer.mm */; };
 		1E23D7380CED5488005859B9 /* Launcher.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E23D7250CED53AA005859B9 /* Launcher.c */; };
 		1E23D73A0CED548E005859B9 /* difile.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1E536EF50CEC8A1E002E86F7 /* difile.icns */; };
+		1E2A19530DF0FF7700C8A956 /* Release Notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1E2A19520DF0FF7700C8A956 /* Release Notes.txt */; };
 		1E33C6A60CEF82BE00D4FB11 /* D for Xcode Launcher.app in Resources */ = {isa = PBXBuildFile; fileRef = 1E23D71A0CED5365005859B9 /* D for Xcode Launcher.app */; };
 		1E3428230CEDC8A30072B499 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E3428220CEDC8A30072B499 /* ApplicationServices.framework */; };
 		1E3436890CB27C6000D15C90 /* DXDSourceScannerItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436880CB27C6000D15C90 /* DXDSourceScannerItem.mm */; };
@@ -152,6 +153,7 @@
 		1E23D71A0CED5365005859B9 /* D for Xcode Launcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "D for Xcode Launcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E23D71C0CED5365005859B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E23D7250CED53AA005859B9 /* Launcher.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Launcher.c; sourceTree = "<group>"; };
+		1E2A19520DF0FF7700C8A956 /* Release Notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Release Notes.txt"; sourceTree = "<group>"; };
 		1E3428220CEDC8A30072B499 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		1E3436870CB27C6000D15C90 /* DXDSourceScannerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDSourceScannerItem.h; sourceTree = "<group>"; };
 		1E3436880CB27C6000D15C90 /* DXDSourceScannerItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DXDSourceScannerItem.mm; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				1E6951450CF30FA200C137EF /* License - GPL 2.0.txt */,
+				1E2A19520DF0FF7700C8A956 /* Release Notes.txt */,
 				6D209C4508EBCCC800E52803 /* Xcode API */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				1E6BEBF90CADF7DD0022460C /* Sources */,
@@ -724,6 +727,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E2A19530DF0FF7700C8A956 /* Release Notes.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
