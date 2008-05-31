@@ -1,6 +1,6 @@
 
 // D for Xcode: Support tools for special scanners for Xcode 3
-// Copyright (C) 2007-2008  Michel Fortin
+// Copyright (C) 2008  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
 // under the terms of the GNU General Public License as published by the Free 
@@ -18,7 +18,13 @@
 
 #import "DXScannerTools.h"
 
+//#define UTF8_SCANNER
+
+#ifdef UTF8_SCANNER
 typedef char char_t;
+#else
+typedef unichar char_t;
+#endif
 
 struct Scanner {
 	const char_t * current;
@@ -324,25 +330,35 @@ BOOL parseNumber(struct Scanner * scanner) {
 }
 
 BOOL isNumber(NSString *str) {
-	unichar stack_buffer[64];
-	unichar * heap_buffer = NULL;
 	size_t strlen = [str length];
 	struct Scanner scanner;
 	BOOL result;
 	
-//	if (strlen > 64) {
-//		scanner.current = heap_buffer = malloc(strlen * sizeof(unichar));
-//	} else {
-//		scanner.current = stack_buffer;
-//	}
+#ifdef UTF8_SCANNER
 	scanner.current = [str UTF8String];
 	scanner.end = scanner.current + strlen;
-	
-//	[str getCharacters:scanner.current];
+#else
+	const size_t stackBufferLength = 64;
+	unichar stackBuffer[stackBufferLength];
+	unichar * buffer;
+	if (strlen > stackBufferLength) {
+		buffer = malloc(strlen * sizeof(unichar));
+		if (!buffer) return NO; // not enough memory
+	} else {
+		buffer = stackBuffer;
+	}
+	[str getCharacters:buffer];
+	scanner.current = buffer;
+	scanner.end = scanner.current + strlen;
+#endif
 	
 	prev(&scanner);
 	result = parseNumber(&scanner);
 	if (result && !atEnd(&scanner)) result = NO;
+	
+#ifndef UTF8_SCANNER
+	if (buffer != stackBuffer) free(buffer);
+#endif
 	
 	return result;
 }

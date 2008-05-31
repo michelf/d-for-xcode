@@ -1,6 +1,6 @@
 
 // D for Xcode: Number Scanner for Xcode 3
-// Copyright (C) 2007-2008  Michel Fortin
+// Copyright (C) 2008  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
 // under the terms of the GNU General Public License as published by the Free 
@@ -20,7 +20,6 @@
 #import "XC3PSourceParsing.h"
 
 @interface DXDNumberScanner : XCRegExScanner {
-
 }
 
 - (int)tokenForString:(NSString *)fp8 forRange:(NSRange *)fp12 subItems:(id *)fp16;
