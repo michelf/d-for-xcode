@@ -22,29 +22,53 @@
 // Retain images here for the Objective-C 2.0 garbage collector.
 NSMutableArray *iconKeeper;
 
+static BOOL DXIsXcode31OrLater() {
+	const int xcode3version = 921;
+	int version = [[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"] intValue];
+	return version > 0 && version <= xcode3version;
+}
+
+static void DXRegisterIcon(NSString *path, NSString *name) {
+	if (iconKeeper == nil) {
+		iconKeeper = [[NSMutableArray alloc] init];
+	}
+	NSImage *img = [[NSImage alloc] initByReferencingFile:path];
+	[img setName:name];
+	[iconKeeper addObject:img];
+	[img release];
+}
+
 @implementation DXIconSetup
 
 + (void)load {
 	// Initialize icons.
 	NSString *dir = [[NSBundle bundleForClass:[self class]] resourcePath];
-	NSImage *img;
 	NSString *path;
 	unsigned int index = 0;
 	
 	NSArray *iconList = [NSArray arrayWithObjects:
-		@"PBX-d-Icon", @"PBX-d-small-Icon",
-		@"PBX-di-Icon", @"PBX-di-small-Icon", 
+		@"PBX-d-small-Icon",
+		@"PBX-di-small-Icon", 
 		@"DX-option-language-d", nil];
-	iconKeeper = [[NSMutableArray alloc] init];
-	
-	NSEnumerator *e = [iconList objectEnumerator];
+	// The following icons come in two versions: one for Xcode 3.1 and later
+	// and another for previous versions of Xcode, suffixed with "-old".
+	NSArray *versionnedIconList = [NSArray arrayWithObjects:
+		@"PBX-d-Icon", 
+		@"PBX-di-Icon", nil];
+	NSEnumerator *e;
 	NSString *name;
+	
+	e = [iconList objectEnumerator];
 	while (name = [e nextObject]) {
 		path = [NSString stringWithFormat:@"%@/%@.png", dir, name];
-		img = [[NSImage alloc] initByReferencingFile:path];
-		[img setName:name];
-		[iconKeeper addObject:img];
-		[img release];
+		DXRegisterIcon(path, name);
+	}
+	
+	e = [versionnedIconList objectEnumerator];
+	NSString *suffix = DXIsXcode31OrLater() ? @"-old" : @"";
+	while (name = [e nextObject]) {
+		path = [NSString stringWithFormat:@"%@/%@%@.png", dir, name, suffix];
+		DXRegisterIcon(path, name);
 	}
 }
 
