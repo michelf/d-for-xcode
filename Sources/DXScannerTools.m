@@ -181,13 +181,11 @@ BOOL parseOptionalIntegerSuffix(struct Scanner * scanner) {
 	case 'u':
 	case 'U':
 		switch (next(scanner)) {
-		case 'l':
 		case 'L':
 			return TRUE;
 		}
 		prev(scanner);
 		return TRUE;
-	case 'l':
 	case 'L':
 		switch (next(scanner)) {
 		case 'u':
