@@ -25,7 +25,7 @@ NSMutableArray *iconKeeper;
 static BOOL DXIsXcode31OrLater() {
 	const int xcode3version = 921;
 	int version = [[[[NSBundle mainBundle] infoDictionary] valueForKey:@"CFBundleVersion"] intValue];
-	return version > 0 && version <= xcode3version;
+	return version > xcode3version || version == 0;
 }
 
 static void DXRegisterIcon(NSString *path, NSString *name) {
@@ -65,7 +65,7 @@ static void DXRegisterIcon(NSString *path, NSString *name) {
 	}
 	
 	e = [versionnedIconList objectEnumerator];
-	NSString *suffix = DXIsXcode31OrLater() ? @"-old" : @"";
+	NSString *suffix = DXIsXcode31OrLater() ? @"" : @"-old";
 	while (name = [e nextObject]) {
 		path = [NSString stringWithFormat:@"%@/%@%@.png", dir, name, suffix];
 		DXRegisterIcon(path, name);
