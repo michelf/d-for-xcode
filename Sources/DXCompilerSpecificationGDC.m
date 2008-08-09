@@ -113,6 +113,8 @@
 	
 	// Tell Xcode to use the GDC linker.
 	[context setStringValue:@"com.michelf.dxcode.gdc.linker" forDynamicSetting:@"compiler_mandated_linker"];
+	// This fixes link problem for Xcode 3.1.
+	[context setStringValue:@"/usr/bin/gcc" forDynamicSetting:@"gcc_compiler_driver_for_linking"];
 	
 //	if ([context expandedBooleanValueForString:@"$(GDC_GENERATE_INTERFACE_FILES)"]) {
 //		NSString *objRoot = [context expandedValueForString:@"$(OBJROOT)"];
