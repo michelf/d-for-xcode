@@ -6,8 +6,6 @@ Known Issues:
 *	Nested comments and documentation comments are ignored by the syntax
 	highlighter in Xcode 3.
 
-*	Code folding in Xcode 3 doesn't always work correctly.
-
 *	Files with the .d extensions are given the "sourcecode.dtrace" type
 	instead of "sourcecode.d" while first added to a project. This is because
 	Xcode already has a rule associating .d files with dtrace which takes
@@ -18,6 +16,13 @@ Known Issues:
 	by patching GDB.
 
 *	The debugger does not show very intelligently the content of objects.
+
+
+1.1b2 (21 Sep 2008):
+
+*	Improved code folding.
+
+*	Fixed a problem where a wrong linker command was issued under Xcode 3.1.
 
 
 1.1b1 (31 May 2008):
