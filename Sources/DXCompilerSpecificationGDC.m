@@ -31,6 +31,10 @@
 	XCCompilerSpecification *spec = (XCCompilerSpecification*)[XCCompilerSpecification specificationForIdentifier:@"com.michelf.dxcode.gdc"];
 	[PBXTargetBuildContext activateImportedFileType:type withCompiler:spec];
 	
+	// Patch to work in the presence of a specification for dtrace ".d" files
+	PBXFileType *type2 = (PBXFileType*)[PBXFileType specificationForIdentifier:@"sourcecode.dtrace"];
+	[PBXTargetBuildContext activateImportedFileType:type2 withCompiler:spec];
+	
 	DXParserInit();
 }
 
