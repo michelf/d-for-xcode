@@ -524,7 +524,6 @@
 		Identifier = "xcode.lang.d.struct";
 		Syntax = {
 			Tokenizer = "xcode.lang.d.lexer";
-			Foldable = YES;
 			Recursive = YES;
 			Rules = (
 				"xcode.lang.d.struct.declarator",
@@ -561,7 +560,6 @@
 		Identifier = "xcode.lang.d.class";
 		Syntax = {
 			Tokenizer = "xcode.lang.d.lexer";
-			Foldable = YES;
 			Recursive = YES;
 			Rules = (
 				"xcode.lang.d.class.declarator",
@@ -610,7 +608,6 @@
 		Identifier = "xcode.lang.d.interface";
 		Syntax = {
 			Tokenizer = "xcode.lang.d.lexer";
-			Foldable = YES;
 			Recursive = YES;
 			Rules = (
 				"xcode.lang.d.interface.declarator",
@@ -789,6 +786,7 @@
 			Tokenizer = "xcode.lang.d.lexer";
 			Rules = (
 				"xcode.lang.d.function.declarator",
+				"xcode.lang.d.function.contracts?",
 				"xcode.lang.d.function.body",
 			);
 			Type = "xcode.syntax.definition.d.method";
@@ -871,6 +869,7 @@
 			Tokenizer = "xcode.lang.d.lexer";
 			Rules = (
 				"xcode.lang.d.ctor.declarator",
+				"xcode.lang.d.function.contracts?",
 				"xcode.lang.d.function.block",
 			);
 			Type = "xcode.syntax.definition.d.ctor";
@@ -895,9 +894,10 @@
 			Tokenizer = "xcode.lang.d.lexer";
 			Rules = (
 				"xcode.lang.d.dtor.declarator",
+				"xcode.lang.d.function.contracts?",
 				"xcode.lang.d.function.block",
 			);
-			Type = "xcode.syntax.definition.dtor";
+			Type = "xcode.syntax.definition.d.dtor";
 		};
 	},
 	
@@ -946,6 +946,7 @@
 			Tokenizer = "xcode.lang.d.lexer";
 			Rules = (
 				"xcode.lang.d.ctor.static.declarator",
+				"xcode.lang.d.function.contracts?",
 				"xcode.lang.d.function.block",
 			);
 			Type = "xcode.syntax.definition.d.ctor.static";
@@ -970,6 +971,7 @@
 			Tokenizer = "xcode.lang.d.lexer";
 			Rules = (
 				"xcode.lang.d.dtor.static.declarator",
+				"xcode.lang.d.function.contracts?",
 				"xcode.lang.d.function.block",
 			);
 			Type = "xcode.syntax.definition.d.dtor.static";
@@ -1167,7 +1169,7 @@
 			Tokenizer = "xcode.lang.d.lexer";
 			Start = "{";
 			End = "}";
-			Foldable = NO;
+			Foldable = YES;
 			Recursive = YES;
 			IncludeRules = (
 				"xcode.lang.d.template",
