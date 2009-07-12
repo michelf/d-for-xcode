@@ -32,8 +32,8 @@
 	[PBXTargetBuildContext activateImportedFileType:type withCompiler:spec];
 	
 	// Patch to work in the presence of a specification for dtrace ".d" files
-	PBXFileType *type2 = (PBXFileType*)[PBXFileType specificationForIdentifier:@"sourcecode.dtrace"];
-	[PBXTargetBuildContext activateImportedFileType:type2 withCompiler:spec];
+//	PBXFileType *type2 = (PBXFileType*)[PBXFileType specificationForIdentifier:@"sourcecode.dtrace"];
+//	[PBXTargetBuildContext activateImportedFileType:type2 withCompiler:spec];
 	
 	DXParserInit();
 }
@@ -41,6 +41,7 @@
 - (NSArray *)importedFilesForPath:(NSString *)path ensureFilesExist:(BOOL)ensure inTargetBuildContext:(PBXTargetBuildContext *)context
 {
 //	NSString* outputDir = [context expandedValueForString:@"$(OBJFILES_DIR_$(variant))/$(arch)"];
+		NSLog(@"importedFilesForPath:ensureFilesExist:");
 	XCDependencyNode* inputNode = [context dependencyNodeForName:path createIfNeeded:YES];
 	
 	NSSet *filenames = DXSourceDependenciesForPath([NSString stringWithContentsOfFile:path]);
@@ -50,6 +51,7 @@
 	NSString *filename;
 	while (filename = [e nextObject]) {
 		NSString *filepath = [context absolutePathForPath:filename];
+		NSLog(filepath);
 		XCDependencyNode *node = [context dependencyNodeForName:filepath createIfNeeded:YES];
 		[node setDontCareIfExists:YES];
 		[inputNode addIncludedNode:node];
@@ -75,6 +77,7 @@
 
 - (NSArray *)computeDependenciesForInputFile:(NSString *)input ofType:(PBXFileType*)type variant:(NSString *)variant architecture:(NSString *)arch outputDirectory:(NSString *)outputDir inTargetBuildContext:(PBXTargetBuildContext *)context
 {
+		NSLog(@"computeDependenciesForInputFile:...");
 	// compute input file path
 	input = [context expandedValueForString:input];
 	
@@ -136,5 +139,28 @@
 	// set output objects
 	return [NSArray arrayWithObject:outputNode];
 }
+
+//- (NSArray*)computeDependenciesForFilePath:(NSString*)path ofType:(PBXFileType*)type outputDirectory:(NSString*)outputDir inTargetBuildContext:(PBXTargetBuildContext*)context
+//{
+//	NSLog(@"[depForFPath:%@ ofType:%@ outDir:%@ inTargBuildCtx:%@]", path, [type description], outputDir, [context description]);
+//	NSArray* result = [super computeDependenciesForFilePath:path ofType:type outputDirectory:outputDir inTargetBuildContext:context];
+//
+//	NSEnumerator* e = [result objectEnumerator];
+//	XCDependencyNode* o;
+//	while (o = [e nextObject])
+//	{
+//		NSLog(@"- (%@) %@", [o className], [o description]);
+//		{
+//			XCDependencyNode* i = [o includedNodes];
+//			NSLog(@"-included- (%@) %@", [i className], [i description]);
+//		}
+//		{
+//			XCDependencyNode* i = [o includingNodes];
+//			NSLog(@"-including- (%@) %@", [i className], [i description]);
+//		}
+//	}
+//	
+//	return result;
+//}
 
 @end

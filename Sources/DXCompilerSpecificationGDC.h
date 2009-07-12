@@ -1,5 +1,5 @@
 
-// D for Xcode: Compiler Specification
+// D for Xcode: Compiler Specification for GDC
 // Copyright (C) 2007-2008  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
@@ -27,6 +27,7 @@
 - (NSArray *)importedFilesForPath:(NSString *)path ensureFilesExist:(BOOL)ensure inTargetBuildContext:(PBXTargetBuildContext *)context;
 
 - (NSArray *)computeDependenciesForInputFile:(NSString *)input ofType:(PBXFileType*)type variant:(NSString *)variant architecture:(NSString *)arch outputDirectory:(NSString *)outputDir inTargetBuildContext:(PBXTargetBuildContext *)context;
+//- (NSArray*)computeDependenciesForFilePath:(NSString*)path ofType:(PBXFileType*)type outputDirectory:(NSString*)outputDir inTargetBuildContext:(PBXTargetBuildContext*)context;
 
 @end
 
