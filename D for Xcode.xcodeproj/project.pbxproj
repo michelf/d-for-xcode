@@ -92,6 +92,10 @@
 		1E87EAF50CEF7E920038D2D3 /* PBX-di-small-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E87EAED0CEF7E880038D2D3 /* PBX-di-small-Icon.png */; };
 		1E87EAF60CEF7E930038D2D3 /* PBX-d-Icon-old.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E87EAEE0CEF7E880038D2D3 /* PBX-d-Icon-old.png */; };
 		1E92E9730CB1EECC00285434 /* DXParserToolsPureDMD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E92E9720CB1EECC00285434 /* DXParserToolsPureDMD.cpp */; };
+		1EAD1BAB1019BAD000C21009 /* dmd.xcspec in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD1BAA1019BAD000C21009 /* dmd.xcspec */; };
+		1EAD1BB01019BC1400C21009 /* DXCompilerSpecificationDMD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD1BAF1019BC1400C21009 /* DXCompilerSpecificationDMD.m */; };
+		1EAD1BB61019BE1700C21009 /* dmd.pbcompspec in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD1BB41019BE1700C21009 /* dmd.pbcompspec */; };
+		1EAD1BB71019BE1700C21009 /* dmd.pblinkspec in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD1BB51019BE1700C21009 /* dmd.pblinkspec */; };
 		1EC647BB0DABA8D400DD52F0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EC647BA0DABA8D400DD52F0 /* SenTestingKit.framework */; };
 		1EC647D80DABA8FF00DD52F0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		1ECA60C10CF7CB2F006CECB1 /* DXLauncherRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1AC00B0CF68A970014F648 /* DXLauncherRegistration.m */; };
@@ -286,6 +290,11 @@
 		1E87EAED0CEF7E880038D2D3 /* PBX-di-small-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PBX-di-small-Icon.png"; sourceTree = "<group>"; };
 		1E87EAEE0CEF7E880038D2D3 /* PBX-d-Icon-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PBX-d-Icon-old.png"; sourceTree = "<group>"; };
 		1E92E9720CB1EECC00285434 /* DXParserToolsPureDMD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DXParserToolsPureDMD.cpp; sourceTree = "<group>"; };
+		1EAD1BAA1019BAD000C21009 /* dmd.xcspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xcspec; path = dmd.xcspec; sourceTree = "<group>"; };
+		1EAD1BAE1019BC1400C21009 /* DXCompilerSpecificationDMD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXCompilerSpecificationDMD.h; sourceTree = "<group>"; };
+		1EAD1BAF1019BC1400C21009 /* DXCompilerSpecificationDMD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXCompilerSpecificationDMD.m; sourceTree = "<group>"; };
+		1EAD1BB41019BE1700C21009 /* dmd.pbcompspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dmd.pbcompspec; sourceTree = "<group>"; };
+		1EAD1BB51019BE1700C21009 /* dmd.pblinkspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dmd.pblinkspec; sourceTree = "<group>"; };
 		1EC647B40DABA85300DD52F0 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC647B50DABA85300DD52F0 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = SOURCE_ROOT; };
 		1EC647BA0DABA8D400DD52F0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/SenTestingKit.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
@@ -411,9 +420,12 @@
 				1E0226F20D4CB2E0004C9141 /* d.xcsynspec */,
 				1E6BF4140CAF52AD0022460C /* d.xctxtmacro */,
 				6DB1DD8108B3A289004F6FFB /* d.xcbuildrules */,
+				1EAD1BAA1019BAD000C21009 /* dmd.xcspec */,
+				1EAD1BB41019BE1700C21009 /* dmd.pbcompspec */,
+				1EAD1BB51019BE1700C21009 /* dmd.pblinkspec */,
 				1E68F1FD0D4B6E58008144DB /* gdc.xcspec */,
-				6DB1DD8408B3A289004F6FFB /* gdc.pblinkspec */,
 				6DB1DD8708B3A289004F6FFB /* gdc.pbcompspec */,
+				6DB1DD8408B3A289004F6FFB /* gdc.pblinkspec */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -457,6 +469,8 @@
 				1E92E9720CB1EECC00285434 /* DXParserToolsPureDMD.cpp */,
 				1E01E4940DED711100CE9033 /* DXScannerTools.h */,
 				1E01E4920DED70C800CE9033 /* DXScannerTools.m */,
+				1EAD1BAE1019BC1400C21009 /* DXCompilerSpecificationDMD.h */,
+				1EAD1BAF1019BC1400C21009 /* DXCompilerSpecificationDMD.m */,
 				1E6BEBF30CADF7D40022460C /* DXCompilerSpecificationGDC.h */,
 				1E6BEBF40CADF7D40022460C /* DXCompilerSpecificationGDC.m */,
 				1EF9B80A0D8A986800AF150C /* DXDNumberScanner.h */,
@@ -765,6 +779,9 @@
 				1E0226F30D4CB2E0004C9141 /* d.xcsynspec in Resources */,
 				1E65A6390E3192B000AF8BB7 /* PBX-di-Icon.png in Resources */,
 				1E65A63A0E3192B000AF8BB7 /* PBX-d-Icon.png in Resources */,
+				1EAD1BAB1019BAD000C21009 /* dmd.xcspec in Resources */,
+				1EAD1BB61019BE1700C21009 /* dmd.pbcompspec in Resources */,
+				1EAD1BB71019BE1700C21009 /* dmd.pblinkspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -935,6 +952,7 @@
 				1EF9B80C0D8A986800AF150C /* DXDNumberScanner.m in Sources */,
 				1E3D305F0DEE4DD800AE867B /* DXScannerTools.m in Sources */,
 				1E67105C100988A700361CC2 /* DXFileTypeSetup.m in Sources */,
+				1EAD1BB01019BC1400C21009 /* DXCompilerSpecificationDMD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

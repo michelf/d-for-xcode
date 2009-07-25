@@ -1,5 +1,5 @@
 
-// GDC linker specification for Xcode 2
+// DMD linker specification for Xcode 2
 // Copyright (C) 2007-2008  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
@@ -19,25 +19,19 @@
 (
 	// Using Apple Mach-O linker with additional arguments
 	{
-		Identifier = com.michelf.dxcode.gdc.linker;
+		Identifier = com.michelf.dxcode.dmd.linker;
 		BasedOn = com.apple.pbx.linkers.ld;
-		Name = "GDC Linker";
-		Description = "GDC Linker";
+		Name = "DMD Linker";
+		Description = "DMD Linker";
 		ExecPath = "/usr/bin/gcc";
 		
 		// Tell Xcode 2.5 to not display the linker in the user interface.
         IsAbstract = Yes;
 		
-		// GDC forgets its standard libraries when using the -filelist argument.
-		// Adding them here works around that problem.
-		//
-		// But we're using GCC to link instead since -lgphobos, implied when 
-		// calling GDC, doesn't work with SDKs. To fix that, gphobos is
-		// specified by path.
 		Options = (
 			{
 			    Name = LINK_WITH_STANDARD_LIBRARIES;
-                CommandLineArgs = { NO = (); "<<otherwise>>" = ("/usr/lib/libgphobos.a", "-lgcc_eh"); };
+                CommandLineArgs = { NO = (); "<<otherwise>>" = ("/usr/local/lib/libphobos.a"); };
             }
 		);
 	},

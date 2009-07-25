@@ -1,5 +1,5 @@
 
-// D for Xcode: Compiler Specification for GDC
+// D for Xcode: Compiler Specification for DMD
 // Copyright (C) 2007-2008  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
@@ -16,7 +16,7 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
-#import "DXCompilerSpecificationGDC.h"
+#import "DXCompilerSpecificationDMD.h"
 #import "DXParserTools.h"
 
 #import "XCPBuildSystem.h"
@@ -24,11 +24,11 @@
 #import "XCPSupport.h"
 
 
-@implementation DXCompilerSpecificationGDC
+@implementation DXCompilerSpecificationDMD
 
 + (void)initialize {
 	PBXFileType *type = (PBXFileType*)[PBXFileType specificationForIdentifier:@"sourcecode.d"];
-	XCCompilerSpecification *spec = (XCCompilerSpecification*)[XCCompilerSpecification specificationForIdentifier:@"com.michelf.dxcode.gdc"];
+	XCCompilerSpecification *spec = (XCCompilerSpecification*)[XCCompilerSpecification specificationForIdentifier:@"com.michelf.dxcode.dmd"];
 	[PBXTargetBuildContext activateImportedFileType:type withCompiler:spec];
 	
 	DXParserInit();
@@ -36,12 +36,12 @@
 
 - (NSArray *)importedFilesForPath:(NSString *)path ensureFilesExist:(BOOL)ensure inTargetBuildContext:(PBXTargetBuildContext *)context
 {
-//	NSString* outputDir = [context expandedValueForString:@"$(OBJFILES_DIR_$(variant))/$(arch)"];
+	//	NSString* outputDir = [context expandedValueForString:@"$(OBJFILES_DIR_$(variant))/$(arch)"];
 	XCDependencyNode* inputNode = [context dependencyNodeForName:path createIfNeeded:YES];
 	
 	NSSet *filenames = DXSourceDependenciesForPath([NSString stringWithContentsOfFile:path]);
 	NSMutableArray *imported = [NSMutableArray arrayWithCapacity:[filenames count]];
-
+	
 	NSEnumerator *e = [filenames objectEnumerator];
 	NSString *filename;
 	while (filename = [e nextObject]) {
@@ -51,19 +51,19 @@
 		[node setDontCareIfExists:YES];
 		[inputNode addIncludedNode:node];
 		[imported addObject:filename];
-
-//		if ([context expandedBooleanValueForString:@"$(GDC_GENERATE_INTERFACE_FILES)"] &&
-//			[filepath hasSuffix:@".d"])
-//		{
-//			NSString *objRoot = [context expandedValueForString:@"$(OBJROOT)"];
-//			NSString *interfaceDir = [objRoot stringByAppendingPathComponent:@"dinterface"];
-//			NSString *interfaceFile = [interfaceDir stringByAppendingPathComponent:[filepath stringByAppendingPathExtension:@"di"]];
-//			
-//			node = [context dependencyNodeForName:interfaceFile createIfNeeded:YES];
-//			[node setDontCareIfExists:YES];
-//			[inputNode addIncludedNode:node];
-//			[imported addObject:filename];
-//		}
+		
+		//		if ([context expandedBooleanValueForString:@"$(GDC_GENERATE_INTERFACE_FILES)"] &&
+		//			[filepath hasSuffix:@".d"])
+		//		{
+		//			NSString *objRoot = [context expandedValueForString:@"$(OBJROOT)"];
+		//			NSString *interfaceDir = [objRoot stringByAppendingPathComponent:@"dinterface"];
+		//			NSString *interfaceFile = [interfaceDir stringByAppendingPathComponent:[filepath stringByAppendingPathExtension:@"di"]];
+		//			
+		//			node = [context dependencyNodeForName:interfaceFile createIfNeeded:YES];
+		//			[node setDontCareIfExists:YES];
+		//			[inputNode addIncludedNode:node];
+		//			[imported addObject:filename];
+		//		}
 	}
 	
 	return imported;
@@ -98,63 +98,39 @@
 	[dep addArgumentsFromArray:[[context expandedValueForString:@"$(build_file_compiler_flags)"] arrayByParsingAsStringList]];
 	
 	// Need to handle this flag programatically to avoid clashing with zerolink.
-	if([context expandedBooleanValueForString:@"$(GDC_DYNAMIC_NO_PIC)"]) {
-		if(![context expandedBooleanValueForString:@"$(ZERO_LINK)"]) {
-			[dep addArgument:@"-mdynamic-no-pic"];
-		}
-	}
+//	if([context expandedBooleanValueForString:@"$(GDC_DYNAMIC_NO_PIC)"]) {
+//		if(![context expandedBooleanValueForString:@"$(ZERO_LINK)"]) {
+//			[dep addArgument:@"-mdynamic-no-pic"];
+//		}
+//	}
 	
 	[dep addArgument:@"-c"];
-	[dep addArgument:@"-o"];
-	[dep addArgument:output];
+	[dep addArgument:[@"-of" stringByAppendingString:output]];
 	[dep addArgument:input];
 	
 	// Create dependency rules (must be done after dependency command creation)
 	[outputNode addDependedNode:inputNode];
 	
-	// Tell Xcode to use the GDC linker.
-	[context setStringValue:@"com.michelf.dxcode.gdc.linker" forDynamicSetting:@"compiler_mandated_linker"];
+	// Tell Xcode to use DMD as the linker.
+	[context setStringValue:@"com.michelf.dxcode.dmd.linker" forDynamicSetting:@"compiler_mandated_linker"];
 	// This fixes link problem for Xcode 3.1.
 	[context setStringValue:@"/usr/bin/gcc" forDynamicSetting:@"gcc_compiler_driver_for_linking"];
 	
-//	if ([context expandedBooleanValueForString:@"$(GDC_GENERATE_INTERFACE_FILES)"]) {
-//		NSString *objRoot = [context expandedValueForString:@"$(OBJROOT)"];
-//		NSString *interfaceDir = [objRoot stringByAppendingPathComponent:@"dinterface"];
-//		[dep addArgument:@"-I"];
-//		[dep addArgument:interfaceDir];
-//		
-//		NSString *interfaceFile = [interfaceDir stringByAppendingPathComponent:[relativePath stringByAppendingPathExtension:@"di"]];
-//		[dep addArgument:[NSString stringWithFormat:@"-fintfc-file=%@", interfaceFile]];
-//	}
+	//	if ([context expandedBooleanValueForString:@"$(GDC_GENERATE_INTERFACE_FILES)"]) {
+	//		NSString *objRoot = [context expandedValueForString:@"$(OBJROOT)"];
+	//		NSString *interfaceDir = [objRoot stringByAppendingPathComponent:@"dinterface"];
+	//		[dep addArgument:@"-I"];
+	//		[dep addArgument:interfaceDir];
+	//		
+	//		NSString *interfaceFile = [interfaceDir stringByAppendingPathComponent:[relativePath stringByAppendingPathExtension:@"di"]];
+	//		[dep addArgument:[NSString stringWithFormat:@"-fintfc-file=%@", interfaceFile]];
+	//	}
 	
 	// update source <-> output links
 	[context setCompiledFilePath:output forSourceFilePath:input];
-		
+	
 	// set output objects
 	return [NSArray arrayWithObject:outputNode];
 }
-
-//- (NSArray*)computeDependenciesForFilePath:(NSString*)path ofType:(PBXFileType*)type outputDirectory:(NSString*)outputDir inTargetBuildContext:(PBXTargetBuildContext*)context
-//{
-//	NSLog(@"[depForFPath:%@ ofType:%@ outDir:%@ inTargBuildCtx:%@]", path, [type description], outputDir, [context description]);
-//	NSArray* result = [super computeDependenciesForFilePath:path ofType:type outputDirectory:outputDir inTargetBuildContext:context];
-//
-//	NSEnumerator* e = [result objectEnumerator];
-//	XCDependencyNode* o;
-//	while (o = [e nextObject])
-//	{
-//		NSLog(@"- (%@) %@", [o className], [o description]);
-//		{
-//			XCDependencyNode* i = [o includedNodes];
-//			NSLog(@"-included- (%@) %@", [i className], [i description]);
-//		}
-//		{
-//			XCDependencyNode* i = [o includingNodes];
-//			NSLog(@"-including- (%@) %@", [i className], [i description]);
-//		}
-//	}
-//	
-//	return result;
-//}
 
 @end

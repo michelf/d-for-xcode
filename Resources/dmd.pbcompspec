@@ -1,16 +1,12 @@
 
-// GDC compiler specification for Xcode 3
+// DMD compiler specification for Xcode 3
 // Copyright (C) 2007-2008  Michel Fortin
 //
 // Based on the D Xcode Compiler Plugin
 // Copyright (C) 2005-2006  Alan West
 //
-// For use with the GCC D Compiler front end <http://dgcc.sourceforge.net/> 
-//   by David Friedman <d3rdclsmail@earthlink.net>
-// as packaged in GDCMac <http://gdcmac.sourceforge.net/> 
-//   by Anders F Björklund <afb@users.sourceforge.net>.
-//
-// Note: the GDC executable is expected to be at: /usr/bin/gdc
+// For use with the Mac OS X DMD Compiler <http://www.digitalmars.com/d/>.
+// Note: the DMD executable is expected to be at: /usr/local/bin/dmd
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
 // under the terms of the GNU General Public License as published by the Free 
@@ -28,41 +24,41 @@
 
 {
 	Type = Compiler;
-	Identifier = com.michelf.dxcode.gdc;
-	Class = DXCompilerSpecificationGDC;
+	Identifier = com.michelf.dxcode.dmd;
+	Class = DXCompilerSpecificationDMD;
 	FileTypes = (sourcecode.d);
-	Name = "GDC D Compiler";
-	Description = "GDC D Compiler";
+	Name = "Digital Mars D Compiler (DMD)";
+	Description = "Digital Mars D Compiler (DMD)";
 	Version = "Default";
-	ExecPath = "/usr/bin/gdc";
-	Architectures = (i386, ppc, ppc7400, ppc7450, ppc970, ppc64);
+	ExecPath = "/usr/local/bin/dmd";
+//	Architectures = (i386);
 	SupportsZeroLink = NO;
 	SupportsPredictiveCompilation = NO;
 	SupportsHeadermaps = NO;
-	OptionsForCommandLinePrefix = "GDC_";
+	OptionsForCommandLinePrefix = "DMD_";
 	CommandOutputParser = (
-		("warning - (.*?):([0-9]+): (.*)", emit-warning),
-		("(.*?):([0-9]+): Error: (.*)", emit-error),
-		("(.*?):([0-9]+): (.*)", emit-error)
+		("warning - (.*?)\\(([0-9]+)\\): (.*)", emit-warning),
+		("(.*?)\\(([0-9]+)\\): Error: (.*)", emit-error),
+		("(.*?)\\(([0-9]+)\\): (.*)", emit-error)
 	);
 
 	Options = (
-		{
-			Name = arch;
-			CommandLineArgs = ( "-arch", "$(value)" );
-		},
+//		{
+//			Name = arch;
+//			CommandLineArgs = ( "-arch", "$(value)" );
+//		},
 
 		// Search Paths
 		{
-			Name = GDC_MODULE_SEARCH_PATHS;
+			Name = DMD_MODULE_SEARCH_PATHS;
 			Type = pathlist;
 			DefaultValue = "/usr/include/d";
 			CommonOption = YES;
-			CommandLineArgs = ("-I", "$(value)");
+			CommandLineArgs = ("-I$(value)");
 			Category = SearchPaths;
 		},
 		{
-			Name = GDC_IMPORT_EXPRESSION_SEARCH_PATHS;
+			Name = DMD_IMPORT_EXPRESSION_SEARCH_PATHS;
 			Type = pathlist;
 			DefaultValue = "";
 			CommonOption = YES;
@@ -72,36 +68,36 @@
 
 		// Language
 		{
-			Name = GDC_UNIT_TEST;
+			Name = DMD_UNIT_TEST;
 			Type = bool;
 			DefaultValue = NO;
-			CommandLineArgs = { YES = ("-funittest"); NO = (); };
+			CommandLineArgs = { YES = ("-unittest"); NO = (); };
 			Category = Language;
 		},
 		{
-			Name = GDC_VERSION_IDENTIFIERS;
+			Name = DMD_VERSION_IDENTIFIERS;
 			Type = stringlist;
 			DefaultValue = "";
-			CommandLineArgs = ( "-fversion=${0}" );
+			CommandLineArgs = ( "-version=${0}" );
 			Category = Language;
 		},
 		{
-			Name = GDC_DEBUG_IDENTIFIERS;
+			Name = DMD_DEBUG_IDENTIFIERS;
 			Type = stringlist;
 			DefaultValue = "";
-			CommandLineArgs = ( "-fdebug=${0}" );
+			CommandLineArgs = ( "-debug=${0}" );
 			Condition = "$(GDC_ENABLE_DEBUG_CODE)";
 			Category = Language;
 		},
 		{
-			Name = GDC_ALLOW_DEPRECATED;
+			Name = DMD_ALLOW_DEPRECATED;
 			Type = bool;
 			DefaultValue = NO;
-			CommandLineArgs = { YES = (-fdeprecated); NO = (); };
+			CommandLineArgs = { YES = (-deprecated); NO = (); };
 			Category = Language;
 		},
 		{
-			Name = GDC_OTHER_FLAGS;
+			Name = DMD_OTHER_FLAGS;
 			Type = stringlist; 
 			DefaultValue = ""; 
 			Category = Language;
@@ -111,81 +107,81 @@
 		
 		// Documentation
 		{
-			Name = GDC_DDOC;
+			Name = DMD_DDOC;
 			Type = bool;
 			DefaultValue = NO;
-			CommandLineArgs = { YES = (-fdoc); NO = (); };
+			CommandLineArgs = { YES = ("-D"); NO = (); };
 			Category = Documentation;
 		},
 		{
-			Name = GDC_DDOC_DIR;
+			Name = DMD_DDOC_DIR;
 			Type = string; 
 			DefaultValue = "";
-			CommandLineArgs = ( "-fdoc-dir=$(value)" );
+			CommandLineArgs = ( "-Dd$(value)" );
 			Condition = "$(GDC_DDOC)";
-            AppearsOnCommandLineAfter = GDC_DDOC;
+            AppearsOnCommandLineAfter = DMD_DDOC;
 			Category = Documentation;
 		},
 		{
 			Name = GDC_DDOC_FILENAME;
 			Type = string;
 			DefaultValue = "";
-			CommandLineArgs = ( "-fdoc-file=$(value)" );
+			CommandLineArgs = ( "-Df$(value)" );
 			Condition = "$(GDC_DDOC)";
-            AppearsOnCommandLineAfter = GDC_DDOC;
+            AppearsOnCommandLineAfter = DMD_DDOC;
 			Category = Documentation;
 		},
 		{
 			Name = GDC_DDOC_INCLUDES;
 			Type = stringlist; 
 			DefaultValue = "";
-			CommandLineArgs = ("-fdoc-inc=${0}");
+			CommandLineArgs = ("${0}");
 			Condition = "$(GDC_DDOC)";
-            AppearsOnCommandLineAfter = GDC_DDOC;
+            AppearsOnCommandLineAfter = DMD_DDOC;
 			Category = Documentation;
 		},
 		
 		// Code Generation
+//		{
+//			Name = DMD_ENABLE_BOUNDS_CHECK;
+//			Type = bool;
+//			DefaultValue = YES;
+//			CommandLineArgs = { YES = (-fbounds-check); NO = (-fno-bounds-check); };
+//			Category = CodeGeneration;
+//			CommonOption = YES;
+//		},
 		{
-			Name = GDC_ENABLE_BOUNDS_CHECK;
-			Type = bool;
-			DefaultValue = YES;
-			CommandLineArgs = { YES = (-fbounds-check); NO = (-fno-bounds-check); };
-			Category = CodeGeneration;
-			CommonOption = YES;
-		},
-		{
-			Name = GDC_ENABLE_RELEASE_CODE;
-			Type = bool;
-			DefaultValue = NO;
-			CommandLineArgs = { YES = (-frelease); NO = (); };
-			Category = CodeGeneration;
-			CommonOption = YES;
-		},
-		{
-			Name = GDC_ENABLE_DEBUG_CODE;
+			Name = DMD_ENABLE_RELEASE_CODE;
 			Type = bool;
 			DefaultValue = NO;
-			CommandLineArgs = { YES = (-fdebug); NO = (); };
+			CommandLineArgs = { YES = (-release); NO = (); };
 			Category = CodeGeneration;
 			CommonOption = YES;
 		},
 		{
-			Name = GDC_INLINE_FUNCTIONS;
+			Name = DMD_ENABLE_DEBUG_CODE;
 			Type = bool;
 			DefaultValue = NO;
-			CommandLineArgs = { YES = (-finline-functions); NO = (); };
+			CommandLineArgs = { YES = (-debug); NO = (); };
 			Category = CodeGeneration;
 			CommonOption = YES;
 		},
 		{
-			Name = GDC_EMIT_TEMPLATES;
-			Type = enum;
-			AllowedValues = (normal, private, all, none, auto, full);
-			DefaultValue = auto;
-			CommandLineArgs = { none=(-fno-emit-templates) ; "<<otherwise>>"=("-femit-templates=${0}"); };
+			Name = DMD_INLINE_FUNCTIONS;
+			Type = bool;
+			DefaultValue = NO;
+			CommandLineArgs = { YES = (-inline); NO = (); };
 			Category = CodeGeneration;
+			CommonOption = YES;
 		},
+//		{
+//			Name = DMD_EMIT_TEMPLATES;
+//			Type = enum;
+//			AllowedValues = (normal, private, all, none, auto, full);
+//			DefaultValue = auto;
+//			CommandLineArgs = { none=(-fno-emit-templates) ; "<<otherwise>>"=("-femit-templates=${0}"); };
+//			Category = CodeGeneration;
+//		},
 //		{
 //			Name = GDC_GENERATE_INTERFACE_FILES;
 //			Type = bool;
@@ -194,9 +190,9 @@
 //			CommonOption = YES;
 //		},
 		
-		// Gode Generation (GCC Backend)
+		// Gode Generation
 		{
-			Name = GDC_GENERATE_DEBUGGING_SYMBOLS;
+			Name = DMD_GENERATE_DEBUGGING_SYMBOLS;
 			Type = bool;
 //			DefaultValue = YES;
 			DefaultValue = "$(GCC_GENERATE_DEBUGGING_SYMBOLS)";
@@ -204,34 +200,33 @@
 			CommonOption = YES;
 		},
 		{
-			Name = GDC_DEBUGGING_SYMBOLS;
+			Name = DMD_DEBUGGING_SYMBOLS;
 			Type = enum;
-			AllowedValues = (default);
+			AllowedValues = (default, c-compatible);
 //			DefaultValue = default;
 			DefaultValue = "$(GCC_DEBUGGING_SYMBOLS)";
-			CommandLineArgs = { default = (-g); };
-			Condition = "$(GDC_GENERATE_DEBUGGING_SYMBOLS)";
+			CommandLineArgs = { default = (-g); c-compatible = (-gc); };
+			Condition = "$(DMD_GENERATE_DEBUGGING_SYMBOLS)";
 			Category = CodeGeneration;
 		},
 		{
-			Name = GDC_OPTIMIZATION_LEVEL;
-			Type = enum;
-			AllowedValues = (0, 1, 2, 3, s);
+			Name = DMD_OPTIMIZATION;
+			Type = bool;
 //			DefaultValue = s;
 			DefaultValue = "$(GCC_OPTIMIZATION_LEVEL)";
-			CommandLineArgs = ("-O${0}");
+			CommandLineArgs = ("-O");
 			Category = CodeGeneration;
 		},
-		{
-			Name = GDC_MODEL_TUNING;
-			Type = enum;
-			AllowedValues = ("", G3, G4, G5);
-//			DefaultValue = G4
-			DefaultValue = "$(GCC_MODEL_TUNING)";
-			CommandLineArgs = { "" = (); "<<otherwise>>" = ("-mtune=${0}"); };
-			Architectures = (ppc, ppc7400, ppc7450, ppc970, ppc64);
-			Category = CodeGeneration;
-		},
+//		{
+//			Name = GDC_MODEL_TUNING;
+//			Type = enum;
+//			AllowedValues = ("", G3, G4, G5);
+////			DefaultValue = G4
+//			DefaultValue = "$(GCC_MODEL_TUNING)";
+//			CommandLineArgs = { "" = (); "<<otherwise>>" = ("-mtune=${0}"); };
+//			Architectures = (ppc, ppc7400, ppc7450, ppc970, ppc64);
+//			Category = CodeGeneration;
+//		},
 //		{
 //			Name = GDC_GENERATE_PROFILING_CODE;
 //			Type = bool;
@@ -239,24 +234,24 @@
 //			CommandLineArgs = { YES = (-pg); NO = (); };
 //			Category = CodeGeneration;
 //		},
+//		{
+//			Name = GDC_NO_COMMON_BLOCKS;
+//			Type = bool;
+////			DefaultValue = NO;
+//			DefaultValue = "$(GCC_NO_COMMON_BLOCKS)";
+//			CommandLineArgs = { YES = (-fno-common); NO = (); };
+//			Category = CodeGeneration;
+//		},
+//		{
+//			Name = GDC_REUSE_STRINGS;
+//			Type = bool;
+////			DefaultValue = YES;
+//			DefaultValue = "$(GCC_REUSE_STRINGS)";
+//			CommandLineArgs = { YES = (); NO = (-fwritable-strings); };
+//			Category = CodeGeneration;
+//		},
 		{
-			Name = GDC_NO_COMMON_BLOCKS;
-			Type = bool;
-//			DefaultValue = NO;
-			DefaultValue = "$(GCC_NO_COMMON_BLOCKS)";
-			CommandLineArgs = { YES = (-fno-common); NO = (); };
-			Category = CodeGeneration;
-		},
-		{
-			Name = GDC_REUSE_STRINGS;
-			Type = bool;
-//			DefaultValue = YES;
-			DefaultValue = "$(GCC_REUSE_STRINGS)";
-			CommandLineArgs = { YES = (); NO = (-fwritable-strings); };
-			Category = CodeGeneration;
-		},
-		{
-			Name = GDC_DYNAMIC_NO_PIC;
+			Name = DMD_DYNAMIC_NO_PIC;
 			Type = bool;
 			DefaultValue = NO;
 			DefaultValue = "$(GCC_DYNAMIC_NO_PIC)";
@@ -267,10 +262,10 @@
 
         // Warnings
 		{
-			Name = GDC_WARNINGS;
+			Name = DMD_WARNINGS;
 			Type = bool;
 			DefaultValue = NO;
-			CommandLineArgs = { YES = (-Wall); NO = (); };
+			CommandLineArgs = { YES = (-w); NO = (); };
 			FileTypes = (sourcecode.c.c, sourcecode.c.objc);
 			Category = Language;
 			CommonOption = YES;

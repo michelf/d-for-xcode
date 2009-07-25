@@ -1,5 +1,5 @@
 
-// D compiler specification for Xcode 2
+// GDC compiler specification for Xcode 2
 // Copyright (C) 2007-2008  Michel Fortin
 //
 // Based on the D Xcode Compiler Plugin

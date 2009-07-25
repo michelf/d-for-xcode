@@ -1,9 +1,6 @@
 
-// D source code file specification.
+// D for Xcode: Compiler Specification for DMD
 // Copyright (C) 2007-2008  Michel Fortin
-//
-// Based on the D Xcode Compiler Plugin
-// Copyright (C) 2005, 2006  Alan West
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
 // under the terms of the GNU General Public License as published by the Free 
@@ -19,10 +16,16 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
-(
-    {
-        Name = "System D rule";
-        FileType = sourcecode.d;
-        CompilerSpec = com.michelf.dxcode.dmd;
-    }
-)
+#import <XCPSpecifications.h>
+
+@interface DXCompilerSpecificationDMD : XCCompilerSpecification {
+
+}
+
++ (void) initialize;
+
+- (NSArray *)importedFilesForPath:(NSString *)path ensureFilesExist:(BOOL)ensure inTargetBuildContext:(PBXTargetBuildContext *)context;
+
+- (NSArray *)computeDependenciesForInputFile:(NSString *)input ofType:(PBXFileType*)type variant:(NSString *)variant architecture:(NSString *)arch outputDirectory:(NSString *)outputDir inTargetBuildContext:(PBXTargetBuildContext *)context;
+
+@end
