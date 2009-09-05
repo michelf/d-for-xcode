@@ -34,6 +34,16 @@
 	DXParserInit();
 }
 
+- (id)initWithPropertyListDictionary:(id)plist {
+	cachedVersion = 0;
+	return [super initWithPropertyListDictionary:plist];
+}
+
+- (void)dealloc {
+	[cachedVersion release];
+	[super dealloc];
+}
+
 - (NSArray *)importedFilesForPath:(NSString *)path ensureFilesExist:(BOOL)ensure inTargetBuildContext:(PBXTargetBuildContext *)context
 {
 	//	NSString* outputDir = [context expandedValueForString:@"$(OBJFILES_DIR_$(variant))/$(arch)"];
@@ -112,7 +122,11 @@
 	[outputNode addDependedNode:inputNode];
 	
 	// Tell Xcode to use DMD as the linker.
-	[context setStringValue:@"com.michelf.dxcode.dmd.linker" forDynamicSetting:@"compiler_mandated_linker"];
+	NSString *v = [self versionString];
+	if ([v length] && [v characterAtIndex:0] < '2')
+		[context setStringValue:@"com.michelf.dxcode.dmd1.linker" forDynamicSetting:@"compiler_mandated_linker"];
+	else
+		[context setStringValue:@"com.michelf.dxcode.dmd2.linker" forDynamicSetting:@"compiler_mandated_linker"];
 	// This fixes link problem for Xcode 3.1.
 	[context setStringValue:@"/usr/bin/gcc" forDynamicSetting:@"gcc_compiler_driver_for_linking"];
 	
@@ -131,6 +145,49 @@
 	
 	// set output objects
 	return [NSArray arrayWithObject:outputNode];
+}
+
+- (NSString*)versionString {
+	if (!cachedVersion) {
+		// run executable and extract version number from first line.
+		FILE *output = popen([[self executablePath] cString], "r");
+		if (output) {
+			char firstLine[48];
+			if (fgets(firstLine, 47, output)) {
+				// First line expected like "Digital Mars D Compiler v1.x"
+				// skip to last word
+				char *startOfLastWord = firstLine;
+				char *cur = firstLine;
+				while (*cur != '\0') {
+					if (*cur == ' ')
+						startOfLastWord = cur+1;
+					else if (*cur == '\n')
+						*cur = '\0';
+					++cur;
+				}
+				// skip 'v' before version.
+				if (*startOfLastWord == 'v')
+					++startOfLastWord;
+				cachedVersion = [[NSString alloc] initWithCString:startOfLastWord];
+			} else
+				cachedVersion = @"n/a";
+			pclose(output);
+		} else
+			cachedVersion = @"n/a";
+	}
+	return cachedVersion;
+}
+
+- (NSString*)stringByAppendingVersionTo:(NSString *)str {
+	return [str stringByAppendingFormat:@" (%@)", [self versionString]];
+}
+
+- (NSString*)name {
+	return [self stringByAppendingVersionTo:[super name]];
+}
+
+- (NSString*)description {
+	return [self stringByAppendingVersionTo:[super description]];
 }
 
 @end

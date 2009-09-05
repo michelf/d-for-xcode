@@ -1,0 +1,133 @@
+
+// String for DMD D compiler settings
+// Part of D for Xcode
+
+
+// Generalities
+
+"Name" = "DMD";
+"Description" = "Digital Mars D Compiler";
+"Version" = "Default";
+
+
+// Search Paths
+
+"[SearchPaths]-category" = "Search Paths";
+
+"[DMD_MODULE_SEARCH_PATHS]-name" = "Module Search Paths";
+"[DMD_MODULE_SEARCH_PATHS]-description" = "Paths to seach for modules when importing form other modules. [DMD_MODULE_SEARCH_PATHS]";
+
+"[DMD_IMPORT_EXPRESSION_SEARCH_PATHS]-name" = "Import Expression Search Paths";
+"[DMD_IMPORT_EXPRESSION_SEARCH_PATHS]-description" = "Paths to seach for files imported using D import expressions. [DMD_IMPORT_EXPRESSION_SEARCH_PATHS]";
+
+
+// Language
+
+"[Language]-category" = "Language";
+
+"[DMD_UNIT_TEST]-name" = "Unit Test";
+"[DMD_UNIT_TEST]-description" = "Perform the unit tests upon successful compilation. [DMD_UNIT_TEST, -unittest]";
+
+"[DMD_VERSION_IDENTIFIERS]-name" = "Version Identifiers";
+"[DMD_VERSION_IDENTIFIERS]-description" = "Specify the version identifiers for sections of code you wish to allow. [DMD_VERSION_IDENTIFIERS, -fversion]";
+
+"[DMD_DEBUG_IDENTIFIERS]-name" = "Debug Identifiers";
+"[DMD_DEBUG_IDENTIFIERS]-description" = "Specify identifiers for debug sections you wish to allow. These sections are only compiled-in when the Debug option (in Code Generation) is selected. [DMD_DEBUG_IDENTIFIERS, -debug]";
+
+"[DMD_ALLOW_DEPRECATED]-name" = "Allow Deprecated";
+"[DMD_ALLOW_DEPRECATED]-description" = "Allow use of source code marked as deprecated. [DMD_ALLOW_DEPRECATED, -deprecated]";
+
+"[DMD_OTHER_FLAGS]-name" = "Other DMD Flags";
+"[DMD_OTHER_FLAGS]-description" = "Specify additional flags to be used when invoking the D compiler. [DMD_OTHER_FLAGS]";
+
+"[DMD_WARNINGS]-name" = "Warnings";
+"[DMD_WARNINGS]-description" = "Display warnings about potential trouble-spots. Any warning will cause the compiler to abort. [DMD_WARNINGS]";
+
+//"[DMD_TREAT_WARNINGS_AS_ERRORS]-name" = "Treat Warnings As Error";
+//"[DMD_TREAT_WARNINGS_AS_ERRORS]-description" = "Treat any warning as an error and abort compilation. The Warning option needs to be selected for this to have an effect. [DMD_TREAT_WARNINGS_AS_ERRORS]";
+
+
+// Documentation
+
+"[Documentation]-category" = "Documentation";
+
+"[DMD_DDOC]-name" = "Generate Documentation";
+"[DMD_DDOC]-description" = "Generate documentation files when compiling using Ddoc. [DMD_DDOC, -fdoc]";
+
+"[DMD_DDOC_DIR]-name" = "Ddoc Output Directory";
+"[DMD_DDOC_DIR]-description" = "Directory to write Ddoc-generated files. [DMD_DDOC_DIR, -Dd]";
+
+"[DMD_DDOC_FILENAME]-name" = "Ddoc Output Filename";
+"[DMD_DDOC_FILENAME]-description" = "Filename for the Ddoc-generated files. [DMD_DDOC_FILENAME, -Df]";
+
+"[DMD_DDOC_INCLUDES]-name" = "Ddoc Include";
+"[DMD_DDOC_INCLUDES]-description" = "Documentation files for Ddoc containing macros and other things for generating code documentation. [DMD_DDOC_INCLUDE]";
+
+
+// Code Generation
+
+"[CodeGeneration]-category" = "Code Generation";
+
+//"[DMD_ENABLE_BOUNDS_CHECK]-name" = "Bounds Checking";
+//"[DMD_ENABLE_BOUNDS_CHECK]-description" = "Generate code that checks access to arrays are within their bounds. [DMD_ENABLE_BOUNDS_CHECK, -bounds-check -fno-bounds-check]";
+
+"[DMD_ENABLE_RELEASE_CODE]-name" = "Release Code";
+"[DMD_ENABLE_RELEASE_CODE]-description" = "Generate code optimized for 'release', ignoring asserts, debug sections, etc. [DMD_ENABLE_RELEASE_CODE, -release]";
+
+"[DMD_ENABLE_DEBUG_CODE]-name" = "Debug Code";
+"[DMD_ENABLE_DEBUG_CODE]-description" = "Generate code for sections of source marked as debug. [DMD_ENABLE_DEBUG_CODE, -debug]";
+
+"[DMD_INLINE_FUNCTIONS]-name" = "Inline Functions";
+"[DMD_INLINE_FUNCTIONS]-description" = "Allow the compiler to expand functions inline. [DMD_INLINE_FUNCTIONS, -inline]";
+
+//"[DMD_EMIT_TEMPLATES]-name" = "Emit Templates";
+//"[DMD_EMIT_TEMPLATES]-description" = "Specify how template code is generated. [DMD_EMIT_TEMPLATES, -femit-templates -fno-emit-templates]";
+
+"[DMD_GENERATE_INTERFACE_FILES]-name" = "Generate Interface Files";
+"[DMD_GENERATE_INTERFACE_FILES]-description" = "Intermediary interface files can be generated to speedup the compilation process when compiling modules. This is particularly effective with template mixins.
+
+Interface files are generated automatically while compiling each module and are kept with intermediary product files. The corresponding module search path is added to the compiler search path. [DMD_GENERATE_INTERFACE_FILES]";
+
+
+// Code Generation (GCC Backend)
+
+"[CodeGeneration]-category" = "Code Generation";
+
+"[DMD_GENERATE_DEBUGGING_SYMBOLS]-name" = "Generate Debug Symbols";
+"[DMD_GENERATE_DEBUGGING_SYMBOLS]-description" = "Enables or disables generation of debug symbols.  When debug symbols are enabled, the level of detail can be controlled by the build 'Level of Debug Symbols' setting. [DMD_GENERATE_DEBUGGING_SYMBOLS]";
+"[DMD_GENERATE_DEBUGGING_SYMBOLS]-value-[NO]" = "No";
+"[DMD_GENERATE_DEBUGGING_SYMBOLS]-value-[YES]" = "Yes";
+
+"[DMD_DEBUGGING_SYMBOLS]-name" = "Type of Debug Symbols";
+"[DMD_DEBUGGING_SYMBOLS]-description" = "Type of debug symbols to generate.  DMD can create Dwarf debug info with D extensions, or in C format.  [DMD_DEBUGGING_SYMBOLS, -g/-gc]";
+"[DMD_DEBUGGING_SYMBOLS]-value-[default]" = "Dwarf with D extensions";
+"[DMD_GENERATE_DEBUGGING_SYMBOLS]-value-[default]" = "Dwarf with D extensions";
+"[DMD_GENERATE_DEBUGGING_SYMBOLS]-value-[c-compatible]" = "Dwarf in C format";
+
+"[DMD_OPTIMIZATION]-name" = "Optimization";
+"[DMD_OPTIMIZATION]-description" = "Optimize generated code. [DMD_OPTIMIZATION]";
+"[DMD_OPTIMIZATION]-value-[NO]" = "No";
+"[DMD_OPTIMIZATION]-value-[YES]" = "Yes";
+
+//"[DMD_MODEL_TUNING]-name" = "Instruction Scheduling";
+//"[DMD_MODEL_TUNING]-description" = "Optimize instruction scheduling for this CPU.  Generated code will run on older processors. [DMD_MODEL_TUNING, -mtune=<cpu>]";
+//"[DMD_MODEL_TUNING]-value-[]" = "None";
+//"[DMD_MODEL_TUNING]-value-[G3]" = "PowerPC G3 [-mtune=G3]";
+//"[DMD_MODEL_TUNING]-value-[G4]" = "PowerPC G4 [-mtune=G4]";
+//"[DMD_MODEL_TUNING]-value-[G5]" = "PowerPC G5 [-mtune=G5]";
+
+//"[DMD_NO_COMMON_BLOCKS]-name" = "No Common Blocks";
+//"[DMD_NO_COMMON_BLOCKS]-description" = "In C, allocate even uninitialized global variables in the data section of the object file, rather than generating them as common blocks.  This has the effect that if the same variable is declared (without extern ) in two different compilations, you will get an error when you link them.  The only reason this might be useful is if you wish to verify that the program will work on other systems which always work this way.  [DMD_NO_COMMON_BLOCKS, -fno-common]";
+//"[DMD_NO_COMMON_BLOCKS]-value-[NO]" = "No";
+//"[DMD_NO_COMMON_BLOCKS]-value-[YES]" = "Yes";
+//
+//"[DMD_REUSE_STRINGS]-name" = "Make Strings Read-Only";
+//"[DMD_REUSE_STRINGS]-description" = "Reuse string literals. [DMD_REUSE_STRINGS, -fwritable-strings]";
+//"[DMD_REUSE_STRINGS]-value-[NO]" = "No";
+//"[DMD_REUSE_STRINGS]-value-[YES]" = "Yes";
+//
+//"[DMD_DYNAMIC_NO_PIC]-name" = "Generate Position-Dependent Code";
+//"[DMD_DYNAMIC_NO_PIC]-description" = "Faster function calls for applications. Not appropriate for shared libraries (which need to be position-independent). [DMD_DYNAMIC_NO_PIC, -mdynamic-no-pic]";
+//"[DMD_DYNAMIC_NO_PIC]-value-[NO]" = "No";
+//"[DMD_DYNAMIC_NO_PIC]-value-[YES]" = "Yes";
+

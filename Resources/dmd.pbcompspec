@@ -33,7 +33,7 @@
 	ExecPath = "/usr/local/bin/dmd";
 //	Architectures = (i386);
 	SupportsZeroLink = NO;
-	SupportsPredictiveCompilation = NO;
+	SupportsPredictiveCompilation = YES;
 	SupportsHeadermaps = NO;
 	OptionsForCommandLinePrefix = "DMD_";
 	CommandOutputParser = (

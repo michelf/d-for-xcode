@@ -27,13 +27,13 @@
 	Identifier = com.michelf.dxcode.dmd;
 	Class = DXCompilerSpecificationDMD;
 	FileTypes = (sourcecode.d);
-	Name = "Digital Mars D Compiler (DMD)";
-	Description = "Digital Mars D Compiler (DMD)";
+	Name = "DMD System Version";
+	Description = "Digital Mars D, System Version";
 	Version = "Default";
 	ExecPath = "/usr/local/bin/dmd";
 //	Architectures = (i386);
 	SupportsZeroLink = NO;
-	SupportsPredictiveCompilation = NO;
+	SupportsPredictiveCompilation = YES;
 	SupportsHeadermaps = NO;
 	OptionsForCommandLinePrefix = "DMD_";
 	CommandOutputParser = (
@@ -117,26 +117,26 @@
 			Name = DMD_DDOC_DIR;
 			Type = string; 
 			DefaultValue = "";
-			CommandLineArgs = ( "-Dd$(value)" );
-			Condition = "$(GDC_DDOC)";
+			CommandLineArgs = { "" = (); "<<otherwise>>" = ( "-Dd${0}" ); };
+			Condition = "$(DMD_DDOC)";
             AppearsOnCommandLineAfter = DMD_DDOC;
 			Category = Documentation;
 		},
 		{
-			Name = GDC_DDOC_FILENAME;
+			Name = DMD_DDOC_FILENAME;
 			Type = string;
 			DefaultValue = "";
-			CommandLineArgs = ( "-Df$(value)" );
-			Condition = "$(GDC_DDOC)";
+			CommandLineArgs = { "" = (); "<<otherwise>>" = ( "-Df${0}" ); };
+			Condition = "$(DMD_DDOC)";
             AppearsOnCommandLineAfter = DMD_DDOC;
 			Category = Documentation;
 		},
 		{
-			Name = GDC_DDOC_INCLUDES;
+			Name = DMD_DDOC_INCLUDES;
 			Type = stringlist; 
 			DefaultValue = "";
 			CommandLineArgs = ("${0}");
-			Condition = "$(GDC_DDOC)";
+			Condition = "$(DMD_DDOC)";
             AppearsOnCommandLineAfter = DMD_DDOC;
 			Category = Documentation;
 		},
@@ -250,15 +250,15 @@
 //			CommandLineArgs = { YES = (); NO = (-fwritable-strings); };
 //			Category = CodeGeneration;
 //		},
-		{
-			Name = DMD_DYNAMIC_NO_PIC;
-			Type = bool;
-			DefaultValue = NO;
-			DefaultValue = "$(GCC_DYNAMIC_NO_PIC)";
-			//CommandLineArgs = { YES = (-mdynamic-no-pic); NO = (); };
-			// Flag mutually exclusive with -fzero-link, handled programatically.
-			Category = CodeGeneration;
-		},
+//		{
+//			Name = DMD_DYNAMIC_NO_PIC;
+//			Type = bool;
+//			DefaultValue = NO;
+//			DefaultValue = "$(GCC_DYNAMIC_NO_PIC)";
+//			//CommandLineArgs = { YES = (-mdynamic-no-pic); NO = (); };
+//			// Flag mutually exclusive with -fzero-link, handled programatically.
+//			Category = CodeGeneration;
+//		},
 
         // Warnings
 		{

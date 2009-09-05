@@ -22,7 +22,7 @@
 		Name = D;
 		Description = D;
 		BasedOn = pbx_root_language;
-		SourceScannerClassName = DXDSourceScanner;
+//		SourceScannerClassName = DXDSourceScanner;
 		SourceLexerClassName = DXDSourceLexer;
 		SupportsIndentation = YES;
 		Indentation = {

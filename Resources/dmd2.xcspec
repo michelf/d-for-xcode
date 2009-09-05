@@ -1,6 +1,12 @@
 
-// DMD linker specification for Xcode 2
+// DMD 2.x compiler specification for Xcode 3
 // Copyright (C) 2007-2008  Michel Fortin
+//
+// Based on the D Xcode Compiler Plugin
+// Copyright (C) 2005-2006  Alan West
+//
+// For use with the Mac OS X DMD Compiler <http://www.digitalmars.com/d/>.
+// Note: the DMD 2.x executable is expected to be at: /usr/local/bin/dmd2
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
 // under the terms of the GNU General Public License as published by the Free 
@@ -16,24 +22,11 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
-(
-	// Using Apple Mach-O linker with additional arguments
-	{
-		Identifier = com.michelf.dxcode.dmd.linker;
-		BasedOn = com.apple.pbx.linkers.ld;
-		Name = "DMD Linker";
-		Description = "DMD Linker";
-		ExecPath = "/usr/bin/gcc";
-		
-		// Tell Xcode 2.5 to not display the linker in the user interface.
-        IsAbstract = Yes;
-		
-		Options = (
-			{
-			    Name = LINK_WITH_STANDARD_LIBRARIES;
-                CommandLineArgs = { NO = (); "<<otherwise>>" = ("/usr/local/lib/libphobos.a"); };
-            }
-		);
-	},
-
-)
+{
+	Identifier = com.michelf.dxcode.dmd2;
+	BasedOn = com.michelf.dxcode.dmd;
+	Name = "DMD 2.x";
+	Description = "Digital Mars D 2.x";
+	ExecPath = "/usr/local/bin/dmd2";
+	Version = "2.x";
+}

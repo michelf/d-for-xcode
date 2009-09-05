@@ -37,7 +37,7 @@
 	ExecPath = "/usr/bin/gdc";
 	Architectures = (i386, ppc, ppc7400, ppc7450, ppc970, ppc64);
 	SupportsZeroLink = NO;
-	SupportsPredictiveCompilation = NO;
+	SupportsPredictiveCompilation = YES;
 	SupportsHeadermaps = NO;
 	OptionsForCommandLinePrefix = "GDC_";
 	CommandOutputParser = (

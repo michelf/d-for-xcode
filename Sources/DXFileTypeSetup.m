@@ -46,6 +46,27 @@ static BOOL DXIsXcode3OrLater() {
 @end
 
 
+void DXExchangeMethodImp(Class c, SEL s1, SEL s2)
+{
+	Method m = class_getClassMethod(c, s1);
+	Method dxm = class_getClassMethod(c, s2);
+	if (m && dxm)
+	{
+#if __LP64__
+		method_exchangeImplementations(m, dxm);
+#else
+		IMP original = dxm->method_imp;
+		dxm->method_imp = m->method_imp;
+		m->method_imp = original;
+		
+		// Clear Objective-C runtime cache
+		if(c->cache->mask != 0)
+			memset(c->cache->buckets, 0, (c->cache->mask+1)*sizeof(Method));
+#endif
+	}
+}
+
+
 @implementation DXFileTypeSetup
 
 + (void)load {
@@ -55,24 +76,8 @@ static BOOL DXIsXcode3OrLater() {
 		Class c = objc_getClass("PBXFileType");
 		
 		// Exchange method implementations
-		{
-			Method m = class_getClassMethod(c, @selector(fileTypeForFileName:posixPermissions:hfsTypeCode:hfsCreatorCode:));
-			Method dxm = class_getClassMethod(c, @selector(DX_fileTypeForFileName:posixPermissions:hfsTypeCode:hfsCreatorCode:));
-			IMP original = dxm->method_imp;
-			dxm->method_imp = m->method_imp;
-			m->method_imp = original;
-		}
-		{
-			Method m = class_getClassMethod(c, @selector(fileTypeForPath:getExtraFileProperties:));
-			Method dxm = class_getClassMethod(c, @selector(DX_fileTypeForPath:getExtraFileProperties:));
-			IMP original = dxm->method_imp;
-			dxm->method_imp = m->method_imp;
-			m->method_imp = original;
-		}
-			
-		// Clear Objective-C runtime cache
-		if(c->cache->mask != 0)
-			memset(c->cache->buckets, 0, (c->cache->mask+1)*sizeof(Method));
+		DXExchangeMethodImp(c, @selector(fileTypeForFileName:posixPermissions:hfsTypeCode:hfsCreatorCode:), @selector(DX_fileTypeForFileName:posixPermissions:hfsTypeCode:hfsCreatorCode:));
+		DXExchangeMethodImp(c, @selector(fileTypeForPath:getExtraFileProperties:), @selector(DX_fileTypeForPath:getExtraFileProperties:));
 	}
 }
 

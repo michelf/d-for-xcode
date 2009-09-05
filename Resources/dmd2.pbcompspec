@@ -1,6 +1,12 @@
 
-// D for Xcode: Compiler Specification for DMD
+// DMD 2.x compiler specification for Xcode 3
 // Copyright (C) 2007-2008  Michel Fortin
+//
+// Based on the D Xcode Compiler Plugin
+// Copyright (C) 2005-2006  Alan West
+//
+// For use with the Mac OS X DMD Compiler <http://www.digitalmars.com/d/>.
+// Note: the DMD executable is expected to be at: /usr/local/bin/dmd
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
 // under the terms of the GNU General Public License as published by the Free 
@@ -16,24 +22,11 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
-#import <XCPSpecifications.h>
-
-@interface DXCompilerSpecificationDMD : XCCompilerSpecification {
-	NSString *cachedVersion;
+{
+	Identifier = com.michelf.dxcode.dmd2;
+	BasedOn = com.michelf.dxcode.dmd;
+	Name = "DMD 2.x";
+	Description = "Digital Mars D 2.x";
+	ExecPath = "/usr/local/bin/dmd2";
+	Version = "2.x";
 }
-
-+ (void) initialize;
-
-- (id)initWithPropertyListDictionary:(id)plist;
-- (void)dealloc;
-
-- (NSArray *)importedFilesForPath:(NSString *)path ensureFilesExist:(BOOL)ensure inTargetBuildContext:(PBXTargetBuildContext *)context;
-
-- (NSArray *)computeDependenciesForInputFile:(NSString *)input ofType:(PBXFileType*)type variant:(NSString *)variant architecture:(NSString *)arch outputDirectory:(NSString *)outputDir inTargetBuildContext:(PBXTargetBuildContext *)context;
-
-- (NSString*)versionString;
-
-- (NSString*)name;
-- (NSString*)description;
-
-@end

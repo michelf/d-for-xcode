@@ -99,11 +99,15 @@ NSArray* importedFilesForPath_ensureFilesExist_hook(PBXTargetBuildContext* self,
 		
 		Class c = [self class];
 		Method m = class_getInstanceMethod(c, @selector(importedFilesForPath:ensureFilesExist:));
+#ifdef __LP64__
+		__original_importedFilesForPath_ensureFilesExist = (importedFilesForPath_ensureFilesExist_func)class_replaceMethod(c, @selector(importedFilesForPath:ensureFilesExist:), (IMP)importedFilesForPath_ensureFilesExist_hook, method_getTypeEncoding(m));
+#else
 		__original_importedFilesForPath_ensureFilesExist = (importedFilesForPath_ensureFilesExist_func)m->method_imp;
 		m->method_imp = (IMP)importedFilesForPath_ensureFilesExist_hook;
 		
 		// Clear Objective-C runtime cache
 		if(c->cache->mask != 0) memset(c->cache->buckets, 0, (c->cache->mask+1)*sizeof(Method));
+#endif
 	}
 	
 	// Add include parser for this file type

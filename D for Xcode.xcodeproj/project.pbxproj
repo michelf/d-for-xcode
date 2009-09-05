@@ -65,6 +65,11 @@
 		1E1CC9600CC063B300E0F6EC /* impcnvtab.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E1CC95E0CC063B000E0F6EC /* impcnvtab.c */; };
 		1E1D72400CB1946600CC12F8 /* DXDSourceScanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BF3C80CAF48AE0022460C /* DXDSourceScanner.mm */; };
 		1E1D72410CB1946800CC12F8 /* DXDSourceLexer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BF3CE0CAF493C0022460C /* DXDSourceLexer.mm */; };
+		1E1D9D5C10222B8D006DE134 /* com.michelf.dxcode.dmd.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E1D9D5A10222B8D006DE134 /* com.michelf.dxcode.dmd.strings */; };
+		1E1FCFA7101DD7B400D2919D /* dmd1.xcspec in Resources */ = {isa = PBXBuildFile; fileRef = 1E1FCFA5101DD7B400D2919D /* dmd1.xcspec */; };
+		1E1FCFA8101DD7B400D2919D /* dmd1.pbcompspec in Resources */ = {isa = PBXBuildFile; fileRef = 1E1FCFA6101DD7B400D2919D /* dmd1.pbcompspec */; };
+		1E1FCFAC101DDC9200D2919D /* dmd2.pbcompspec in Resources */ = {isa = PBXBuildFile; fileRef = 1E1FCFAA101DDC9200D2919D /* dmd2.pbcompspec */; };
+		1E1FCFAD101DDC9200D2919D /* dmd2.xcspec in Resources */ = {isa = PBXBuildFile; fileRef = 1E1FCFAB101DDC9200D2919D /* dmd2.xcspec */; };
 		1E23D7380CED5488005859B9 /* Launcher.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E23D7250CED53AA005859B9 /* Launcher.c */; };
 		1E23D73A0CED548E005859B9 /* difile.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1E536EF50CEC8A1E002E86F7 /* difile.icns */; };
 		1E2A19530DF0FF7700C8A956 /* Release Notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1E2A19520DF0FF7700C8A956 /* Release Notes.txt */; };
@@ -84,6 +89,7 @@
 		1E6BF4410CAF570F0022460C /* libdmdfe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EDEC3B10C906CAB00FB0C15 /* libdmdfe.a */; };
 		1E6D1D130CEF734700DD3D4F /* DXIconSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6D1D0F0CEF733700DD3D4F /* DXIconSetup.m */; };
 		1E7179330CB13DE300E82F1C /* DXCompilerSpecificationGDC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BEBF40CADF7D40022460C /* DXCompilerSpecificationGDC.m */; };
+		1E7857A3101F6FA000FA2061 /* dmd2.pblinkspec in Resources */ = {isa = PBXBuildFile; fileRef = 1E7857A2101F6FA000FA2061 /* dmd2.pblinkspec */; };
 		1E811B940D4BCCF300ECB7DC /* d.xclangspec in Resources */ = {isa = PBXBuildFile; fileRef = 1E655FD20D39CF8A00141EEC /* d.xclangspec */; };
 		1E8672380CC9A5A300DB0990 /* com.michelf.dxcode.gdc.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E8672360CC9A5A300DB0990 /* com.michelf.dxcode.gdc.strings */; };
 		1E87EAE90CEF7D040038D2D3 /* dfile.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1E536EEA0CEC76F2002E86F7 /* dfile.icns */; };
@@ -95,7 +101,7 @@
 		1EAD1BAB1019BAD000C21009 /* dmd.xcspec in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD1BAA1019BAD000C21009 /* dmd.xcspec */; };
 		1EAD1BB01019BC1400C21009 /* DXCompilerSpecificationDMD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD1BAF1019BC1400C21009 /* DXCompilerSpecificationDMD.m */; };
 		1EAD1BB61019BE1700C21009 /* dmd.pbcompspec in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD1BB41019BE1700C21009 /* dmd.pbcompspec */; };
-		1EAD1BB71019BE1700C21009 /* dmd.pblinkspec in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD1BB51019BE1700C21009 /* dmd.pblinkspec */; };
+		1EAD1BB71019BE1700C21009 /* dmd1.pblinkspec in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD1BB51019BE1700C21009 /* dmd1.pblinkspec */; };
 		1EC647BB0DABA8D400DD52F0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EC647BA0DABA8D400DD52F0 /* SenTestingKit.framework */; };
 		1EC647D80DABA8FF00DD52F0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		1ECA60C10CF7CB2F006CECB1 /* DXLauncherRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1AC00B0CF68A970014F648 /* DXLauncherRegistration.m */; };
@@ -157,6 +163,11 @@
 		1E1CA8E10CEF8FFD008CB8B5 /* DX-option-language-d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DX-option-language-d.png"; sourceTree = "<group>"; };
 		1E1CC95E0CC063B000E0F6EC /* impcnvtab.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = impcnvtab.c; sourceTree = "<group>"; };
 		1E1CC9B50CC0686500E0F6EC /* dmdfe_prefix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmdfe_prefix.h; sourceTree = "<group>"; };
+		1E1D9D5B10222B8D006DE134 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/com.michelf.dxcode.dmd.strings; sourceTree = "<group>"; };
+		1E1FCFA5101DD7B400D2919D /* dmd1.xcspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xcspec; path = dmd1.xcspec; sourceTree = "<group>"; };
+		1E1FCFA6101DD7B400D2919D /* dmd1.pbcompspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dmd1.pbcompspec; sourceTree = "<group>"; };
+		1E1FCFAA101DDC9200D2919D /* dmd2.pbcompspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dmd2.pbcompspec; sourceTree = "<group>"; };
+		1E1FCFAB101DDC9200D2919D /* dmd2.xcspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xcspec; path = dmd2.xcspec; sourceTree = "<group>"; };
 		1E23D71A0CED5365005859B9 /* D for Xcode Launcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "D for Xcode Launcher.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E23D71C0CED5365005859B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E23D7250CED53AA005859B9 /* Launcher.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Launcher.c; sourceTree = "<group>"; };
@@ -284,6 +295,7 @@
 		1E6BF4140CAF52AD0022460C /* d.xctxtmacro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xctxtmacro; path = d.xctxtmacro; sourceTree = "<group>"; };
 		1E6D1D0E0CEF733700DD3D4F /* DXIconSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXIconSetup.h; sourceTree = "<group>"; };
 		1E6D1D0F0CEF733700DD3D4F /* DXIconSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXIconSetup.m; sourceTree = "<group>"; };
+		1E7857A2101F6FA000FA2061 /* dmd2.pblinkspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dmd2.pblinkspec; sourceTree = "<group>"; };
 		1E8672370CC9A5A300DB0990 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/com.michelf.dxcode.gdc.strings; sourceTree = "<group>"; };
 		1E87EAEB0CEF7E880038D2D3 /* PBX-d-small-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PBX-d-small-Icon.png"; sourceTree = "<group>"; };
 		1E87EAEC0CEF7E880038D2D3 /* PBX-di-Icon-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PBX-di-Icon-old.png"; sourceTree = "<group>"; };
@@ -294,10 +306,10 @@
 		1EAD1BAE1019BC1400C21009 /* DXCompilerSpecificationDMD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXCompilerSpecificationDMD.h; sourceTree = "<group>"; };
 		1EAD1BAF1019BC1400C21009 /* DXCompilerSpecificationDMD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXCompilerSpecificationDMD.m; sourceTree = "<group>"; };
 		1EAD1BB41019BE1700C21009 /* dmd.pbcompspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dmd.pbcompspec; sourceTree = "<group>"; };
-		1EAD1BB51019BE1700C21009 /* dmd.pblinkspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dmd.pblinkspec; sourceTree = "<group>"; };
+		1EAD1BB51019BE1700C21009 /* dmd1.pblinkspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dmd1.pblinkspec; sourceTree = "<group>"; };
 		1EC647B40DABA85300DD52F0 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC647B50DABA85300DD52F0 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = SOURCE_ROOT; };
-		1EC647BA0DABA8D400DD52F0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = SDKs/MacOSX10.4u.sdk/System/Library/Frameworks/SenTestingKit.framework; sourceTree = SYSTEM_DEVELOPER_DIR; };
+		1EC647BA0DABA8D400DD52F0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = /Xcode3.0/Library/Frameworks/SenTestingKit.framework; sourceTree = "<absolute>"; };
 		1ED40E210CF001B0005C46B3 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1EDEC3B10C906CAB00FB0C15 /* libdmdfe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdmdfe.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF2EE3C0CEEAAA600DD7A7D /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
@@ -414,15 +426,21 @@
 				6DB1DD8808B3A289004F6FFB /* Info.plist */,
 				1ED40E250CF001C3005C46B3 /* InfoPlist.strings */,
 				1E8672360CC9A5A300DB0990 /* com.michelf.dxcode.gdc.strings */,
+				1E1D9D5A10222B8D006DE134 /* com.michelf.dxcode.dmd.strings */,
 				6DB1DD8608B3A289004F6FFB /* d.pbfilespec */,
 				6DB1DD8508B3A289004F6FFB /* d.pblangspec */,
 				1E655FD20D39CF8A00141EEC /* d.xclangspec */,
 				1E0226F20D4CB2E0004C9141 /* d.xcsynspec */,
 				1E6BF4140CAF52AD0022460C /* d.xctxtmacro */,
 				6DB1DD8108B3A289004F6FFB /* d.xcbuildrules */,
+				1E1FCFA5101DD7B400D2919D /* dmd1.xcspec */,
+				1E1FCFA6101DD7B400D2919D /* dmd1.pbcompspec */,
+				1EAD1BB51019BE1700C21009 /* dmd1.pblinkspec */,
+				1E1FCFAB101DDC9200D2919D /* dmd2.xcspec */,
+				1E1FCFAA101DDC9200D2919D /* dmd2.pbcompspec */,
+				1E7857A2101F6FA000FA2061 /* dmd2.pblinkspec */,
 				1EAD1BAA1019BAD000C21009 /* dmd.xcspec */,
 				1EAD1BB41019BE1700C21009 /* dmd.pbcompspec */,
-				1EAD1BB51019BE1700C21009 /* dmd.pblinkspec */,
 				1E68F1FD0D4B6E58008144DB /* gdc.xcspec */,
 				6DB1DD8708B3A289004F6FFB /* gdc.pbcompspec */,
 				6DB1DD8408B3A289004F6FFB /* gdc.pblinkspec */,
@@ -781,7 +799,13 @@
 				1E65A63A0E3192B000AF8BB7 /* PBX-d-Icon.png in Resources */,
 				1EAD1BAB1019BAD000C21009 /* dmd.xcspec in Resources */,
 				1EAD1BB61019BE1700C21009 /* dmd.pbcompspec in Resources */,
-				1EAD1BB71019BE1700C21009 /* dmd.pblinkspec in Resources */,
+				1EAD1BB71019BE1700C21009 /* dmd1.pblinkspec in Resources */,
+				1E1FCFA7101DD7B400D2919D /* dmd1.xcspec in Resources */,
+				1E1FCFA8101DD7B400D2919D /* dmd1.pbcompspec in Resources */,
+				1E1FCFAC101DDC9200D2919D /* dmd2.pbcompspec in Resources */,
+				1E1FCFAD101DDC9200D2919D /* dmd2.xcspec in Resources */,
+				1E7857A3101F6FA000FA2061 /* dmd2.pblinkspec in Resources */,
+				1E1D9D5C10222B8D006DE134 /* com.michelf.dxcode.dmd.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -982,6 +1006,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1E1D9D5A10222B8D006DE134 /* com.michelf.dxcode.dmd.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1E1D9D5B10222B8D006DE134 /* English */,
+			);
+			name = com.michelf.dxcode.dmd.strings;
+			sourceTree = "<group>";
+		};
 		1E8672360CC9A5A300DB0990 /* com.michelf.dxcode.gdc.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1015,6 +1047,10 @@
 		1E23D71F0CED5366005859B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
 				COPY_PHASE_STRIP = YES;
 				INFOPLIST_FILE = "Launcher App/Info.plist";
 				PREBINDING = NO;
@@ -1059,10 +1095,7 @@
 			buildSettings = {
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -1184,7 +1217,10 @@
 				GCC_ENABLE_OBJC_GC = YES;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "XCODE_VERSION=23";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				MACOSX_DEPLOYMENT_TARGET_x86_64 = 10.5;
+				ONLY_LINK_ESSENTIAL_SYMBOLS = YES;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT_x86_64 = macosx10.5;
 			};
 			name = Debug;
 		};
@@ -1192,8 +1228,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = (
-					ppc,
+					x86_64,
 					i386,
+					ppc,
 				);
 				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/PrivateFrameworks";
@@ -1201,8 +1238,10 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "XCODE_VERSION=23";
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				MACOSX_DEPLOYMENT_TARGET_x86_64 = 10.5;
 				ONLY_LINK_ESSENTIAL_SYMBOLS = YES;
 				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+				SDKROOT_x86_64 = macosx10.5;
 			};
 			name = Release;
 		};
