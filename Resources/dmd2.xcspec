@@ -23,6 +23,7 @@
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
 {
+	Type = Compiler;
 	Identifier = com.michelf.dxcode.dmd2;
 	BasedOn = com.michelf.dxcode.dmd;
 	Name = "DMD 2.x";
