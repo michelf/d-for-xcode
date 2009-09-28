@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 42;
+	objectVersion = 45;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -141,7 +141,7 @@
 			remoteGlobalIDString = 1EDEC3B00C906CAB00FB0C15;
 			remoteInfo = "D Front End";
 		};
-		1EC647D60DABA8EA00DD52F0 /* PBXContainerItemProxy */ = {
+		1E81DEA31070FD98008B79FD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
 			proxyType = 1;
@@ -726,7 +726,7 @@
 			dependencies = (
 				1E23D7230CED538F005859B9 /* PBXTargetDependency */,
 				1E6BF4500CAFB95F0022460C /* PBXTargetDependency */,
-				1EC647D70DABA8EA00DD52F0 /* PBXTargetDependency */,
+				1E81DEA41070FD98008B79FD /* PBXTargetDependency */,
 			);
 			name = "D for Xcode";
 			productInstallPath = "$(HOME)/Library/Bundles";
@@ -998,10 +998,10 @@
 			target = 1EDEC3B00C906CAB00FB0C15 /* DMD Front End */;
 			targetProxy = 1E6BF44F0CAFB95F0022460C /* PBXContainerItemProxy */;
 		};
-		1EC647D70DABA8EA00DD52F0 /* PBXTargetDependency */ = {
+		1E81DEA41070FD98008B79FD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1EC647B30DABA85300DD52F0 /* Unit Tests */;
-			targetProxy = 1EC647D60DABA8EA00DD52F0 /* PBXContainerItemProxy */;
+			targetProxy = 1E81DEA31070FD98008B79FD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1067,7 +1067,7 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"$(FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
 				);
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SDK_DIR)/System/Library/Frameworks\"";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -1096,7 +1096,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
-				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(DEVELOPER_DIR)/SDKs/MacOSX10.4u.sdk/System/Library/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SDK_DIR)/System/Library/Frameworks\"";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
@@ -1114,7 +1114,6 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = "Unit Tests";
 				WRAPPER_EXTENSION = octest;
-				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -1214,13 +1213,14 @@
 		6D4E1A6208560B2700084599 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				GCC_ENABLE_OBJC_GC = YES;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "XCODE_VERSION=23";
+				"GCC_VERSION[sdk=macosx10.4][arch=*]" = 4.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
-				MACOSX_DEPLOYMENT_TARGET_x86_64 = 10.5;
+				"MACOSX_DEPLOYMENT_TARGET[arch=x86_64]" = 10.5;
 				ONLY_LINK_ESSENTIAL_SYMBOLS = YES;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
-				SDKROOT_x86_64 = macosx10.5;
+				SDKROOT = macosx10.4;
+				"SDKROOT[arch=x86_64]" = macosx10.5;
 			};
 			name = Debug;
 		};
@@ -1234,14 +1234,15 @@
 				);
 				DEAD_CODE_STRIPPING = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/PrivateFrameworks";
-				GCC_ENABLE_OBJC_GC = YES;
+				GCC_ENABLE_OBJC_GC = supported;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "XCODE_VERSION=23";
+				"GCC_VERSION[sdk=macosx10.4][arch=*]" = 4.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
-				MACOSX_DEPLOYMENT_TARGET_x86_64 = 10.5;
+				"MACOSX_DEPLOYMENT_TARGET[arch=x86_64]" = 10.5;
 				ONLY_LINK_ESSENTIAL_SYMBOLS = YES;
-				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
-				SDKROOT_x86_64 = macosx10.5;
+				SDKROOT = macosx10.4;
+				"SDKROOT[arch=x86_64]" = macosx10.5;
 			};
 			name = Release;
 		};
