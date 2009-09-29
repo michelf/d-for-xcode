@@ -105,10 +105,13 @@
 		1EC647BB0DABA8D400DD52F0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EC647BA0DABA8D400DD52F0 /* SenTestingKit.framework */; };
 		1EC647D80DABA8FF00DD52F0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		1ECA60C10CF7CB2F006CECB1 /* DXLauncherRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1AC00B0CF68A970014F648 /* DXLauncherRegistration.m */; };
+		1ECD120D107105FD00CFD074 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		1ECD1236107107A800CFD074 /* DXUISetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD1235107107A800CFD074 /* DXUISetup.m */; };
+		1ECD12481071092400CFD074 /* D for Xcode UI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1ECD1230107105FD00CFD074 /* D for Xcode UI.bundle */; };
+		1ECD12B8107115B000CFD074 /* DXDNumberScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF9B80B0D8A986800AF150C /* DXDNumberScanner.m */; };
 		1ED3AF8C0CC63240004BE98E /* mars.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BEEB00CAEBC620022460C /* mars.c */; };
 		1ED40E260CF001C3005C46B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED40E250CF001C3005C46B3 /* InfoPlist.strings */; };
 		1EF2EE3D0CEEAAA600DD7A7D /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF2EE3C0CEEAAA600DD7A7D /* Carbon.framework */; };
-		1EF9B80C0D8A986800AF150C /* DXDNumberScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF9B80B0D8A986800AF150C /* DXDNumberScanner.m */; };
 		1EFC53D50CC4D6B000B03C7E /* gdc.pblinkspec in Resources */ = {isa = PBXBuildFile; fileRef = 6DB1DD8408B3A289004F6FFB /* gdc.pblinkspec */; };
 		6D209CFB08EFE8E600E52803 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		6DB1DD8C08B3A289004F6FFB /* d.xcbuildrules in Resources */ = {isa = PBXBuildFile; fileRef = 6DB1DD8108B3A289004F6FFB /* d.xcbuildrules */; };
@@ -147,6 +150,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1EC647B30DABA85300DD52F0;
 			remoteInfo = "Unit Tests";
+		};
+		1ECD1243107108D400CFD074 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1ECD11F7107105FD00CFD074 /* D for Xcode UI */;
+			remoteInfo = "D for Xcode UI";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -310,6 +320,10 @@
 		1EC647B40DABA85300DD52F0 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EC647B50DABA85300DD52F0 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = SOURCE_ROOT; };
 		1EC647BA0DABA8D400DD52F0 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = /Xcode3.0/Library/Frameworks/SenTestingKit.framework; sourceTree = "<absolute>"; };
+		1ECD1230107105FD00CFD074 /* D for Xcode UI.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "D for Xcode UI.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ECD1231107105FD00CFD074 /* Info copy.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info copy.plist"; sourceTree = "<group>"; };
+		1ECD1234107107A800CFD074 /* DXUISetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXUISetup.h; sourceTree = "<group>"; };
+		1ECD1235107107A800CFD074 /* DXUISetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXUISetup.m; sourceTree = "<group>"; };
 		1ED40E210CF001B0005C46B3 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1EDEC3B10C906CAB00FB0C15 /* libdmdfe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdmdfe.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF2EE3C0CEEAAA600DD7A7D /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
@@ -356,6 +370,14 @@
 			files = (
 				1EC647BB0DABA8D400DD52F0 /* SenTestingKit.framework in Frameworks */,
 				1EC647D80DABA8FF00DD52F0 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1ECD120C107105FD00CFD074 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ECD120D107105FD00CFD074 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +466,7 @@
 				1E68F1FD0D4B6E58008144DB /* gdc.xcspec */,
 				6DB1DD8708B3A289004F6FFB /* gdc.pbcompspec */,
 				6DB1DD8408B3A289004F6FFB /* gdc.pblinkspec */,
+				1ECD1231107105FD00CFD074 /* Info copy.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -452,6 +475,7 @@
 			isa = PBXGroup;
 			children = (
 				6DB1DDED08B3A33A004F6FFB /* D for Xcode.xcplugin */,
+				1ECD1230107105FD00CFD074 /* D for Xcode UI.bundle */,
 				1E23D71A0CED5365005859B9 /* D for Xcode Launcher.app */,
 				6D209C6B08EFE0A200E52803 /* D Parser Test */,
 				1EDEC3B10C906CAB00FB0C15 /* libdmdfe.a */,
@@ -505,6 +529,8 @@
 				1E6D1D0F0CEF733700DD3D4F /* DXIconSetup.m */,
 				1E1AC00A0CF68A970014F648 /* DXLauncherRegistration.h */,
 				1E1AC00B0CF68A970014F648 /* DXLauncherRegistration.m */,
+				1ECD1234107107A800CFD074 /* DXUISetup.h */,
+				1ECD1235107107A800CFD074 /* DXUISetup.m */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -677,6 +703,24 @@
 			productReference = 1EC647B40DABA85300DD52F0 /* Unit Tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		1ECD11F7107105FD00CFD074 /* D for Xcode UI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1ECD122D107105FD00CFD074 /* Build configuration list for PBXNativeTarget "D for Xcode UI" */;
+			buildPhases = (
+				1ECD11FE107105FD00CFD074 /* Sources */,
+				1ECD120C107105FD00CFD074 /* Frameworks */,
+				1ECD120F107105FD00CFD074 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "D for Xcode UI";
+			productInstallPath = "$(HOME)/Library/Bundles";
+			productName = OCamlPlugin;
+			productReference = 1ECD1230107105FD00CFD074 /* D for Xcode UI.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		1EDEC3B00C906CAB00FB0C15 /* DMD Front End */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1EDEC3B40C906CEA00FB0C15 /* Build configuration list for PBXNativeTarget "DMD Front End" */;
@@ -724,6 +768,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1ECD1244107108D400CFD074 /* PBXTargetDependency */,
 				1E23D7230CED538F005859B9 /* PBXTargetDependency */,
 				1E6BF4500CAFB95F0022460C /* PBXTargetDependency */,
 				1E81DEA41070FD98008B79FD /* PBXTargetDependency */,
@@ -747,6 +792,7 @@
 			projectRoot = "";
 			targets = (
 				8D5B49AC048680CD000E48DA /* D for Xcode */,
+				1ECD11F7107105FD00CFD074 /* D for Xcode UI */,
 				1E23D7190CED5365005859B9 /* D for Xcode Launcher */,
 				6D209C6A08EFE0A200E52803 /* D Parser Test */,
 				1EDEC3B00C906CAB00FB0C15 /* DMD Front End */,
@@ -771,6 +817,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E2A19530DF0FF7700C8A956 /* Release Notes.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1ECD120F107105FD00CFD074 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,6 +859,7 @@
 				1E1FCFAD101DDC9200D2919D /* dmd2.xcspec in Resources */,
 				1E7857A3101F6FA000FA2061 /* dmd2.pblinkspec in Resources */,
 				1E1D9D5C10222B8D006DE134 /* com.michelf.dxcode.dmd.strings in Resources */,
+				1ECD12481071092400CFD074 /* D for Xcode UI.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -949,6 +1003,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1ECD11FE107105FD00CFD074 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ECD12B8107115B000CFD074 /* DXDNumberScanner.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6D209C6808EFE0A200E52803 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -973,10 +1035,10 @@
 				1E3436890CB27C6000D15C90 /* DXDSourceScannerItem.mm in Sources */,
 				1E6D1D130CEF734700DD3D4F /* DXIconSetup.m in Sources */,
 				1ECA60C10CF7CB2F006CECB1 /* DXLauncherRegistration.m in Sources */,
-				1EF9B80C0D8A986800AF150C /* DXDNumberScanner.m in Sources */,
 				1E3D305F0DEE4DD800AE867B /* DXScannerTools.m in Sources */,
 				1E67105C100988A700361CC2 /* DXFileTypeSetup.m in Sources */,
 				1EAD1BB01019BC1400C21009 /* DXCompilerSpecificationDMD.m in Sources */,
+				1ECD1236107107A800CFD074 /* DXUISetup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1002,6 +1064,11 @@
 			isa = PBXTargetDependency;
 			target = 1EC647B30DABA85300DD52F0 /* Unit Tests */;
 			targetProxy = 1E81DEA31070FD98008B79FD /* PBXContainerItemProxy */;
+		};
+		1ECD1244107108D400CFD074 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1ECD11F7107105FD00CFD074 /* D for Xcode UI */;
+			targetProxy = 1ECD1243107108D400CFD074 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1114,6 +1181,36 @@
 				PREBINDING = NO;
 				PRODUCT_NAME = "Unit Tests";
 				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		1ECD122E107105FD00CFD074 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GENERATE_PKGINFO_FILE = YES;
+				INSTALL_PATH = "$(HOME)/Library/Application Support/Apple/Plugins/";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		1ECD122F107105FD00CFD074 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GENERATE_PKGINFO_FILE = YES;
+				INSTALL_PATH = "$(HOME)/Library/Application Support/Developer/2.5/Xcode/Plugins/";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = YES;
+				STRIP_STYLE = all;
 			};
 			name = Release;
 		};
@@ -1263,6 +1360,15 @@
 			buildConfigurations = (
 				1EC647B70DABA85800DD52F0 /* Debug */,
 				1EC647B80DABA85800DD52F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1ECD122D107105FD00CFD074 /* Build configuration list for PBXNativeTarget "D for Xcode UI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1ECD122E107105FD00CFD074 /* Debug */,
+				1ECD122F107105FD00CFD074 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

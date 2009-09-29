@@ -115,102 +115,104 @@
 	while (++current < end) {
 		++pos;
 		switch (*current) {
-		case 'a'...'z':
-		case 'A'...'Z':
-			unsigned int linkStart = pos;
-			unsigned int linkEnd = pos;
-			while (++current < end) {
-				++pos;
-				switch (*current) {
-				case 'a'...'z':
-				case 'A'...'Z':
-				case '0'...'9':
-				case '.': case '-': case '_':
-					continue; // continue loop.
-				case '@':
-					// Email.
-					while (++current < end) {
-						++pos;
-						switch (*current) {
-						case 'a'...'z':
-						case 'A'...'Z':
-						case '0'...'9':
-						case '.': case '-': case '_':
-						case '%':
-							linkEnd = pos+1;
-							continue; // continue loop.
-						default:
-							break;
-						}
-						break; // break loop.
-					}
-					if (linkEnd != linkStart) {
-						NSRange linkRange = NSMakeRange(linkStart, linkEnd-linkStart);
-						[self gotMailAddressForRange:linkRange];
-						linkStart = linkEnd;
-					}
-					break; // break switch, break loop, search again.
-				case ':':
-					// General URL.
-					if (current+2 < end && 
-						*(current+1) == '/' && *(current+2) == '/')
-					{
-						current += 2;
-						pos += 2;
-						
-						unsigned int stakedParen = 0;
-						
+			case 'a'...'z':
+			case 'A'...'Z':
+			{
+				unsigned int linkStart = pos;
+				unsigned int linkEnd = pos;
+				while (++current < end) {
+					++pos;
+					switch (*current) {
+					case 'a'...'z':
+					case 'A'...'Z':
+					case '0'...'9':
+					case '.': case '-': case '_':
+						continue; // continue loop.
+					case '@':
+						// Email.
 						while (++current < end) {
 							++pos;
 							switch (*current) {
-							case 'a'...'z':
-							case 'A'...'Z':
-							case '0'...'9':
-							case '-': case '_': case '/':
-							case '+': case '=': case '~':
-								linkEnd = pos+1;
-								continue; // continue loop.
-							case '.': case '%': case '?': case '!': 
-							case '@': case '&': case '#': case ';':
-							case ',': case '\'': case ':':
-								// Be more inteligent than Xcode:
-								// allow these in URLs, but not at the end.
-								continue;
-							case '(':
-								// Be more inteligent than Xcode:
-								// count open parenthesis.
-								stakedParen++;
-								linkEnd = pos+1;
-								continue; // continue loop.
-							case ')':
-								// Be more inteligent than Xcode:
-								// allow at the end only if a parenthesis 
-								// is open.
-								if (stakedParen) {
-									stakedParen--;
+								case 'a'...'z':
+								case 'A'...'Z':
+								case '0'...'9':
+								case '.': case '-': case '_':
+								case '%':
 									linkEnd = pos+1;
-								}
-								continue; // continue loop.
-							default:
-								break;
+									continue; // continue loop.
+								default:
+									break;
 							}
 							break; // break loop.
 						}
 						if (linkEnd != linkStart) {
 							NSRange linkRange = NSMakeRange(linkStart, linkEnd-linkStart);
-							[self gotURLForRange:linkRange];
+							[self gotMailAddressForRange:linkRange];
 							linkStart = linkEnd;
 						}
+						break; // break switch, break loop, search again.
+					case ':':
+						// General URL.
+						if (current+2 < end && 
+							*(current+1) == '/' && *(current+2) == '/')
+						{
+							current += 2;
+							pos += 2;
+							
+							unsigned int stakedParen = 0;
+							
+							while (++current < end) {
+								++pos;
+								switch (*current) {
+									case 'a'...'z':
+									case 'A'...'Z':
+									case '0'...'9':
+									case '-': case '_': case '/':
+									case '+': case '=': case '~':
+										linkEnd = pos+1;
+										continue; // continue loop.
+									case '.': case '%': case '?': case '!': 
+									case '@': case '&': case '#': case ';':
+									case ',': case '\'': case ':':
+										// Be more inteligent than Xcode:
+										// allow these in URLs, but not at the end.
+										continue;
+									case '(':
+										// Be more inteligent than Xcode:
+										// count open parenthesis.
+										stakedParen++;
+										linkEnd = pos+1;
+										continue; // continue loop.
+									case ')':
+										// Be more inteligent than Xcode:
+										// allow at the end only if a parenthesis 
+										// is open.
+										if (stakedParen) {
+											stakedParen--;
+											linkEnd = pos+1;
+										}
+										continue; // continue loop.
+									default:
+										break;
+								}
+								break; // break loop.
+							}
+							if (linkEnd != linkStart) {
+								NSRange linkRange = NSMakeRange(linkStart, linkEnd-linkStart);
+								[self gotURLForRange:linkRange];
+								linkStart = linkEnd;
+							}
+						}
+						break; // break switch, break loop, search again.
 					}
-					break; // break switch, break loop, search again.
+					break; // break loop, search again.
 				}
-				break; // break loop, search again.
+				break;
 			}
-			break;
-		case 0xC0 ... 0xFF:
-			// Multibyte UTF-8 char: skip all bytes until end of character.
-			while ((*(current+1) & 0xC0) == 0x80)  ++current;
-			break;
+			case 0xC0 ... 0xFF:
+				// Multibyte UTF-8 char: skip all bytes until end of character.
+				while ((*(current+1) & 0xC0) == 0x80)  ++current;
+				break;
 		}
 		// search next link.
 	}
@@ -230,39 +232,43 @@
 			while (++current < end) {
 				++pos;
 				switch (*current) {
-				case ' ': case '\t':
-					continue; // skip leading whitespace, continue loop.
-				case '*': case '+': case '/':
-					if (waitingMarginChar && *current == *start) {
-						waitingMarginChar = false;
-						continue; // skip margin character, continue loop.
-					}
-					break; // restart new keyword.
-				case 'a'...'z':
-				case 'A'...'Z':
-					unsigned int keywordStart = pos;
-					while (++current < end) {
-						++pos;
-						switch (*current) {
-						case 'a'...'z':
-						case 'A'...'Z':
-						case '0'...'9':
-						case '_':
-							continue; // continue loop.
-						case ':':
-							unsigned int length = pos-keywordStart+1;
-							NSRange keywordRange = NSMakeRange(keywordStart, length);
-							[self gotDocCommentKeywordForRange:keywordRange];
-							break;
-						default:
-							break;
+					case ' ': case '\t':
+						continue; // skip leading whitespace, continue loop.
+					case '*': case '+': case '/':
+						if (waitingMarginChar && *current == *start) {
+							waitingMarginChar = false;
+							continue; // skip margin character, continue loop.
 						}
-						break; // break loop.
+						break; // restart new keyword.
+					case 'a'...'z':
+					case 'A'...'Z':
+					{
+						unsigned int keywordStart = pos;
+						while (++current < end) {
+							++pos;
+							switch (*current) {
+							case 'a'...'z':
+							case 'A'...'Z':
+							case '0'...'9':
+							case '_':
+								continue; // continue loop.
+							case ':':
+								{
+									unsigned int length = pos-keywordStart+1;
+									NSRange keywordRange = NSMakeRange(keywordStart, length);
+									[self gotDocCommentKeywordForRange:keywordRange];
+								}
+								break;
+							default:
+								break;
+							}
+							break; // break loop.
+						}
+						break; // break switch.
 					}
-					break; // break switch.
-				default:
-					--pos; --current; // Reprocess character in main loop.
-					break; // break switch.
+					default:
+						--pos; --current; // Reprocess character in main loop.
+						break; // break switch.
 				}
 				break; // break loop, search for next keyword.
 			}
