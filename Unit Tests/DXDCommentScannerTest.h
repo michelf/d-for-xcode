@@ -1,5 +1,5 @@
 
-// D for Xcode: Support tools for special scanners for Xcode 3
+// D for Xcode: Test for Xcode 3 Comment Scanner
 // Copyright (C) 2008  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
@@ -16,8 +16,13 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
-#import <Foundation/Foundation.h>
+#import <SenTestingKit/SenTestingKit.h>
 
-BOOL isNumber(NSString *str);
-size_t commentLength(NSString *str);
-size_t stringLength(NSString *str);
+
+@interface DXDCommentScannerTest : SenTestCase {
+
+}
+
+- (void)testVariousNumbers;
+
+@end

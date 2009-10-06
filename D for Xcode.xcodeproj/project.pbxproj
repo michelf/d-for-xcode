@@ -73,6 +73,8 @@
 		1E23D7380CED5488005859B9 /* Launcher.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E23D7250CED53AA005859B9 /* Launcher.c */; };
 		1E23D73A0CED548E005859B9 /* difile.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1E536EF50CEC8A1E002E86F7 /* difile.icns */; };
 		1E2A19530DF0FF7700C8A956 /* Release Notes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1E2A19520DF0FF7700C8A956 /* Release Notes.txt */; };
+		1E30765B1078EFBD00ED4D31 /* DXDStringScannerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3076551078EE1F00ED4D31 /* DXDStringScannerTest.m */; };
+		1E3077BC1079A56D00ED4D31 /* DXDStringScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E3076471078E36200ED4D31 /* DXDStringScanner.m */; };
 		1E33C6A60CEF82BE00D4FB11 /* D for Xcode Launcher.app in Resources */ = {isa = PBXBuildFile; fileRef = 1E23D71A0CED5365005859B9 /* D for Xcode Launcher.app */; };
 		1E3428230CEDC8A30072B499 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E3428220CEDC8A30072B499 /* ApplicationServices.framework */; };
 		1E3436890CB27C6000D15C90 /* DXDSourceScannerItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E3436880CB27C6000D15C90 /* DXDSourceScannerItem.mm */; };
@@ -109,8 +111,10 @@
 		1ECD1236107107A800CFD074 /* DXUISetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD1235107107A800CFD074 /* DXUISetup.m */; };
 		1ECD12481071092400CFD074 /* D for Xcode UI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1ECD1230107105FD00CFD074 /* D for Xcode UI.bundle */; };
 		1ECD12B8107115B000CFD074 /* DXDNumberScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF9B80B0D8A986800AF150C /* DXDNumberScanner.m */; };
+		1ECD13211072513D00CFD074 /* DXDCommentScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EED03CE10528687001CA3B8 /* DXDCommentScanner.m */; };
 		1ED3AF8C0CC63240004BE98E /* mars.c in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BEEB00CAEBC620022460C /* mars.c */; };
 		1ED40E260CF001C3005C46B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED40E250CF001C3005C46B3 /* InfoPlist.strings */; };
+		1EDC1114105289000087E1DF /* DXDCommentScannerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC1111105287FB0087E1DF /* DXDCommentScannerTest.m */; };
 		1EF2EE3D0CEEAAA600DD7A7D /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF2EE3C0CEEAAA600DD7A7D /* Carbon.framework */; };
 		1EFC53D50CC4D6B000B03C7E /* gdc.pblinkspec in Resources */ = {isa = PBXBuildFile; fileRef = 6DB1DD8408B3A289004F6FFB /* gdc.pblinkspec */; };
 		6D209CFB08EFE8E600E52803 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
@@ -155,7 +159,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1ECD11F7107105FD00CFD074 /* D for Xcode UI */;
+			remoteGlobalIDString = 1ECD11F7107105FD00CFD074;
 			remoteInfo = "D for Xcode UI";
 		};
 /* End PBXContainerItemProxy section */
@@ -182,12 +186,18 @@
 		1E23D71C0CED5365005859B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E23D7250CED53AA005859B9 /* Launcher.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Launcher.c; sourceTree = "<group>"; };
 		1E2A19520DF0FF7700C8A956 /* Release Notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Release Notes.txt"; sourceTree = "<group>"; };
+		1E3075A11078B98A00ED4D31 /* XCSourceModelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCSourceModelItem.h; path = "Varia/class-dump-3.1.2/DevToolsClassDump3/XcodeEdit/XCSourceModelItem.h"; sourceTree = "<group>"; };
+		1E3075A21078B9A000ED4D31 /* XCCharStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCCharStream.h; path = "Varia/class-dump-3.1.2/DevToolsClassDump3/XcodeEdit/XCCharStream.h"; sourceTree = "<group>"; };
+		1E3076461078E36200ED4D31 /* DXDStringScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDStringScanner.h; sourceTree = "<group>"; };
+		1E3076471078E36200ED4D31 /* DXDStringScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXDStringScanner.m; sourceTree = "<group>"; };
+		1E3076541078EE1F00ED4D31 /* DXDStringScannerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDStringScannerTest.h; sourceTree = "<group>"; };
+		1E3076551078EE1F00ED4D31 /* DXDStringScannerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXDStringScannerTest.m; sourceTree = "<group>"; };
 		1E3428220CEDC8A30072B499 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
 		1E3436870CB27C6000D15C90 /* DXDSourceScannerItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDSourceScannerItem.h; sourceTree = "<group>"; };
 		1E3436880CB27C6000D15C90 /* DXDSourceScannerItem.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DXDSourceScannerItem.mm; sourceTree = "<group>"; };
 		1E536EEA0CEC76F2002E86F7 /* dfile.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = dfile.icns; sourceTree = "<group>"; };
 		1E536EF50CEC8A1E002E86F7 /* difile.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = difile.icns; sourceTree = "<group>"; };
-		1E655FD20D39CF8A00141EEC /* d.xclangspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = d.xclangspec; sourceTree = "<group>"; };
+		1E655FD20D39CF8A00141EEC /* d.xclangspec */ = {isa = PBXFileReference; explicitFileType = text.plist.xcspec; fileEncoding = 4; path = d.xclangspec; sourceTree = "<group>"; };
 		1E65A6350E3192A300AF8BB7 /* PBX-di-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PBX-di-Icon.png"; sourceTree = "<group>"; };
 		1E65A6360E3192A300AF8BB7 /* PBX-d-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PBX-d-Icon.png"; sourceTree = "<group>"; };
 		1E67105A100988A700361CC2 /* DXFileTypeSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXFileTypeSetup.h; sourceTree = "<group>"; };
@@ -297,7 +307,7 @@
 		1E6BEF9D0CAEC6600022460C /* id.c */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = id.c; sourceTree = "<group>"; };
 		1E6BEF9E0CAEC6600022460C /* id.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = id.h; sourceTree = "<group>"; };
 		1E6BF00F0CAEFC620022460C /* DXParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXParserTest.m; sourceTree = "<group>"; };
-		1E6BF01B0CAEFCE40022460C /* parsertest.d */ = {isa = PBXFileReference; explicitFileType = sourcecode.d; fileEncoding = 4; path = parsertest.d; sourceTree = "<group>"; };
+		1E6BF01B0CAEFCE40022460C /* parsertest.d */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.dtrace; path = parsertest.d; sourceTree = "<group>"; };
 		1E6BF3C70CAF48AE0022460C /* DXDSourceScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDSourceScanner.h; sourceTree = "<group>"; };
 		1E6BF3C80CAF48AE0022460C /* DXDSourceScanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DXDSourceScanner.mm; sourceTree = "<group>"; };
 		1E6BF3CD0CAF493C0022460C /* DXDSourceLexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDSourceLexer.h; sourceTree = "<group>"; };
@@ -325,7 +335,11 @@
 		1ECD1234107107A800CFD074 /* DXUISetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXUISetup.h; sourceTree = "<group>"; };
 		1ECD1235107107A800CFD074 /* DXUISetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXUISetup.m; sourceTree = "<group>"; };
 		1ED40E210CF001B0005C46B3 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1EDC1110105287FB0087E1DF /* DXDCommentScannerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDCommentScannerTest.h; sourceTree = "<group>"; };
+		1EDC1111105287FB0087E1DF /* DXDCommentScannerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXDCommentScannerTest.m; sourceTree = "<group>"; };
 		1EDEC3B10C906CAB00FB0C15 /* libdmdfe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdmdfe.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EED03CD10528687001CA3B8 /* DXDCommentScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDCommentScanner.h; sourceTree = "<group>"; };
+		1EED03CE10528687001CA3B8 /* DXDCommentScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXDCommentScanner.m; sourceTree = "<group>"; };
 		1EF2EE3C0CEEAAA600DD7A7D /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		1EF9B7EB0D8A245100AF150C /* XC3PSourceParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XC3PSourceParsing.h; path = Headers/XC3PSourceParsing.h; sourceTree = "<group>"; };
 		1EF9B80A0D8A986800AF150C /* DXDNumberScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDNumberScanner.h; sourceTree = "<group>"; };
@@ -489,6 +503,10 @@
 			children = (
 				1E01E4780DED6B7D00CE9033 /* DXDNumberScannerTest.h */,
 				1E01E4790DED6B7D00CE9033 /* DXDNumberScannerTest.m */,
+				1EDC1110105287FB0087E1DF /* DXDCommentScannerTest.h */,
+				1EDC1111105287FB0087E1DF /* DXDCommentScannerTest.m */,
+				1E3076541078EE1F00ED4D31 /* DXDStringScannerTest.h */,
+				1E3076551078EE1F00ED4D31 /* DXDStringScannerTest.m */,
 				1EC647B50DABA85300DD52F0 /* Unit Tests-Info.plist */,
 			);
 			path = "Unit Tests";
@@ -517,6 +535,10 @@
 				1E6BEBF40CADF7D40022460C /* DXCompilerSpecificationGDC.m */,
 				1EF9B80A0D8A986800AF150C /* DXDNumberScanner.h */,
 				1EF9B80B0D8A986800AF150C /* DXDNumberScanner.m */,
+				1EED03CD10528687001CA3B8 /* DXDCommentScanner.h */,
+				1EED03CE10528687001CA3B8 /* DXDCommentScanner.m */,
+				1E3076461078E36200ED4D31 /* DXDStringScanner.h */,
+				1E3076471078E36200ED4D31 /* DXDStringScanner.m */,
 				1E6BF3C70CAF48AE0022460C /* DXDSourceScanner.h */,
 				1E6BF3C80CAF48AE0022460C /* DXDSourceScanner.mm */,
 				1E6BF3CD0CAF493C0022460C /* DXDSourceLexer.h */,
@@ -661,6 +683,8 @@
 				6D2A653708EAFD9800D551FC /* XCPSourceParsing.h */,
 				1EF9B7EB0D8A245100AF150C /* XC3PSourceParsing.h */,
 				6D209C3F08EBCC2300E52803 /* XCPSupport.h */,
+				1E3075A11078B98A00ED4D31 /* XCSourceModelItem.h */,
+				1E3075A21078B9A000ED4D31 /* XCCharStream.h */,
 			);
 			name = "Xcode API";
 			sourceTree = "<group>";
@@ -1000,6 +1024,8 @@
 			files = (
 				1E01E47A0DED6B7E00CE9033 /* DXDNumberScannerTest.m in Sources */,
 				1E01E4930DED70C800CE9033 /* DXScannerTools.m in Sources */,
+				1EDC1114105289000087E1DF /* DXDCommentScannerTest.m in Sources */,
+				1E30765B1078EFBD00ED4D31 /* DXDStringScannerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1008,6 +1034,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ECD12B8107115B000CFD074 /* DXDNumberScanner.m in Sources */,
+				1ECD13211072513D00CFD074 /* DXDCommentScanner.m in Sources */,
+				1E3077BC1079A56D00ED4D31 /* DXDStringScanner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1138,8 +1166,6 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_MODEL_TUNING = G5;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
 				GCC_PREPROCESSOR_DEFINITIONS = DXD_UNIT_TEST;

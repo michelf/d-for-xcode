@@ -1,5 +1,5 @@
 
-// D for Xcode: Support tools for special scanners for Xcode 3
+// D for Xcode: Comment Scanner for Xcode 3
 // Copyright (C) 2008  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
@@ -16,8 +16,23 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
-#import <Foundation/Foundation.h>
+#import <Cocoa/Cocoa.h>
+#import "XC3PSourceParsing.h"
 
-BOOL isNumber(NSString *str);
-size_t commentLength(NSString *str);
-size_t stringLength(NSString *str);
+@class XCCharStream;
+
+@interface DXDCommentScanner : XCSourceScanner {
+}
+
+- (id)parse:(id)fp8 withContext:(id)fp12 initialToken:(int)fp16 inputStream:(XCCharStream *)fp20 range:(NSRange)fp24 dirtyRange:(NSRange *)fp32;
+
+- (BOOL)ddocOnly;
+
+@end
+
+@interface DXDDdocCommentScanner : DXDCommentScanner {
+}
+
+- (BOOL)ddocOnly;
+
+@end

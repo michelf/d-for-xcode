@@ -21,114 +21,50 @@
 	{
 		Identifier = "xcode.lang.d.comment.ddoc.keyword";
 		Syntax = {
-			StartChars = "@";
-			Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            StartChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_:";
 			Words = (
-				"@author",
-				"@beaninfo",
-				"@deprecated",
-				"@docRoot",
-				"@exception",
-				"@inheritDoc",
-				"@link",
-				"@linkplain",
-				"@param",
-				"@return",
-				"@see",
-				"@serial",
-				"@serialData",
-				"@serialField",
-				"@since",
-				"@throws",
-				"@value",
-				"@version"
+				"Authors:",
+				"Bugs:",
+				"Date:",
+				"Deprecated:",
+				"Examples:",
+				"History:",
+				"License:",
+				"Returns:",
+				"See_Also:",
+				"Standards:",
+				"Throws:",
+				"Version:",
+				"Copyright:",
+				"Params:",
+				"Macros:",
 			);
 			Type = "xcode.syntax.comment.doc.keyword";
+		};
+	},
+	
+	// MARK: D Comments
+	{
+		Identifier = "xcode.lang.d.comment";
+		Syntax = {
+			SourceScannerClassName = "DXDCommentScanner";
+			StartChars = "/";
+			Foldable = YES;
+			IncludeRules = ( "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
+			Type = "xcode.syntax.comment";
 		};
 	},
 	{
 		Identifier = "xcode.lang.d.comment.ddoc";
 		Syntax = {
-//			SourceScannerClassName = "DXDDdocNumberScanner"; // FAST recognition of Ddoc comments
+			SourceScannerClassName = "DXDDdocCommentScanner";
 			StartChars = "/";
-			Match = (
-				"^///[^\n]*\n",
-				"^/\\+\\+([^+]*|[+])+?\\+/",
-				"^/\\*\\*([^*]*|[*])+?\\*/"
-			);
 			Foldable = YES;
-			ParseEndBeforeIncludedRules = YES;
 			IncludeRules = ( "xcode.lang.d.comment.ddoc.keyword", "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
 			Type = "xcode.syntax.comment.doc";
 		};
 	},
-	{
-		Identifier = "xcode.lang.d.comment.ddoc.singleline";
-		Syntax = {
-			Start = "///";
-			Until = "\n";
-			Foldable = NO;
-			IncludeRules = ( "xcode.lang.d.comment.ddoc.keyword", "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
-			Type = "xcode.syntax.comment.doc";
-		};
-	},
-	{
-		// Handle the degenerate case of '/**/' comments. They look like the start of a Ddoc comment, but they aren't.
-		Identifier = "xcode.lang.d.comment.degenerate";
-		Syntax = {
-			StartChars = "/";
-			Chars = "/*";
-			Words = ( "/**/" );
-			Type = "xcode.syntax.comment";
-		};
-	},
-	
-	
-	// MARK: D Nesting Comments
-	{
-		Identifier = "xcode.lang.d.comment.nesting";
-		Syntax = {
-			Start = "/+";
-			End = "+/";
-			Foldable = YES;
-			ParseEndBeforeIncludedRules = YES;
-			IncludeRules = ( /*"xcode.lang.d.comment.nesting.inner",*/ "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
-			Type = "xcode.syntax.comment";
-		};
-	},
-	{
-		Identifier = "xcode.lang.d.comment.ddoc.nesting";
-		Syntax = {
-			Start = "/++";
-			End = "+/";
-			Foldable = YES;
-			ParseEndBeforeIncludedRules = YES;
-			IncludeRules = ( /*"xcode.lang.d.comment.nesting.inner",*/ "xcode.lang.d.comment.ddoc.keyword", "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
-			Type = "xcode.syntax.comment.doc";
-		};
-	},
-	{
-		// Handle comments nested inside nesting comments
-		Identifier = "xcode.lang.d.comment.nesting.inner";
-		Syntax = {
-			Start = "/+";
-			End = "+/";
-			Foldable = NO;
-			Recursive = YES;
-			IncludeRules = ( "xcode.lang.d.comment.ddoc.keyword", "xcode.lang.url", "xcode.lang.url.mail", "xcode.lang.comment.mark" );
-		};
-	},
-	{
-		// Handle the degenerate case of '/++/' comments.
-		Identifier = "xcode.lang.d.comment.nesting.degenerate";
-		Syntax = {
-			StartChars = "/";
-			Chars = "/+";
-			Words = ( "/++/" );
-			Type = "xcode.syntax.comment";
-		};
-	},
-
 
 	// MARK: D Keywords
 	{
@@ -185,11 +121,13 @@
 				"function",
 
 				"goto",
+				"__gshared",
 
 				"idouble",
 				"if",
 				"ifloat",
 				"import",
+				"immutable",
 				"in",
 				"inout",
 				"int",
@@ -224,6 +162,7 @@
 				"return",
 
 				"scope",
+				"shared",
 				"short",
 				"static",
 				"struct",
@@ -288,18 +227,10 @@
 	
 	// MARK: D Strings
 	{
-		Identifier = "xcode.lang.d.string.wysiwyg";
+		Identifier = "xcode.lang.d.string";
 		Syntax = {
-			Start = "r\"";
-			End = "\"";
-			Type = "xcode.syntax.string";
-		};
-	},
-	{
-		Identifier = "xcode.lang.d.string.wysiwyg.alternate";
-		Syntax = {
-			Start = "`";
-			End = "`";
+			SourceScannerClassName = "DXDStringScanner";
+			StartChars = "\"`rqx";
 			Type = "xcode.syntax.string";
 		};
 	},
@@ -319,115 +250,30 @@
             Type = "xcode.syntax.string";
         };
 	},
+	
+	// MARK: D Special Tokens
 	{
-		Identifier = "xcode.lang.d.string.hex";
+		Identifier = "xcode.lang.d.attribute";
 		Syntax = {
-			Start = "x\"";
-			End = "\"";
-			Type = "xcode.syntax.string";
-		};
-	},
-	{
-		Identifier = "xcode.lang.d.string.delimited.bracket";
-		Syntax = {
-			Start = "q\"[";
-			End = "]\"";
-			IncludeRules = (
-				"xcode.lang.d.string.delimited.bracket.nesting",
-			);
-			Type = "xcode.syntax.string";
-		};
-	},
-	{
-		Identifier = "xcode.lang.d.string.delimited.bracket.nesting";
-		Syntax = {
-			Start = "[";
-			End = "]";
-			Recursive = YES;
-		};
-	},
-	{
-		Identifier = "xcode.lang.d.string.delimited.paren";
-		Syntax = {
-			Start = "q\"(";
-			End = ")\"";
-			IncludeRules = (
-				"xcode.lang.d.string.delimited.paren.nesting",
-			);
-			Type = "xcode.syntax.string";
-		};
-	},
-	{
-		Identifier = "xcode.lang.d.string.delimited.paren.nesting";
-		Syntax = {
-			Start = "(";
-			End = ")";
-			Recursive = YES;
-		};
-	},
-	{
-		Identifier = "xcode.lang.d.string.delimited.angle";
-		Syntax = {
-			Start = "q\"<";
-			End = ">\"";
-			IncludeRules = (
-				"xcode.lang.d.string.delimited.angle.nesting",
-			);
-			Type = "xcode.syntax.string";
-		};
-	},
-	{
-		Identifier = "xcode.lang.d.string.delimited.angle.nesting";
-		Syntax = {
-			Start = "<";
-			End = ">";
-			Recursive = YES;
-		};
-	},
-	{
-		Identifier = "xcode.lang.d.string.delimited.brace";
-		Syntax = {
-			Start = "q\"{";
-			End = "}\"";
-			IncludeRules = (
-				"xcode.lang.d.string.delimited.brace.nesting",
-			);
-			Type = "xcode.syntax.string";
-		};
-	},
-	{
-		Identifier = "xcode.lang.d.string.delimited.brace.nesting";
-		Syntax = {
-			Start = "{";
-			End = "}";
-			Recursive = YES;
-		};
-	},
-	{
-		Identifier = "xcode.lang.d.string.delimited";
-		Syntax = {
-			Start = "q\"";
-			End = "\"";
+			StartChars = "@";
+			Chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_@";
 			Match = (
-				"^q\"([a-zA-Z_][a-zA-Z_0-9]*)\n.*?\n\1\"$",
-				"^q\"(.).*?\1\"$",
-				"^q\"@.*?@\"$",
+				"^@[a-zA-Z_][a-zA-Z0-9_]*$",
 			);
-			Type = "xcode.syntax.string";
+			Type = "xcode.syntax.attribute";
 		};
 	},
 	{
-		Identifier = "xcode.lang.d.string.token";
+		Identifier = "xcode.lang.d.specialtokens";
 		Syntax = {
-			Start = "q{";
-			End = "}";
-			IncludeRules = (
-				"xcode.lang.d.braceexpr",
+			StartChars = "#";
+			Match = (
+				"^#line\\b.*$",
 			);
-			Type = "xcode.syntax.string";
+			Type = "xcode.syntax.preprocessor";
 		};
 	},
-
+	
 	// MARK: D Top Level
 	{
 		Identifier = "xcode.lang.d";
@@ -453,6 +299,7 @@
 				"xcode.lang.d.unittest",
 				"xcode.lang.d.bracketexpr",
 				"xcode.lang.d.parenexpr",
+				"xcode.lang.d.aggregate.block",
 			);
 			Type = "xcode.syntax.plain";
 		};
@@ -465,29 +312,16 @@
 		Identifier = "xcode.lang.d.lexer";
 		Syntax = {
 			IncludeRules = (
-				"xcode.lang.d.string.escapesequence",
 				// Comments
-//				"xcode.lang.d.comment.degenerate",
-//				"xcode.lang.d.comment.nesting.degenerate",
-//				"xcode.lang.d.comment.ddoc",
-//				"xcode.lang.d.comment.ddoc.nesting",
-//				"xcode.lang.d.comment.ddoc.singleline",
-				"xcode.lang.comment",
-//				"xcode.lang.d.comment.nesting",
-				"xcode.lang.comment.singleline",
+				"xcode.lang.d.comment.ddoc",
+				"xcode.lang.d.comment",
 				// Strings and character literals
-				"xcode.lang.d.string.wysiwyg",
-				"xcode.lang.d.string.wysiwyg.alternate",
-				"xcode.lang.d.string.hex",
-//				"xcode.lang.d.string.delimited.bracket",
-//				"xcode.lang.d.string.delimited.paren",
-//				"xcode.lang.d.string.delimited.angle",
-//				"xcode.lang.d.string.delimited.brace",
-//				"xcode.lang.d.string.delimited",
-//				"xcode.lang.d.string.token",
-				"xcode.lang.string",
+				"xcode.lang.d.string.escapesequence",
+				"xcode.lang.d.string",
 				"xcode.lang.character",
 				// Other
+				"xcode.lang.d.attribute",
+				"xcode.lang.d.specialtokens",
 				"xcode.lang.completionplaceholder",
 				"xcode.lang.d.identifier",
 				"xcode.lang.d.number",
