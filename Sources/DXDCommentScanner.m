@@ -30,7 +30,7 @@ enum Response { notoken = -1, token = 65542 };
 	
 	NSString *str = [d stringWithRange:e];
 	str = [str stringByDeletingLeadingWhitespace];
-	size_t cutLength = e.length - [str length];
+	e.location += e.length - [str length];
 	
 	// Skip if not a ddoc comment.
 	if ([self ddocOnly]) {
@@ -47,6 +47,7 @@ enum Response { notoken = -1, token = 65542 };
 //		NSLog(@"comment -> a %@", a);
 //		NSLog(@"comment -> range = %d:%d", e.location, e.length);
 //		NSLog(@"comment -> dirtyRange = %d:%d", f->location, f->length);
+//		NSLog(@"comment -> %@", [str substringWithRange:NSMakeRange(0, e.length)]);
 
 		size_t oldLoc = [d location];
 
@@ -62,9 +63,19 @@ enum Response { notoken = -1, token = 65542 };
 }
 
 - (BOOL)predictsRule:(int)tokenType inputStream:(XCCharStream *)stream {
+	if (tokenType & 0x20000) return NO;
 	size_t location = [stream location]-1;
-	BOOL result = location < [stream length] ? [[stream string] characterAtIndex:location] == '/' : NO;
-//	NSLog(@"comment -> predict rule (%d) = %d", tokenType, result);
+	BOOL result = NO;
+	if (location+1 < [stream length]) {
+		if ([[stream string] characterAtIndex:location] == '/') {
+			switch ([stream peekChar]) {
+				case '/': case '*': case '+':
+					result = YES;
+					break;
+			}
+		}
+	}
+//	NSLog(@"comment -> predict rule (%d,%d) = %d", tokenType, location, result);
 	return result;
 }
 

@@ -42,12 +42,19 @@ enum Response { notoken = -1, token = 65542 };
 	if (foundStringLength) {
 		e.length = foundStringLength;
 
-//		NSLog(@"string -> location = %d -> %d", [d location], e.location+e.length);
-		[d setLocation:e.location+e.length];
-
+//		NSLog(@"string -> a %@", a);
+//		NSLog(@"string -> range = %d:%d", e.location, e.length);
+//		NSLog(@"string -> dirtyRange = %d:%d", f->location, f->length);
 //		NSLog(@"string -> %@", [str substringWithRange:NSMakeRange(0, e.length)]);
+
+		size_t oldLoc = [d location];
+
 		XCSourceModelItem *r = [super parse:nil withContext:b initialToken:c inputStream:d range:e dirtyRange:f];
-		[r setNeedToDirtyRightEdges:YES];
+		
+//		NSLog(@"string -> dirtyRange' = %d:%d", f->location, f->length);
+//		NSLog(@"string -> location = %d -> %d", oldLoc, [d location]);
+//		NSLog(@"string -> %@", r);
+
 		return r;
 
 	}
@@ -55,10 +62,17 @@ enum Response { notoken = -1, token = 65542 };
 }
 
 - (BOOL)predictsRule:(int)tokenType inputStream:(XCCharStream *)stream {
+	if (tokenType & 0x20000) return NO;
 	size_t location = [stream location]-1;
 	unichar c = location < [stream length] ? [[stream string] characterAtIndex:location] : 0;
-	BOOL result = c == '"' || c == '`' || c == 'r' || c == 'q' || c == 'x';
-//	NSLog(@"string -> predict rule (%d) = %d", tokenType, result);
+	BOOL result = 
+		(c == '"') ||
+		(c == '`') || 
+		(c == 'r' && [stream peekChar] == '"') ||
+		(c == 'q' && [stream peekChar] == '"') ||
+		(c == 'q' && [stream peekChar] == '{') ||
+		(c == 'x' && [stream peekChar] == '"');
+//	NSLog(@"string -> predict rule (%d,%d) = %d", tokenType, location, result);
 	return result;
 }
 
