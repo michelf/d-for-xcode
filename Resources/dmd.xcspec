@@ -50,50 +50,56 @@
 
 		// Search Paths
 		{
-			Name = DMD_MODULE_SEARCH_PATHS;
+			Name = D_MODULE_SEARCH_PATHS;
 			Type = pathlist;
 			DefaultValue = "/usr/include/d";
 			CommonOption = YES;
 			CommandLineArgs = ("-I$(value)");
+			ConditionFlavors = ( "arch", "sdk" );
 			Category = SearchPaths;
 		},
 		{
-			Name = DMD_IMPORT_EXPRESSION_SEARCH_PATHS;
+			Name = D_IMPORT_EXPRESSION_SEARCH_PATHS;
 			Type = pathlist;
 			DefaultValue = "";
 			CommonOption = YES;
 			CommandLineArgs = ("-J$(value)");
+			ConditionFlavors = ( "arch", "sdk" );
 			Category = SearchPaths;
 		},
 
 		// Language
 		{
-			Name = DMD_UNIT_TEST;
+			Name = D_UNIT_TEST;
 			Type = bool;
 			DefaultValue = NO;
 			CommandLineArgs = { YES = ("-unittest"); NO = (); };
+			ConditionFlavors = ( "arch", "sdk" );
 			Category = Language;
 		},
 		{
-			Name = DMD_VERSION_IDENTIFIERS;
+			Name = D_VERSION_IDENTIFIERS;
 			Type = stringlist;
 			DefaultValue = "";
 			CommandLineArgs = ( "-version=${0}" );
+			ConditionFlavors = ( "arch", "sdk" );
 			Category = Language;
 		},
 		{
-			Name = DMD_DEBUG_IDENTIFIERS;
+			Name = D_DEBUG_IDENTIFIERS;
 			Type = stringlist;
 			DefaultValue = "";
 			CommandLineArgs = ( "-debug=${0}" );
 			Condition = "$(GDC_ENABLE_DEBUG_CODE)";
+			ConditionFlavors = ( "arch", "sdk" );
 			Category = Language;
 		},
 		{
-			Name = DMD_ALLOW_DEPRECATED;
+			Name = D_ALLOW_DEPRECATED;
 			Type = bool;
 			DefaultValue = NO;
 			CommandLineArgs = { YES = (-deprecated); NO = (); };
+			ConditionFlavors = ( "arch", "sdk" );
 			Category = Language;
 		},
 		{
@@ -102,6 +108,7 @@
 			DefaultValue = ""; 
 			Category = Language;
 			CommandLineArgs = ( "${0}" );
+			ConditionFlavors = ( "arch", "sdk" );
 			FileTypes = (sourcecode.d);
 		},
 		
@@ -111,6 +118,7 @@
 			Type = bool;
 			DefaultValue = NO;
 			CommandLineArgs = { YES = ("-D"); NO = (); };
+			ConditionFlavors = ( "arch", "sdk" );
 			Category = Documentation;
 		},
 		{
@@ -119,7 +127,8 @@
 			DefaultValue = "";
 			CommandLineArgs = { "" = (); "<<otherwise>>" = ( "-Dd${0}" ); };
 			Condition = "$(DMD_DDOC)";
-            AppearsOnCommandLineAfter = DMD_DDOC;
+			AppearsOnCommandLineAfter = DMD_DDOC;
+			ConditionFlavors = ( "arch", "sdk" );
 			Category = Documentation;
 		},
 		{
@@ -128,7 +137,8 @@
 			DefaultValue = "";
 			CommandLineArgs = { "" = (); "<<otherwise>>" = ( "-Df${0}" ); };
 			Condition = "$(DMD_DDOC)";
-            AppearsOnCommandLineAfter = DMD_DDOC;
+			AppearsOnCommandLineAfter = DMD_DDOC;
+			ConditionFlavors = ( "arch", "sdk" );
 			Category = Documentation;
 		},
 		{
@@ -137,7 +147,8 @@
 			DefaultValue = "";
 			CommandLineArgs = ("${0}");
 			Condition = "$(DMD_DDOC)";
-            AppearsOnCommandLineAfter = DMD_DDOC;
+			AppearsOnCommandLineAfter = DMD_DDOC;
+			ConditionFlavors = ( "arch", "sdk" );
 			Category = Documentation;
 		},
 		
@@ -156,6 +167,7 @@
 			DefaultValue = NO;
 			CommandLineArgs = { YES = (-release); NO = (); };
 			Category = CodeGeneration;
+			ConditionFlavors = ( "arch", "sdk" );
 			CommonOption = YES;
 		},
 		{
@@ -164,6 +176,7 @@
 			DefaultValue = NO;
 			CommandLineArgs = { YES = (-debug); NO = (); };
 			Category = CodeGeneration;
+			ConditionFlavors = ( "arch", "sdk" );
 			CommonOption = YES;
 		},
 		{
@@ -172,6 +185,7 @@
 			DefaultValue = NO;
 			CommandLineArgs = { YES = (-inline); NO = (); };
 			Category = CodeGeneration;
+			ConditionFlavors = ( "arch", "sdk" );
 			CommonOption = YES;
 		},
 //		{
@@ -197,6 +211,7 @@
 //			DefaultValue = YES;
 			DefaultValue = "$(GCC_GENERATE_DEBUGGING_SYMBOLS)";
 			Category = CodeGeneration;
+			ConditionFlavors = ( "arch", "sdk" );
 			CommonOption = YES;
 		},
 		{
@@ -208,6 +223,7 @@
 			CommandLineArgs = { default = (-g); c-compatible = (-gc); };
 			Condition = "$(DMD_GENERATE_DEBUGGING_SYMBOLS)";
 			Category = CodeGeneration;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
 			Name = DMD_OPTIMIZATION;
@@ -216,6 +232,7 @@
 			DefaultValue = "$(GCC_OPTIMIZATION_LEVEL)";
 			CommandLineArgs = ("-O");
 			Category = CodeGeneration;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 //		{
 //			Name = GDC_MODEL_TUNING;
@@ -269,6 +286,7 @@
 			FileTypes = (sourcecode.c.c, sourcecode.c.objc);
 			Category = Language;
 			CommonOption = YES;
+			ConditionFlavors = ( "arch", "sdk" );
         },
 //		{
 //			Name = GDC_TREAT_WARNINGS_AS_ERRORS;
@@ -276,7 +294,7 @@
 ////			DefaultValue = NO;
 //			DefaultValue = "$(GCC_TREAT_WARNINGS_AS_ERRORS)";
 //			CommandLineArgs = { YES = (-Werror); NO = (); };
-//            AppearsOnCommandLineAfter = GDC_WARNINGS;
+//			AppearsOnCommandLineAfter = GDC_WARNINGS;
 //			Category = Warnings;
 //        },
 	);

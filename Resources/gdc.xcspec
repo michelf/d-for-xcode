@@ -54,51 +54,57 @@
 
 		// Search Paths
 		{
-			Name = GDC_MODULE_SEARCH_PATHS;
+			Name = D_MODULE_SEARCH_PATHS;
 			Type = pathlist;
 			DefaultValue = "/usr/include/d";
 			CommonOption = YES;
 			CommandLineArgs = ("-I", "$(value)");
 			Category = SearchPaths;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
-			Name = GDC_IMPORT_EXPRESSION_SEARCH_PATHS;
+			Name = D_IMPORT_EXPRESSION_SEARCH_PATHS;
 			Type = pathlist;
 			DefaultValue = "";
 			CommonOption = YES;
 			CommandLineArgs = ("-J$(value)");
 			Category = SearchPaths;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 
 		// Language
 		{
-			Name = GDC_UNIT_TEST;
+			Name = D_UNIT_TEST;
 			Type = bool;
 			DefaultValue = NO;
 			CommandLineArgs = { YES = ("-funittest"); NO = (); };
 			Category = Language;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
-			Name = GDC_VERSION_IDENTIFIERS;
+			Name = D_VERSION_IDENTIFIERS;
 			Type = stringlist;
 			DefaultValue = "";
 			CommandLineArgs = ( "-fversion=${0}" );
 			Category = Language;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
-			Name = GDC_DEBUG_IDENTIFIERS;
+			Name = D_DEBUG_IDENTIFIERS;
 			Type = stringlist;
 			DefaultValue = "";
 			CommandLineArgs = ( "-fdebug=${0}" );
 			Condition = "$(GDC_ENABLE_DEBUG_CODE)";
 			Category = Language;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
-			Name = GDC_ALLOW_DEPRECATED;
+			Name = D_ALLOW_DEPRECATED;
 			Type = bool;
 			DefaultValue = NO;
 			CommandLineArgs = { YES = (-fdeprecated); NO = (); };
 			Category = Language;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
 			Name = GDC_OTHER_FLAGS;
@@ -107,6 +113,7 @@
 			Category = Language;
 			CommandLineArgs = ( "${0}" );
 			FileTypes = (sourcecode.d);
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		
 		// Documentation
@@ -116,6 +123,7 @@
 			DefaultValue = NO;
 			CommandLineArgs = { YES = (-fdoc); NO = (); };
 			Category = Documentation;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
 			Name = GDC_DDOC_DIR;
@@ -123,8 +131,9 @@
 			DefaultValue = "";
 			CommandLineArgs = ( "-fdoc-dir=$(value)" );
 			Condition = "$(GDC_DDOC)";
-            AppearsOnCommandLineAfter = GDC_DDOC;
+			AppearsOnCommandLineAfter = GDC_DDOC;
 			Category = Documentation;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
 			Name = GDC_DDOC_FILENAME;
@@ -132,8 +141,9 @@
 			DefaultValue = "";
 			CommandLineArgs = ( "-fdoc-file=$(value)" );
 			Condition = "$(GDC_DDOC)";
-            AppearsOnCommandLineAfter = GDC_DDOC;
+			AppearsOnCommandLineAfter = GDC_DDOC;
 			Category = Documentation;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
 			Name = GDC_DDOC_INCLUDES;
@@ -141,8 +151,9 @@
 			DefaultValue = "";
 			CommandLineArgs = ("-fdoc-inc=${0}");
 			Condition = "$(GDC_DDOC)";
-            AppearsOnCommandLineAfter = GDC_DDOC;
+			AppearsOnCommandLineAfter = GDC_DDOC;
 			Category = Documentation;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		
 		// Code Generation
@@ -153,6 +164,7 @@
 			CommandLineArgs = { YES = (-fbounds-check); NO = (-fno-bounds-check); };
 			Category = CodeGeneration;
 			CommonOption = YES;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
 			Name = GDC_ENABLE_RELEASE_CODE;
@@ -161,6 +173,7 @@
 			CommandLineArgs = { YES = (-frelease); NO = (); };
 			Category = CodeGeneration;
 			CommonOption = YES;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
 			Name = GDC_ENABLE_DEBUG_CODE;
@@ -169,6 +182,7 @@
 			CommandLineArgs = { YES = (-fdebug); NO = (); };
 			Category = CodeGeneration;
 			CommonOption = YES;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
 			Name = GDC_INLINE_FUNCTIONS;
@@ -177,6 +191,7 @@
 			CommandLineArgs = { YES = (-finline-functions); NO = (); };
 			Category = CodeGeneration;
 			CommonOption = YES;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
 			Name = GDC_EMIT_TEMPLATES;
@@ -185,6 +200,7 @@
 			DefaultValue = auto;
 			CommandLineArgs = { none=(-fno-emit-templates) ; "<<otherwise>>"=("-femit-templates=${0}"); };
 			Category = CodeGeneration;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 //		{
 //			Name = GDC_GENERATE_INTERFACE_FILES;
@@ -202,6 +218,7 @@
 			DefaultValue = "$(GCC_GENERATE_DEBUGGING_SYMBOLS)";
 			Category = CodeGeneration;
 			CommonOption = YES;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
 			Name = GDC_DEBUGGING_SYMBOLS;
@@ -212,6 +229,7 @@
 			CommandLineArgs = { default = (-g); };
 			Condition = "$(GDC_GENERATE_DEBUGGING_SYMBOLS)";
 			Category = CodeGeneration;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
 			Name = GDC_OPTIMIZATION_LEVEL;
@@ -221,6 +239,7 @@
 			DefaultValue = "$(GCC_OPTIMIZATION_LEVEL)";
 			CommandLineArgs = ("-O${0}");
 			Category = CodeGeneration;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
 			Name = GDC_MODEL_TUNING;
@@ -231,6 +250,7 @@
 			CommandLineArgs = { "" = (); "<<otherwise>>" = ("-mtune=${0}"); };
 			Architectures = (ppc, ppc7400, ppc7450, ppc970, ppc64);
 			Category = CodeGeneration;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 //		{
 //			Name = GDC_GENERATE_PROFILING_CODE;
@@ -246,6 +266,7 @@
 			DefaultValue = "$(GCC_NO_COMMON_BLOCKS)";
 			CommandLineArgs = { YES = (-fno-common); NO = (); };
 			Category = CodeGeneration;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
 			Name = GDC_REUSE_STRINGS;
@@ -254,6 +275,7 @@
 			DefaultValue = "$(GCC_REUSE_STRINGS)";
 			CommandLineArgs = { YES = (); NO = (-fwritable-strings); };
 			Category = CodeGeneration;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 		{
 			Name = GDC_DYNAMIC_NO_PIC;
@@ -263,6 +285,7 @@
 			//CommandLineArgs = { YES = (-mdynamic-no-pic); NO = (); };
 			// Flag mutually exclusive with -fzero-link, handled programatically.
 			Category = CodeGeneration;
+			ConditionFlavors = ( "arch", "sdk" );
 		},
 
         // Warnings
@@ -273,6 +296,7 @@
 			CommandLineArgs = { YES = (-Wall); NO = (); };
 			FileTypes = (sourcecode.c.c, sourcecode.c.objc);
 			Category = Language;
+			ConditionFlavors = ( "arch", "sdk" );
 			CommonOption = YES;
         },
 //		{
@@ -281,7 +305,7 @@
 ////			DefaultValue = NO;
 //			DefaultValue = "$(GCC_TREAT_WARNINGS_AS_ERRORS)";
 //			CommandLineArgs = { YES = (-Werror); NO = (); };
-//            AppearsOnCommandLineAfter = GDC_WARNINGS;
+//			AppearsOnCommandLineAfter = GDC_WARNINGS;
 //			Category = Warnings;
 //        },
 	);
