@@ -34,9 +34,13 @@ enum Response { notoken = -1, token = 65542 };
 	
 	// Skip if not a ddoc comment.
 	if ([self ddocOnly]) {
-		if ([str length] < 5)
+		size_t length = [str length];
+		unichar firstChar = [str characterAtIndex:1];
+		if (length < 3)
 			return nil;
-		if ([str characterAtIndex:1] != [str characterAtIndex:2])
+		if (firstChar != [str characterAtIndex:2])
+			return nil;
+		if (firstChar != '/' && length < 5)
 			return nil;
 	}
 	

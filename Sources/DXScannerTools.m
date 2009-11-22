@@ -328,9 +328,13 @@ BOOL parseNumber(struct Scanner * scanner) {
 }
 
 BOOL isNumber(NSString *str) {
+	return numberLength(str) == [str length];
+}
+
+size_t numberLength(NSString *str) {
 	size_t strlen = [str length];
 	struct Scanner scanner;
-	BOOL result;
+	size_t result;
 	
 #ifdef UTF8_SCANNER
 	scanner.current = [str UTF8String];
@@ -341,7 +345,7 @@ BOOL isNumber(NSString *str) {
 	unichar * buffer;
 	if (strlen > stackBufferLength) {
 		buffer = malloc(strlen * sizeof(unichar));
-		if (!buffer) return NO; // not enough memory
+		if (!buffer) return 0; // not enough memory
 	} else {
 		buffer = stackBuffer;
 	}
@@ -351,8 +355,10 @@ BOOL isNumber(NSString *str) {
 #endif
 	
 	prev(&scanner);
-	result = parseNumber(&scanner);
-	if (result && !atEnd(&scanner)) result = NO;
+	if (parseNumber(&scanner))
+		result = scanner.current + 1 - buffer;
+	else
+		result = 0;
 	
 #ifndef UTF8_SCANNER
 	if (buffer != stackBuffer) free(buffer);
@@ -432,6 +438,15 @@ size_t stringLength(NSString *str) {
 			while (1) {
 				if (++pos >= length) return length;
 				if ([str characterAtIndex:pos] == '"')
+					break;
+				if ([str characterAtIndex:pos] == '\\')
+					if (++pos >= length) return length;;
+			}
+			break;
+		case '\'':
+			while (1) {
+				if (++pos >= length) return length;
+				if ([str characterAtIndex:pos] == '\'')
 					break;
 				if ([str characterAtIndex:pos] == '\\')
 					if (++pos >= length) return length;;

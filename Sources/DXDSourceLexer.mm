@@ -18,12 +18,7 @@
 
 #import "DXDSourceLexer.h"
 #import "DXParserTools.h"
-
-#undef check
-#include "parse.h"
-#include "import.h"
-#include "identifier.h"
-
+#import "DXBaseLexer.h"
 
 @implementation DXDSourceLexer
 
@@ -56,52 +51,51 @@
 	[self gotIdentifierForRange:NSMakeRange(0, [stringSource length])];
 	
 	try {
-		Lexer lexer(NULL, (unsigned char *)bytes, 0, length, 1, 1);
-		while (lexer.nextToken() != TOKeof) {
-			NSRange tokenRange = NSMakeRange(lexer.token.pos, lexer.cc-lexer.token.pos);
+		DXBaseLexer lexer(stringSource);
+		TOK token;
+		while ((token = lexer.nextToken()) != TOKeof) {
+			NSRange tokenRange = lexer.tokenRange;
 			if (tokenRange.location > maxLoc) {
 				tokenRange.location = maxLoc;
 			}
 			if (tokenRange.length > maxLoc-tokenRange.location) {
 				tokenRange.length = maxLoc-tokenRange.location;
 			}
-			switch (lexer.token.value) {
-				case TOKint32v: case TOKuns32v: 
-				case TOKint64v: case TOKuns64v: 
-				case TOKfloat32v: case TOKfloat64v: 
-				case TOKfloat80v: case TOKimaginary32v:
-				case TOKimaginary64v: case TOKimaginary80v:
+			switch (token) {
+				case TOKnumber:
 					[self gotNumberForRange:tokenRange];
 					break;
-				case TOKcharv: case TOKwcharv: case TOKdcharv:
+				case TOKchar:
 					[self gotCharacterForRange:tokenRange];
-					break;
-				case TOKidentifier:
-	//				[self gotIdentifierForRange:tokenRange];
 					break;
 				case TOKstring:
 					[self gotStringForRange:tokenRange];
 					break;
 				case TOKcomment:
+				{
 					// Test for documentation comments (doubled second character).
-					if (tokenRange.length >= (*(lexer.token.ptr+1) == '/' ? 3 : 5) &&
-						*(lexer.token.ptr+1) == *(lexer.token.ptr+2))
+					NSString *str = lexer.stringValue();
+					NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+					const unsigned char *ptr = (const unsigned char *)[data bytes];
+					const unsigned char *endPtr = ptr+[data length];
+					
+					if (tokenRange.length >= (*(ptr+1) == '/' ? 3 : 5) &&
+						*(ptr+1) == *(ptr+2))
 					{
 						[self gotDocCommentForRange:tokenRange];
 						// Scan for keywords, skipping first character.
-						[self scanForDocKeywordsBetweenStart:lexer.token.ptr+1 andEnd:lexer.p startingAt:tokenRange.location+1];
+						[self scanForDocKeywordsBetweenStart:ptr+1 andEnd:endPtr startingAt:tokenRange.location+1];
 					} else {
 						[self gotCommentForRange:tokenRange];
 					}
-					[self scanForLinksBetweenStart:lexer.token.ptr andEnd:lexer.p startingAt:tokenRange.location];
+					[self scanForLinksBetweenStart:ptr andEnd:endPtr startingAt:tokenRange.location];
 					break;
-				CASE_BASIC_TYPES:
-					[self gotKeywordForRange:tokenRange];
+				}
+				case TOKidentifier:
+					[[self rules] isKeyword:lexer.stringValue()];
 					break;
 				default:
-					if (lexer.token.isKeyword()) {
-						[self gotKeywordForRange:tokenRange];
-					}
+					break;
 			}
 		}
 	} catch (...) {
@@ -109,9 +103,9 @@
 	}
 }
 
-- (void)scanForLinksBetweenStart:(unsigned char *)start andEnd:(unsigned char *)end startingAt:(unsigned int)pos {
+- (void)scanForLinksBetweenStart:(const unsigned char *)start andEnd:(const unsigned char *)end startingAt:(unsigned int)pos {
 	// Scan for URLs in comment.
-	unsigned char *current = start;
+	const unsigned char *current = start;
 	while (++current < end) {
 		++pos;
 		switch (*current) {
@@ -218,8 +212,8 @@
 	}
 }
 
-- (void)scanForDocKeywordsBetweenStart:(unsigned char *)start andEnd:(unsigned char *)end startingAt:(unsigned int)pos {
-	unsigned char *current = start;
+- (void)scanForDocKeywordsBetweenStart:(const unsigned char *)start andEnd:(const unsigned char *)end startingAt:(unsigned int)pos {
+	const unsigned char *current = start;
 	bool waitingMarginChar = false;
 	goto START;
 	

@@ -18,6 +18,15 @@
 
 #import <Foundation/Foundation.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+	
 BOOL isNumber(NSString *str);
+size_t numberLength(NSString *str);
 size_t commentLength(NSString *str);
 size_t stringLength(NSString *str);
+
+#ifdef __cplusplus
+}
+#endif

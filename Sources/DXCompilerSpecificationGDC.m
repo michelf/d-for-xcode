@@ -30,8 +30,6 @@
 	PBXFileType *type = (PBXFileType*)[PBXFileType specificationForIdentifier:@"sourcecode.d"];
 	XCCompilerSpecification *spec = (XCCompilerSpecification*)[XCCompilerSpecification specificationForIdentifier:@"com.michelf.dxcode.gdc"];
 	[PBXTargetBuildContext activateImportedFileType:type withCompiler:spec];
-	
-	DXParserInit();
 }
 
 - (NSArray *)importedFilesForPath:(NSString *)path ensureFilesExist:(BOOL)ensure inTargetBuildContext:(PBXTargetBuildContext *)context

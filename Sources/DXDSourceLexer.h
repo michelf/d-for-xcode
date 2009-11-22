@@ -24,6 +24,7 @@
  */
 @interface DXDSourceLexer : PBXSourceLexer {
 	NSString *stringSource;
+	NSSet *keywords;
 }
 
 /*!
@@ -49,12 +50,12 @@
  * Scan for links within a comments and call method gotLinkForRange: or 
  * gotMailAddressForRange: for each of them.
  */
-- (void)scanForLinksBetweenStart:(unsigned char *)start andEnd:(unsigned char *)end startingAt:(unsigned int)pos;
+- (void)scanForLinksBetweenStart:(const unsigned char *)start andEnd:(const unsigned char *)end startingAt:(unsigned int)pos;
 
 /*!
  * Scan ddoc documentation comments for keywords (section markers) and call 
  * method gotDocKeywordForRange: for each of them.
  */
-- (void)scanForDocKeywordsBetweenStart:(unsigned char *)start andEnd:(unsigned char *)end startingAt:(unsigned int)pos;
+- (void)scanForDocKeywordsBetweenStart:(const unsigned char *)start andEnd:(const unsigned char *)end startingAt:(unsigned int)pos;
 
 @end

@@ -25,9 +25,10 @@ enum Response { notoken = -1, token = 65542 };
 @implementation DXDNumberScanner
 
 - (int)tokenForString:(NSString *)str forRange:(NSRange *)range subItems:(id *)subItems {
-	if (isNumber(str)) {
+	size_t length = numberLength(str);
+	if (length) {
 		range->location = 0;
-		range->length = [str length];
+		range->length = length;
 		return token;
 	}
 	return [super tokenForString:str forRange:range subItems:subItems];
