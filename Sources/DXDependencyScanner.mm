@@ -1,6 +1,6 @@
 
-// D for Xcode: Parser Tools
-// Copyright (C) 2007-2008  Michel Fortin
+// D for Xcode: Dependency Scanner
+// Copyright (c) 2007-2009  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
 // under the terms of the GNU General Public License as published by the Free 
@@ -16,7 +16,7 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
-#import "DXParserTools.h"
+#import "DXDependencyScanner.h"
 #import "DXBaseLexer.h"
 
 #include <string>

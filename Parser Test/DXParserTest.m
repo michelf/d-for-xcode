@@ -1,6 +1,6 @@
 
 // D parser function tests
-// Copyright (C) 2007-2008  Michel Fortin
+// Copyright (c) 2007-2009  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
 // under the terms of the GNU General Public License as published by the Free 
@@ -23,7 +23,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "DXParserTools.h"
+#import "DXDependencyScanner.h"
 #import "XCPSourceParsing.h"
 
 

@@ -1,6 +1,6 @@
 
-// D for Xcode: Support tools for special scanners for Xcode 3
-// Copyright (C) 2008  Michel Fortin
+// D for Xcode: Support tools for Xcode 3 scanners and base lexer
+// Copyright (c) 2007-2009  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
 // under the terms of the GNU General Public License as published by the Free 

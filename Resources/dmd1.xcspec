@@ -1,9 +1,9 @@
 
 // DMD 1.x compiler specification for Xcode 3
-// Copyright (C) 2007-2008  Michel Fortin
+// Copyright (c) 2007-2009  Michel Fortin
 //
 // Based on the D Xcode Compiler Plugin
-// Copyright (C) 2005-2006  Alan West
+// Copyright (c) 2005-2006  Alan West
 //
 // For use with the Mac OS X DMD Compiler <http://www.digitalmars.com/d/>.
 // Note: the DMD 1.x executable is expected to be at: /usr/local/bin/dmd1

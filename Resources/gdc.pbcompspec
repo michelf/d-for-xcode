@@ -1,9 +1,9 @@
 
 // GDC compiler specification for Xcode 2
-// Copyright (C) 2007-2008  Michel Fortin
+// Copyright (c) 2007-2009  Michel Fortin
 //
 // Based on the D Xcode Compiler Plugin
-// Copyright (C) 2005-2006  Alan West
+// Copyright (c) 2005-2006  Alan West
 //
 // For use with the GCC D Compiler front end <http://dgcc.sourceforge.net/> 
 //   by David Friedman <d3rdclsmail@earthlink.net>
