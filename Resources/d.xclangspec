@@ -334,7 +334,6 @@
 		Identifier = "xcode.lang.d.template";
 		Syntax = {
 			Tokenizer = "xcode.lang.d.lexer";
-			Foldable = YES;
 			Recursive = YES;
 			Rules = (
 				"xcode.lang.d.template.declarator",
