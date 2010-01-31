@@ -23,7 +23,10 @@
 	{
 		Type = FileType;
 		Identifier = sourcecode.d;
-		BasedOn = sourcecode.c; // This doesn't sound technically correct, but it allows breakpoints to be set from within Xcode.
+		BasedOn = sourcecode.java; // This doesn't sound technically correct, 
+		// but it allows breakpoints to be set from within Xcode. Originally 
+		// based on sourcecode.c, but this caused problems with autocompletion 
+		// under Xcode 3.2.
 		Name = "D source files";
 		GccDialectName = "d";
 		Extensions = (d);
@@ -31,6 +34,8 @@
 		Language = xcode.lang.d;
 		AppliesToBuildRules = YES;
 		CanSetIncludeInIndex = YES;
+		IsScannedForIncludes = YES;
+		ChangesCauseDependencyGraphInvalidation = YES;
 	},
 	{
 		Type = FileType;
@@ -42,5 +47,6 @@
 		ComputerLanguage = d;
 		Language = xcode.lang.d;
 		AppliesToBuildRules = NO;
+		IsScannedForIncludes = NO;
 	}
 )
