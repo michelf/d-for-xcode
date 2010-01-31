@@ -115,8 +115,8 @@
 		1E23D71C0CED5365005859B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E23D7250CED53AA005859B9 /* Launcher.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Launcher.c; sourceTree = "<group>"; };
 		1E2A19520DF0FF7700C8A956 /* Release Notes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Release Notes.txt"; sourceTree = "<group>"; };
-		1E3075A11078B98A00ED4D31 /* XCSourceModelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCSourceModelItem.h; path = "Varia/class-dump-3.1.2/DevToolsClassDump3/XcodeEdit/XCSourceModelItem.h"; sourceTree = "<group>"; };
-		1E3075A21078B9A000ED4D31 /* XCCharStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCCharStream.h; path = "Varia/class-dump-3.1.2/DevToolsClassDump3/XcodeEdit/XCCharStream.h"; sourceTree = "<group>"; };
+		1E3075A11078B98A00ED4D31 /* XCSourceModelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCSourceModelItem.h; path = Headers/XCSourceModelItem.h; sourceTree = "<group>"; };
+		1E3075A21078B9A000ED4D31 /* XCCharStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XCCharStream.h; path = Headers/XCCharStream.h; sourceTree = "<group>"; };
 		1E3076461078E36200ED4D31 /* DXDStringScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDStringScanner.h; sourceTree = "<group>"; };
 		1E3076471078E36200ED4D31 /* DXDStringScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXDStringScanner.m; sourceTree = "<group>"; };
 		1E3076541078EE1F00ED4D31 /* DXDStringScannerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDStringScannerTest.h; sourceTree = "<group>"; };
