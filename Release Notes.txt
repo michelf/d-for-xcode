@@ -1,21 +1,60 @@
 D for Xcode: Release Notes
 ==========================
 
+D fox Xcode integrates syntax highlight and code folding for D source files and
+integrates the DMD and GDC compilers in the build system.
+
+
 Known Issues:
 
-*	Nested comments and documentation comments are ignored by the syntax
-	highlighter in Xcode 3.
+*	The debugger doesn't work with DMD at this point. It can only show you the 
+	mangled function names from a stack frame. There is no breakpoint support.
 
-*	Files with the .d extensions are given the "sourcecode.dtrace" type
-	instead of "sourcecode.d" while first added to a project. This is because
-	Xcode already has a rule associating .d files with dtrace which takes
-	precedence. You must open the info panel for your files and manually select
-	the "sourcecode.d" file type. This does not apply to Xcode 2.x.
+*	For code compiled with GDC, the debugger does not display very well the 
+	content of objects.
 
-*	The debugger doesn't demangle function names. This can probably be fixed
-	by patching GDB.
+*	Autocompletion and indexing is not implemented. Autocompletion curently 
+	only search for similar words in the same document, which is what Xcode 
+	does by default for files it doesn't know about.
 
-*	The debugger does not show very intelligently the content of objects.
+
+1.1b3 (9 Dec 2009):
+
+*	Added support for the DMD compiler. D for Xcode looks at the following 
+	paths for DMD:
+	
+	*	/usr/local/bin/dmd for DMD System Version
+	*	/usr/local/bin/dmd1 for DMD 1.x
+	*	/usr/local/bin/dmd2 for DMD 2.x
+	
+	(Note: a DMD installer with this setup remains to be done.)
+	
+	By default, Xcode projects use the DMD System Version, which can be either 
+	D1 or D2. You can change this by going to each target's settings, under the 
+	Build Rules tab, and adding a custom build rule for D source files using 
+	your prefered compiler.
+
+*	Updated keyword list for syntax highlighting, improved code folding, and 
+	other enhancements in the source scanner.
+	
+*	Added special scanner code for strings and comments in Xcode 3. Nested 
+	comment and all D string syntaxes should be highlighted correctly now.
+
+*	D files are now recognized correctly by default in Xcode 3. Previously they
+	were assinged the dtrace.sourcecode type (which shares the same file 
+	extension); now d.sourcecode takes precedence when files are added to a 
+	project. You can manually change the file type from the file info panel 
+	in Xcode.
+
+*	Fixed the dependency tree generation under Xcode 3.1.
+
+*	Got rid of the DMD front end, now using a custom lightweight parser for 
+	dependency scanning and a source scanner for syntax highlighing in 
+	Xcode 2.x.
+
+*	Removed support for the outline menu in Xcode 2.x which was using the DMD
+	front end and was too time-consuming to keep up to date. The outline is 
+	still available in Xcode 3 using the newer source scanning facilities.
 
 
 1.1b2 (21 Sep 2008):

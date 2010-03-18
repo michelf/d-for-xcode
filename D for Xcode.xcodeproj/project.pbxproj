@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1E01E47A0DED6B7E00CE9033 /* DXDNumberScannerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E01E4790DED6B7D00CE9033 /* DXDNumberScannerTest.m */; };
 		1E01E4930DED70C800CE9033 /* DXScannerTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E01E4920DED70C800CE9033 /* DXScannerTools.m */; };
-		1E01E4D40DED76BC00CE9033 /* DXDNumberScannerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E01E4790DED6B7D00CE9033 /* DXDNumberScannerTest.m */; };
 		1E0226F30D4CB2E0004C9141 /* d.xcsynspec in Resources */ = {isa = PBXBuildFile; fileRef = 1E0226F20D4CB2E0004C9141 /* d.xcsynspec */; };
 		1E0C22720CEFF80000989F51 /* dplugin.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1E01E18F0CED3DB000C97561 /* dplugin.icns */; };
 		1E1A1AC80CC571F7005B9B65 /* d.xctxtmacro in Resources */ = {isa = PBXBuildFile; fileRef = 1E6BF4140CAF52AD0022460C /* d.xctxtmacro */; };
@@ -37,8 +36,6 @@
 		1E67105C100988A700361CC2 /* DXFileTypeSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E67105B100988A700361CC2 /* DXFileTypeSetup.m */; };
 		1E68F1FE0D4B6E58008144DB /* gdc.xcspec in Resources */ = {isa = PBXBuildFile; fileRef = 1E68F1FD0D4B6E58008144DB /* gdc.xcspec */; };
 		1E6BED340CAE7BF80022460C /* DXDependencyScanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BED2C0CAE7A760022460C /* DXDependencyScanner.mm */; };
-		1E6BF0B10CAF006E0022460C /* DXParserTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BF00F0CAEFC620022460C /* DXParserTest.m */; };
-		1E6BF14D0CAF03B10022460C /* DXDependencyScanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BED2C0CAE7A760022460C /* DXDependencyScanner.mm */; };
 		1E6D1D130CEF734700DD3D4F /* DXIconSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6D1D0F0CEF733700DD3D4F /* DXIconSetup.m */; };
 		1E7179330CB13DE300E82F1C /* DXCompilerSpecificationGDC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BEBF40CADF7D40022460C /* DXCompilerSpecificationGDC.m */; };
 		1E7857A3101F6FA000FA2061 /* dmd2.pblinkspec in Resources */ = {isa = PBXBuildFile; fileRef = 1E7857A2101F6FA000FA2061 /* dmd2.pblinkspec */; };
@@ -64,8 +61,9 @@
 		1ED40E260CF001C3005C46B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED40E250CF001C3005C46B3 /* InfoPlist.strings */; };
 		1EDC1114105289000087E1DF /* DXDCommentScannerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC1111105287FB0087E1DF /* DXDCommentScannerTest.m */; };
 		1EF2EE3D0CEEAAA600DD7A7D /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EF2EE3C0CEEAAA600DD7A7D /* Carbon.framework */; };
+		1EF3C76011529976001B82F7 /* dmd-redirect.c in Sources */ = {isa = PBXBuildFile; fileRef = 1EF3C751115297DA001B82F7 /* dmd-redirect.c */; };
+		1EF3C77311529A2F001B82F7 /* dmd-redirect.c in Sources */ = {isa = PBXBuildFile; fileRef = 1EF3C751115297DA001B82F7 /* dmd-redirect.c */; };
 		1EFC53D50CC4D6B000B03C7E /* gdc.pblinkspec in Resources */ = {isa = PBXBuildFile; fileRef = 6DB1DD8408B3A289004F6FFB /* gdc.pblinkspec */; };
-		6D209CFB08EFE8E600E52803 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		6DB1DD8C08B3A289004F6FFB /* d.xcbuildrules in Resources */ = {isa = PBXBuildFile; fileRef = 6DB1DD8108B3A289004F6FFB /* d.xcbuildrules */; };
 		6DB1DD9008B3A289004F6FFB /* d.pblangspec in Resources */ = {isa = PBXBuildFile; fileRef = 6DB1DD8508B3A289004F6FFB /* d.pblangspec */; };
 		6DB1DD9108B3A289004F6FFB /* d.pbfilespec in Resources */ = {isa = PBXBuildFile; fileRef = 6DB1DD8608B3A289004F6FFB /* d.pbfilespec */; };
@@ -135,8 +133,6 @@
 		1E6BEBF40CADF7D40022460C /* DXCompilerSpecificationGDC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXCompilerSpecificationGDC.m; sourceTree = "<group>"; };
 		1E6BED2B0CAE7A760022460C /* DXDependencyScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDependencyScanner.h; sourceTree = "<group>"; };
 		1E6BED2C0CAE7A760022460C /* DXDependencyScanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DXDependencyScanner.mm; sourceTree = "<group>"; };
-		1E6BF00F0CAEFC620022460C /* DXParserTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXParserTest.m; sourceTree = "<group>"; };
-		1E6BF01B0CAEFCE40022460C /* parsertest.d */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.dtrace; path = parsertest.d; sourceTree = "<group>"; };
 		1E6BF3CD0CAF493C0022460C /* DXDSourceLexer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDSourceLexer.h; sourceTree = "<group>"; };
 		1E6BF3CE0CAF493C0022460C /* DXDSourceLexer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DXDSourceLexer.mm; sourceTree = "<group>"; };
 		1E6BF4140CAF52AD0022460C /* d.xctxtmacro */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xctxtmacro; path = d.xctxtmacro; sourceTree = "<group>"; };
@@ -165,11 +161,13 @@
 		1EED03CD10528687001CA3B8 /* DXDCommentScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDCommentScanner.h; sourceTree = "<group>"; };
 		1EED03CE10528687001CA3B8 /* DXDCommentScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXDCommentScanner.m; sourceTree = "<group>"; };
 		1EF2EE3C0CEEAAA600DD7A7D /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		1EF3C751115297DA001B82F7 /* dmd-redirect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "dmd-redirect.c"; sourceTree = "<group>"; };
+		1EF3C75B115298B8001B82F7 /* dmd1-redirect */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "dmd1-redirect"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EF3C77811529A2F001B82F7 /* dmd1-redirect */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "dmd1-redirect"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF9B7EB0D8A245100AF150C /* XC3PSourceParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XC3PSourceParsing.h; path = Headers/XC3PSourceParsing.h; sourceTree = "<group>"; };
 		1EF9B80A0D8A986800AF150C /* DXDNumberScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDNumberScanner.h; sourceTree = "<group>"; };
 		1EF9B80B0D8A986800AF150C /* DXDNumberScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXDNumberScanner.m; sourceTree = "<group>"; };
 		6D209C3F08EBCC2300E52803 /* XCPSupport.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPSupport.h; path = Headers/XCPSupport.h; sourceTree = "<group>"; };
-		6D209C6B08EFE0A200E52803 /* D Parser Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "D Parser Test"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D2505A908B95F2F0035335F /* XCPBuildSystem.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPBuildSystem.h; path = Headers/XCPBuildSystem.h; sourceTree = "<group>"; };
 		6D2505AA08B95F2F0035335F /* XCPDependencyGraph.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPDependencyGraph.h; path = Headers/XCPDependencyGraph.h; sourceTree = "<group>"; };
 		6D2505AB08B95F2F0035335F /* XCPSpecifications.h */ = {isa = PBXFileReference; fileEncoding = 5; lastKnownFileType = sourcecode.c.h; name = XCPSpecifications.h; path = Headers/XCPSpecifications.h; sourceTree = "<group>"; };
@@ -212,11 +210,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6D209C6908EFE0A200E52803 /* Frameworks */ = {
+		1EF3C759115298B8001B82F7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D209CFB08EFE8E600E52803 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EF3C77411529A2F001B82F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +245,7 @@
 				1E6BEBF90CADF7DD0022460C /* Sources */,
 				1E01E4770DED6B7D00CE9033 /* Unit Tests */,
 				1E23D7320CED53C2005859B9 /* Launcher App */,
-				1E6BF0180CAEFCD10022460C /* Parser Test */,
+				1EF3C750115297DA001B82F7 /* DMD Redirect */,
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
 				19C28FB8FE9D52D311CA2CBB /* Products */,
 			);
@@ -303,8 +307,9 @@
 				6DB1DDED08B3A33A004F6FFB /* D for Xcode.xcplugin */,
 				1ECD1230107105FD00CFD074 /* D for Xcode UI.bundle */,
 				1E23D71A0CED5365005859B9 /* D for Xcode Launcher.app */,
-				6D209C6B08EFE0A200E52803 /* D Parser Test */,
 				1EC647B40DABA85300DD52F0 /* Unit Tests.octest */,
+				1EF3C75B115298B8001B82F7 /* dmd1-redirect */,
+				1EF3C77811529A2F001B82F7 /* dmd1-redirect */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -367,13 +372,12 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		1E6BF0180CAEFCD10022460C /* Parser Test */ = {
+		1EF3C750115297DA001B82F7 /* DMD Redirect */ = {
 			isa = PBXGroup;
 			children = (
-				1E6BF00F0CAEFC620022460C /* DXParserTest.m */,
-				1E6BF01B0CAEFCE40022460C /* parsertest.d */,
+				1EF3C751115297DA001B82F7 /* dmd-redirect.c */,
 			);
-			path = "Parser Test";
+			path = "DMD Redirect";
 			sourceTree = "<group>";
 		};
 		6D209C4508EBCCC800E52803 /* Xcode API */ = {
@@ -449,20 +453,36 @@
 			productReference = 1ECD1230107105FD00CFD074 /* D for Xcode UI.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
-		6D209C6A08EFE0A200E52803 /* D Parser Test */ = {
+		1EF3C75A115298B8001B82F7 /* dmd1-redirect */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6D209C6F08EFE0C500E52803 /* Build configuration list for PBXNativeTarget "D Parser Test" */;
+			buildConfigurationList = 1EF3C75F115298D7001B82F7 /* Build configuration list for PBXNativeTarget "dmd1-redirect" */;
 			buildPhases = (
-				6D209C6808EFE0A200E52803 /* Sources */,
-				6D209C6908EFE0A200E52803 /* Frameworks */,
+				1EF3C758115298B8001B82F7 /* Sources */,
+				1EF3C759115298B8001B82F7 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "D Parser Test";
-			productName = test;
-			productReference = 6D209C6B08EFE0A200E52803 /* D Parser Test */;
+			name = "dmd1-redirect";
+			productName = "dmd-redirect";
+			productReference = 1EF3C75B115298B8001B82F7 /* dmd1-redirect */;
+			productType = "com.apple.product-type.tool";
+		};
+		1EF3C77111529A2F001B82F7 /* dmd2-redirect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1EF3C77511529A2F001B82F7 /* Build configuration list for PBXNativeTarget "dmd2-redirect" */;
+			buildPhases = (
+				1EF3C77211529A2F001B82F7 /* Sources */,
+				1EF3C77411529A2F001B82F7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "dmd2-redirect";
+			productName = "dmd-redirect";
+			productReference = 1EF3C77811529A2F001B82F7 /* dmd1-redirect */;
 			productType = "com.apple.product-type.tool";
 		};
 		8D5B49AC048680CD000E48DA /* D for Xcode */ = {
@@ -501,8 +521,9 @@
 				8D5B49AC048680CD000E48DA /* D for Xcode */,
 				1ECD11F7107105FD00CFD074 /* D for Xcode UI */,
 				1E23D7190CED5365005859B9 /* D for Xcode Launcher */,
-				6D209C6A08EFE0A200E52803 /* D Parser Test */,
 				1EC647B30DABA85300DD52F0 /* Unit Tests */,
+				1EF3C75A115298B8001B82F7 /* dmd1-redirect */,
+				1EF3C77111529A2F001B82F7 /* dmd2-redirect */,
 			);
 		};
 /* End PBXProject section */
@@ -634,13 +655,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6D209C6808EFE0A200E52803 /* Sources */ = {
+		1EF3C758115298B8001B82F7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E6BF0B10CAF006E0022460C /* DXParserTest.m in Sources */,
-				1E6BF14D0CAF03B10022460C /* DXDependencyScanner.mm in Sources */,
-				1E01E4D40DED76BC00CE9033 /* DXDNumberScannerTest.m in Sources */,
+				1EF3C76011529976001B82F7 /* dmd-redirect.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1EF3C77211529A2F001B82F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EF3C77311529A2F001B82F7 /* dmd-redirect.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -817,28 +844,90 @@
 			};
 			name = Release;
 		};
-		6D209C7008EFE0C500E52803 /* Debug */ = {
+		1EF3C75D115298B9001B82F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				OTHER_CFLAGS = "-g";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "DX_DMD_PATH=\"/Library/Compilers/dmd/osx/bin/dmd\"";
+				INSTALL_PATH = /usr/local/bin;
 				OTHER_LDFLAGS = (
-					"-undefined",
-					dynamic_lookup,
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				ZERO_LINK = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = "dmd1-redirect";
 			};
 			name = Debug;
 		};
-		6D209C7108EFE0C500E52803 /* Release */ = {
+		1EF3C75E115298B9001B82F7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				OTHER_CFLAGS = "-g";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = "'DX_DMD_PATH=\"/Library/Compilers/dmd/osx/bin/dmd\"'";
+				INSTALL_PATH = /usr/local/bin;
 				OTHER_LDFLAGS = (
-					"-undefined",
-					dynamic_lookup,
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PREBINDING = NO;
+				PRODUCT_NAME = "dmd1-redirect";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		1EF3C77611529A2F001B82F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "DX_DMD_PATH=\"/Library/Compilers/dmd/osx/bin/dmd\"";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "dmd1-redirect";
+			};
+			name = Debug;
+		};
+		1EF3C77711529A2F001B82F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PREPROCESSOR_DEFINITIONS = "'DX_DMD_PATH=\"/Library/Compilers/dmd2/osx/bin/dmd\"'";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "dmd2-redirect";
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -943,11 +1032,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6D209C6F08EFE0C500E52803 /* Build configuration list for PBXNativeTarget "D Parser Test" */ = {
+		1EF3C75F115298D7001B82F7 /* Build configuration list for PBXNativeTarget "dmd1-redirect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6D209C7008EFE0C500E52803 /* Debug */,
-				6D209C7108EFE0C500E52803 /* Release */,
+				1EF3C75D115298B9001B82F7 /* Debug */,
+				1EF3C75E115298B9001B82F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1EF3C77511529A2F001B82F7 /* Build configuration list for PBXNativeTarget "dmd2-redirect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EF3C77611529A2F001B82F7 /* Debug */,
+				1EF3C77711529A2F001B82F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
