@@ -1,0 +1,4 @@
+{
+	MainTemplateFile = "module.di";
+	Description = "A D module interface file.";
+}

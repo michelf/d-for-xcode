@@ -1,0 +1,9 @@
+{
+	FilesToRename = {
+		"CommandLineTool.1" = "ÇPROJECTNAMEÈ.1";
+	};
+	FilesToMacroExpand = (
+		"ÇPROJECTNAMEÈ.1",
+	);
+	Description = "This project builds a command-line tool written in D.";
+}

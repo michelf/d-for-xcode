@@ -1,0 +1,3 @@
+{
+	Description = "This project builds a static library written in D.";
+}

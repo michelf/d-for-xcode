@@ -1,0 +1,5 @@
+{
+	MainTemplateFile = "module.d";
+	Description = "A D module file.";
+	FileType = sourcecode.d;
+}

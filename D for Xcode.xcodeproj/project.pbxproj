@@ -6,6 +6,24 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		1EF3C7D411539BD0001B82F7 /* D for Xcode.mpkg */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 1EF3C7D811539BD8001B82F7 /* Build configuration list for PBXAggregateTarget "D for Xcode.mpkg" */;
+			buildPhases = (
+				1EF3C7D311539BD0001B82F7 /* Prepare Contents */,
+				1EF3CBFA11555EDF001B82F7 /* Create Package */,
+			);
+			dependencies = (
+				1EF3C7E21153A777001B82F7 /* PBXTargetDependency */,
+				1EF3C7E01153A774001B82F7 /* PBXTargetDependency */,
+				1EF3C7DE1153A772001B82F7 /* PBXTargetDependency */,
+			);
+			name = "D for Xcode.mpkg";
+			productName = Packaging;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		1E01E47A0DED6B7E00CE9033 /* DXDNumberScannerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E01E4790DED6B7D00CE9033 /* DXDNumberScannerTest.m */; };
 		1E01E4930DED70C800CE9033 /* DXScannerTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E01E4920DED70C800CE9033 /* DXScannerTools.m */; };
@@ -87,6 +105,34 @@
 			remoteGlobalIDString = 1ECD11F7107105FD00CFD074;
 			remoteInfo = "D for Xcode UI";
 		};
+		1EF3C7DD1153A772001B82F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EF3C77111529A2F001B82F7;
+			remoteInfo = "dmd2-redirect";
+		};
+		1EF3C7DF1153A774001B82F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EF3C75A115298B8001B82F7;
+			remoteInfo = "dmd1-redirect";
+		};
+		1EF3C7E11153A777001B82F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
+			remoteInfo = "D for Xcode";
+		};
+		1EF3C8251153AAF3001B82F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 089C1669FE841209C02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EC647B30DABA85300DD52F0;
+			remoteInfo = "Unit Tests";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -163,7 +209,22 @@
 		1EF2EE3C0CEEAAA600DD7A7D /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		1EF3C751115297DA001B82F7 /* dmd-redirect.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "dmd-redirect.c"; sourceTree = "<group>"; };
 		1EF3C75B115298B8001B82F7 /* dmd1-redirect */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "dmd1-redirect"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1EF3C77811529A2F001B82F7 /* dmd1-redirect */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "dmd1-redirect"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EF3C77811529A2F001B82F7 /* dmd2-redirect */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "dmd2-redirect"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EF3C93B1155023A001B82F7 /* D for Xcode.pmdoc */ = {isa = PBXFileReference; explicitFileType = wrapper; path = "D for Xcode.pmdoc"; sourceTree = "<group>"; };
+		1EF3C949115502BD001B82F7 /* dmd1download.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dmd1download.sh; sourceTree = "<group>"; };
+		1EF3C94A115502BD001B82F7 /* dmd1link.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dmd1link.sh; sourceTree = "<group>"; };
+		1EF3C94B115502BD001B82F7 /* dmd2download.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dmd2download.sh; sourceTree = "<group>"; };
+		1EF3C94C115502BD001B82F7 /* dmd2link.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = dmd2link.sh; sourceTree = "<group>"; };
+		1EF3C978115506EC001B82F7 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
+		1EF3CA49115507A7001B82F7 /* prepare-contents.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "prepare-contents.sh"; sourceTree = "<group>"; };
+		1EF3CA4A11550BD3001B82F7 /* setdmd.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = setdmd.sh; sourceTree = "<group>"; };
+		1EF3CA70115517B9001B82F7 /* Prepared Contents */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Prepared Contents"; sourceTree = "<group>"; };
+		1EF3CBA311555D73001B82F7 /* Intro.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Intro.rtf; sourceTree = "<group>"; };
+		1EF3CBA411555D73001B82F7 /* ReadMe.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ReadMe.rtf; sourceTree = "<group>"; };
+		1EF3CBA611555D73001B82F7 /* Intro.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Intro.rtf; sourceTree = "<group>"; };
+		1EF3CBA711555D73001B82F7 /* ReadMe.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ReadMe.rtf; sourceTree = "<group>"; };
+		1EF3CBB911555E16001B82F7 /* d-xcode-installer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "d-xcode-installer.png"; sourceTree = "<group>"; };
+		1EF3CBF711555EBE001B82F7 /* D for Xcode.mpkg */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.installer-mpkg"; name = "D for Xcode.mpkg"; path = "Products/Build/Debug/D for Xcode.mpkg"; sourceTree = DEVELOPER_DIR; };
 		1EF9B7EB0D8A245100AF150C /* XC3PSourceParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XC3PSourceParsing.h; path = Headers/XC3PSourceParsing.h; sourceTree = "<group>"; };
 		1EF9B80A0D8A986800AF150C /* DXDNumberScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDNumberScanner.h; sourceTree = "<group>"; };
 		1EF9B80B0D8A986800AF150C /* DXDNumberScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXDNumberScanner.m; sourceTree = "<group>"; };
@@ -245,7 +306,7 @@
 				1E6BEBF90CADF7DD0022460C /* Sources */,
 				1E01E4770DED6B7D00CE9033 /* Unit Tests */,
 				1E23D7320CED53C2005859B9 /* Launcher App */,
-				1EF3C750115297DA001B82F7 /* DMD Redirect */,
+				1EF3C750115297DA001B82F7 /* Installer */,
 				089C1671FE841209C02AAC07 /* Frameworks and Libraries */,
 				19C28FB8FE9D52D311CA2CBB /* Products */,
 			);
@@ -309,7 +370,8 @@
 				1E23D71A0CED5365005859B9 /* D for Xcode Launcher.app */,
 				1EC647B40DABA85300DD52F0 /* Unit Tests.octest */,
 				1EF3C75B115298B8001B82F7 /* dmd1-redirect */,
-				1EF3C77811529A2F001B82F7 /* dmd1-redirect */,
+				1EF3C77811529A2F001B82F7 /* dmd2-redirect */,
+				1EF3CBF711555EBE001B82F7 /* D for Xcode.mpkg */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -372,12 +434,42 @@
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		1EF3C750115297DA001B82F7 /* DMD Redirect */ = {
+		1EF3C750115297DA001B82F7 /* Installer */ = {
 			isa = PBXGroup;
 			children = (
 				1EF3C751115297DA001B82F7 /* dmd-redirect.c */,
+				1EF3C978115506EC001B82F7 /* Templates */,
+				1EF3CA4A11550BD3001B82F7 /* setdmd.sh */,
+				1EF3CA49115507A7001B82F7 /* prepare-contents.sh */,
+				1EF3CA70115517B9001B82F7 /* Prepared Contents */,
+				1EF3C93B1155023A001B82F7 /* D for Xcode.pmdoc */,
+				1EF3CBB911555E16001B82F7 /* d-xcode-installer.png */,
+				1EF3CBA211555D73001B82F7 /* English */,
+				1EF3CBA511555D73001B82F7 /* French */,
+				1EF3C94B115502BD001B82F7 /* dmd2download.sh */,
+				1EF3C94C115502BD001B82F7 /* dmd2link.sh */,
+				1EF3C949115502BD001B82F7 /* dmd1download.sh */,
+				1EF3C94A115502BD001B82F7 /* dmd1link.sh */,
 			);
-			path = "DMD Redirect";
+			path = Installer;
+			sourceTree = "<group>";
+		};
+		1EF3CBA211555D73001B82F7 /* English */ = {
+			isa = PBXGroup;
+			children = (
+				1EF3CBA311555D73001B82F7 /* Intro.rtf */,
+				1EF3CBA411555D73001B82F7 /* ReadMe.rtf */,
+			);
+			path = English;
+			sourceTree = "<group>";
+		};
+		1EF3CBA511555D73001B82F7 /* French */ = {
+			isa = PBXGroup;
+			children = (
+				1EF3CBA611555D73001B82F7 /* Intro.rtf */,
+				1EF3CBA711555D73001B82F7 /* ReadMe.rtf */,
+			);
+			path = French;
 			sourceTree = "<group>";
 		};
 		6D209C4508EBCCC800E52803 /* Xcode API */ = {
@@ -482,7 +574,7 @@
 			);
 			name = "dmd2-redirect";
 			productName = "dmd-redirect";
-			productReference = 1EF3C77811529A2F001B82F7 /* dmd1-redirect */;
+			productReference = 1EF3C77811529A2F001B82F7 /* dmd2-redirect */;
 			productType = "com.apple.product-type.tool";
 		};
 		8D5B49AC048680CD000E48DA /* D for Xcode */ = {
@@ -497,6 +589,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1EF3C8261153AAF3001B82F7 /* PBXTargetDependency */,
 				1ECD1244107108D400CFD074 /* PBXTargetDependency */,
 				1E23D7230CED538F005859B9 /* PBXTargetDependency */,
 			);
@@ -524,6 +617,7 @@
 				1EC647B30DABA85300DD52F0 /* Unit Tests */,
 				1EF3C75A115298B8001B82F7 /* dmd1-redirect */,
 				1EF3C77111529A2F001B82F7 /* dmd2-redirect */,
+				1EF3C7D411539BD0001B82F7 /* D for Xcode.mpkg */,
 			);
 		};
 /* End PBXProject section */
@@ -605,6 +699,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		1EF3C7D311539BD0001B82F7 /* Prepare Contents */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Install/D for Xcode.pmdoc",
+			);
+			name = "Prepare Contents";
+			outputPaths = (
+				"$(TARGET_BUILD_DIR)/$(TARGET_NAME)",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\ncd \"$SRCROOT/Installer\"\nsh prepare-contents.sh\n";
+		};
+		1EF3CBFA11555EDF001B82F7 /* Create Package */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Create Package";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\n$DEVELOPER_BIN_DIR/packagemaker \\\n\t--doc \"$SRCROOT/Installer/D for Xcode.pmdoc\" \\\n\t--out \"$TARGET_BUILD_DIR/$TARGET_NAME\"";
 		};
 		6DC2AF6E0A33728000AA574F /* Install Custom Icon */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -701,6 +825,26 @@
 			isa = PBXTargetDependency;
 			target = 1ECD11F7107105FD00CFD074 /* D for Xcode UI */;
 			targetProxy = 1ECD1243107108D400CFD074 /* PBXContainerItemProxy */;
+		};
+		1EF3C7DE1153A772001B82F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1EF3C77111529A2F001B82F7 /* dmd2-redirect */;
+			targetProxy = 1EF3C7DD1153A772001B82F7 /* PBXContainerItemProxy */;
+		};
+		1EF3C7E01153A774001B82F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1EF3C75A115298B8001B82F7 /* dmd1-redirect */;
+			targetProxy = 1EF3C7DF1153A774001B82F7 /* PBXContainerItemProxy */;
+		};
+		1EF3C7E21153A777001B82F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D5B49AC048680CD000E48DA /* D for Xcode */;
+			targetProxy = 1EF3C7E11153A777001B82F7 /* PBXContainerItemProxy */;
+		};
+		1EF3C8261153AAF3001B82F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1EC647B30DABA85300DD52F0 /* Unit Tests */;
+			targetProxy = 1EF3C8251153AAF3001B82F7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -853,7 +997,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "DX_DMD_PATH=\"/Library/Compilers/dmd/osx/bin/dmd\"";
+				GCC_PREPROCESSOR_DEFINITIONS = "DX_DMD_PATH='\"/Library/Compilers/dmd/osx/bin/dmd\"'";
 				INSTALL_PATH = /usr/local/bin;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -874,7 +1018,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
-				GCC_PREPROCESSOR_DEFINITIONS = "'DX_DMD_PATH=\"/Library/Compilers/dmd/osx/bin/dmd\"'";
+				GCC_PREPROCESSOR_DEFINITIONS = "DX_DMD_PATH='\"/Library/Compilers/dmd/osx/bin/dmd\"'";
 				INSTALL_PATH = /usr/local/bin;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -897,7 +1041,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = "DX_DMD_PATH=\"/Library/Compilers/dmd/osx/bin/dmd\"";
+				GCC_PREPROCESSOR_DEFINITIONS = "DX_DMD_PATH='\"/Library/Compilers/dmd2/osx/bin/dmd\"'";
 				INSTALL_PATH = /usr/local/bin;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -906,7 +1050,7 @@
 					AppKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = "dmd1-redirect";
+				PRODUCT_NAME = "dmd2-redirect";
 			};
 			name = Debug;
 		};
@@ -918,7 +1062,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
-				GCC_PREPROCESSOR_DEFINITIONS = "'DX_DMD_PATH=\"/Library/Compilers/dmd2/osx/bin/dmd\"'";
+				GCC_PREPROCESSOR_DEFINITIONS = "DX_DMD_PATH='\"/Library/Compilers/dmd2/osx/bin/dmd\"'";
 				INSTALL_PATH = /usr/local/bin;
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -928,6 +1072,27 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "dmd2-redirect";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		1EF3C7D511539BD0001B82F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = Packaging;
+			};
+			name = Debug;
+		};
+		1EF3C7D611539BD0001B82F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = Packaging;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1046,6 +1211,15 @@
 			buildConfigurations = (
 				1EF3C77611529A2F001B82F7 /* Debug */,
 				1EF3C77711529A2F001B82F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1EF3C7D811539BD8001B82F7 /* Build configuration list for PBXAggregateTarget "D for Xcode.mpkg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1EF3C7D511539BD0001B82F7 /* Debug */,
+				1EF3C7D611539BD0001B82F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
