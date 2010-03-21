@@ -40,6 +40,9 @@ if [ $? != 0 ]
 then exit $?
 fi
 
+# Set executable bit
+chmod +x "$DX_EXTRACT_PATH/osx/bin/"{dmd,dumpobj,obj2asm,rdmd}
+
 # Install
 echo "Installing at $DX_INSTALL_PATH/"
 if [ -e "$DX_INSTALL_PATH" ]

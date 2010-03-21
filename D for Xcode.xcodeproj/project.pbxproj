@@ -224,7 +224,7 @@
 		1EF3CBA611555D73001B82F7 /* Intro.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Intro.rtf; sourceTree = "<group>"; };
 		1EF3CBA711555D73001B82F7 /* ReadMe.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = ReadMe.rtf; sourceTree = "<group>"; };
 		1EF3CBB911555E16001B82F7 /* d-xcode-installer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "d-xcode-installer.png"; sourceTree = "<group>"; };
-		1EF3CBF711555EBE001B82F7 /* D for Xcode.mpkg */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.installer-mpkg"; name = "D for Xcode.mpkg"; path = "Products/Build/Debug/D for Xcode.mpkg"; sourceTree = DEVELOPER_DIR; };
+		1EF3CBF711555EBE001B82F7 /* D for Xcode.mpkg */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.installer-mpkg"; path = "D for Xcode.mpkg"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1EF9B7EB0D8A245100AF150C /* XC3PSourceParsing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XC3PSourceParsing.h; path = Headers/XC3PSourceParsing.h; sourceTree = "<group>"; };
 		1EF9B80A0D8A986800AF150C /* DXDNumberScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDNumberScanner.h; sourceTree = "<group>"; };
 		1EF9B80B0D8A986800AF150C /* DXDNumberScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXDNumberScanner.m; sourceTree = "<group>"; };
@@ -604,6 +604,9 @@
 /* Begin PBXProject section */
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+			};
 			buildConfigurationList = 6D4E1A6108560B2700084599 /* Build configuration list for PBXProject "D for Xcode" */;
 			compatibilityVersion = "Xcode 3.1";
 			hasScannedForEncodings = 1;
@@ -706,15 +709,13 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Install/D for Xcode.pmdoc",
 			);
 			name = "Prepare Contents";
 			outputPaths = (
-				"$(TARGET_BUILD_DIR)/$(TARGET_NAME)",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\ncd \"$SRCROOT/Installer\"\nsh prepare-contents.sh\n";
+			shellScript = "\nif [ \"$CONFIGURATION\" != \"Release\" ]\nthen\n\techo \"error: Attempt to package with configuration '$CONFIGURATION'. Can only package in 'Release' configuration.\"\n\texit -1\nfi\n\ncd \"$SRCROOT/Installer\"\nsh prepare-contents.sh\n";
 		};
 		1EF3CBFA11555EDF001B82F7 /* Create Package */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -728,7 +729,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\n$DEVELOPER_BIN_DIR/packagemaker \\\n\t--doc \"$SRCROOT/Installer/D for Xcode.pmdoc\" \\\n\t--out \"$TARGET_BUILD_DIR/$TARGET_NAME\"";
+			shellScript = "\n# Remove old package\nrm -rf \"$TARGET_BUILD_DIR/$TARGET_NAME\"\n\n# Create new package\n$DEVELOPER_BIN_DIR/packagemaker \\\n\t--doc \"$SRCROOT/Installer/D for Xcode.pmdoc\" \\\n\t--out \"$TARGET_BUILD_DIR/$TARGET_NAME\"";
 		};
 		6DC2AF6E0A33728000AA574F /* Install Custom Icon */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1007,6 +1008,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "dmd1-redirect";
+				VALID_ARCHS = i386;
 			};
 			name = Debug;
 		};
@@ -1028,6 +1030,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "dmd1-redirect";
+				VALID_ARCHS = i386;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -1051,6 +1054,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "dmd2-redirect";
+				VALID_ARCHS = i386;
 			};
 			name = Debug;
 		};
@@ -1072,6 +1076,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "dmd2-redirect";
+				VALID_ARCHS = i386;
 				ZERO_LINK = NO;
 			};
 			name = Release;

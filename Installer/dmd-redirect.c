@@ -20,7 +20,6 @@
 // symbolic link is not enough.
 
 #include <unistd.h>
-#include <stdio.h>
 
 #ifndef DX_DMD_PATH
 #error Must set DX_DMD_PATH
@@ -28,6 +27,5 @@
 
 int main(unsigned int argc, char **argv) {
 	argv[0] = DX_DMD_PATH;
-	printf("'%s'", DX_DMD_PATH);
 	return execv(DX_DMD_PATH, argv);
 }

@@ -1,12 +1,7 @@
 #!/bin/sh
 
 DMD_COMMAND="dmd1"
-DMD_BIN="/Library/Compilers/dmd/osx/bin"
-DMD_MAN="/Library/Compilers/dmd/osx/man"
 DX_BIN="/usr/local/bin"
-
-# Setup permissions
-chmod +x "$DMD_BIN/"{dmd,dumpobj,obj2asm}
 
 # Setup link to default compiler (if not already set)
 if [ ! -e "$DX_BIN/dmd" ]
