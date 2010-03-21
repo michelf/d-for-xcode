@@ -48,18 +48,9 @@ enum Response { notoken = -1, token = 65542 };
 	if (foundCommentLength) {
 		e.length = foundCommentLength;
 
-//		NSLog(@"comment -> a %@", a);
-//		NSLog(@"comment -> range = %d:%d", e.location, e.length);
-//		NSLog(@"comment -> dirtyRange = %d:%d", f->location, f->length);
-//		NSLog(@"comment -> %@", [str substringWithRange:NSMakeRange(0, e.length)]);
-
 		size_t oldLoc = [d location];
 
 		XCSourceModelItem *r = [super parse:a withContext:b initialToken:c inputStream:d range:e dirtyRange:f];
-
-//		NSLog(@"comment -> dirtyRange' = %d:%d", f->location, f->length);
-//		NSLog(@"comment -> location = %d -> %d", oldLoc, [d location]);
-//		NSLog(@"comment -> %@", r);
 
 		return r;
 	}
@@ -79,7 +70,6 @@ enum Response { notoken = -1, token = 65542 };
 			}
 		}
 	}
-//	NSLog(@"comment -> predict rule (%d,%d) = %d", tokenType, location, result);
 	return result;
 }
 

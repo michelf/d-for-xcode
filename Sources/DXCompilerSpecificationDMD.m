@@ -54,7 +54,6 @@
 	NSString *filename;
 	while (filename = [e nextObject]) {
 		NSString *filepath = [context absolutePathForPath:filename];
-		NSLog(filepath);
 		XCDependencyNode *node = [context dependencyNodeForName:filepath createIfNeeded:YES];
 		[node setDontCareIfExists:YES];
 		[inputNode addIncludedNode:node];

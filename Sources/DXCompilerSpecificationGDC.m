@@ -44,7 +44,6 @@
 	NSString *filename;
 	while (filename = [e nextObject]) {
 		NSString *filepath = [context absolutePathForPath:filename];
-		NSLog(filepath);
 		XCDependencyNode *node = [context dependencyNodeForName:filepath createIfNeeded:YES];
 		[node setDontCareIfExists:YES];
 		[inputNode addIncludedNode:node];
@@ -131,28 +130,5 @@
 	// set output objects
 	return [NSArray arrayWithObject:outputNode];
 }
-
-//- (NSArray*)computeDependenciesForFilePath:(NSString*)path ofType:(PBXFileType*)type outputDirectory:(NSString*)outputDir inTargetBuildContext:(PBXTargetBuildContext*)context
-//{
-//	NSLog(@"[depForFPath:%@ ofType:%@ outDir:%@ inTargBuildCtx:%@]", path, [type description], outputDir, [context description]);
-//	NSArray* result = [super computeDependenciesForFilePath:path ofType:type outputDirectory:outputDir inTargetBuildContext:context];
-//
-//	NSEnumerator* e = [result objectEnumerator];
-//	XCDependencyNode* o;
-//	while (o = [e nextObject])
-//	{
-//		NSLog(@"- (%@) %@", [o className], [o description]);
-//		{
-//			XCDependencyNode* i = [o includedNodes];
-//			NSLog(@"-included- (%@) %@", [i className], [i description]);
-//		}
-//		{
-//			XCDependencyNode* i = [o includingNodes];
-//			NSLog(@"-including- (%@) %@", [i className], [i description]);
-//		}
-//	}
-//	
-//	return result;
-//}
 
 @end

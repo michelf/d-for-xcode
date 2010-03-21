@@ -42,18 +42,9 @@ enum Response { notoken = -1, token = 65542 };
 	if (foundStringLength) {
 		e.length = foundStringLength;
 
-//		NSLog(@"string -> a %@", a);
-//		NSLog(@"string -> range = %d:%d", e.location, e.length);
-//		NSLog(@"string -> dirtyRange = %d:%d", f->location, f->length);
-//		NSLog(@"string -> %@", [str substringWithRange:NSMakeRange(0, e.length)]);
-
 		size_t oldLoc = [d location];
 
 		XCSourceModelItem *r = [super parse:nil withContext:b initialToken:c inputStream:d range:e dirtyRange:f];
-		
-//		NSLog(@"string -> dirtyRange' = %d:%d", f->location, f->length);
-//		NSLog(@"string -> location = %d -> %d", oldLoc, [d location]);
-//		NSLog(@"string -> %@", r);
 
 		return r;
 
@@ -72,7 +63,6 @@ enum Response { notoken = -1, token = 65542 };
 		(c == 'q' && [stream peekChar] == '"') ||
 		(c == 'q' && [stream peekChar] == '{') ||
 		(c == 'x' && [stream peekChar] == '"');
-//	NSLog(@"string -> predict rule (%d,%d) = %d", tokenType, location, result);
 	return result;
 }
 
