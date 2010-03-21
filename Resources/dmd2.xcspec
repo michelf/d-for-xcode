@@ -30,4 +30,24 @@
 	Description = "Digital Mars D 2.x";
 	ExecPath = "/usr/local/bin/dmd2";
 	Version = "2.x";
+	
+	Options = (
+		{
+			Name = DMD_DISABLE_BOUNDS_CHECK;
+			Type = bool;
+			DefaultValue = YES;
+			CommandLineArgs = { YES = (-noboundscheck); NO = (); };
+			Category = CodeGeneration;
+			CommonOption = YES;
+			AppearsOnCommandLineAfter = DMD_ENABLE_RELEASE_CODE;
+		},
+		{
+			Name = DMD_INFO_TLS;
+			Type = bool;
+			DefaultValue = NO;
+			CommandLineArgs = { YES = (-vtls); NO = (); };
+			Category = Language;
+			CommonOption = NO;
+		},
+	);
 }

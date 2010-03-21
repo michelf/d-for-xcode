@@ -114,15 +114,16 @@
 		
 		// Documentation
 		{
-			Name = DMD_DDOC;
+			Name = D_DDOC;
 			Type = bool;
 			DefaultValue = NO;
 			CommandLineArgs = { YES = ("-D"); NO = (); };
 			ConditionFlavors = ( "arch", "sdk" );
 			Category = Documentation;
+			CommonOption = YES;
 		},
 		{
-			Name = DMD_DDOC_DIR;
+			Name = D_DDOC_DIR;
 			Type = string; 
 			DefaultValue = "";
 			CommandLineArgs = { "" = (); "<<otherwise>>" = ( "-Dd${0}" ); };
@@ -132,7 +133,7 @@
 			Category = Documentation;
 		},
 		{
-			Name = DMD_DDOC_FILENAME;
+			Name = D_DDOC_FILENAME;
 			Type = string;
 			DefaultValue = "";
 			CommandLineArgs = { "" = (); "<<otherwise>>" = ( "-Df${0}" ); };
@@ -142,7 +143,7 @@
 			Category = Documentation;
 		},
 		{
-			Name = DMD_DDOC_INCLUDES;
+			Name = D_DDOC_INCLUDES;
 			Type = stringlist; 
 			DefaultValue = "";
 			CommandLineArgs = ("${0}");
@@ -153,22 +154,32 @@
 		},
 		
 		// Code Generation
-//		{
-//			Name = DMD_ENABLE_BOUNDS_CHECK;
-//			Type = bool;
-//			DefaultValue = YES;
-//			CommandLineArgs = { YES = (-fbounds-check); NO = (-fno-bounds-check); };
-//			Category = CodeGeneration;
-//			CommonOption = YES;
-//		},
 		{
 			Name = DMD_ENABLE_RELEASE_CODE;
 			Type = bool;
 			DefaultValue = NO;
 			CommandLineArgs = { YES = (-release); NO = (); };
 			Category = CodeGeneration;
-			ConditionFlavors = ( "arch", "sdk" );
 			CommonOption = YES;
+			ConditionFlavors = ( "arch", "sdk" );
+		},
+		{
+			Name = DMD_INLINE_FUNCTIONS;
+			Type = bool;
+			DefaultValue = NO;
+			CommandLineArgs = { YES = (-inline); NO = (); };
+			Category = CodeGeneration;
+			ConditionFlavors = ( "arch", "sdk" );
+			AppearsOnCommandLineAfter = DMD_ENABLE_RELEASE_CODE;
+		},
+		{
+			Name = DMD_OPTIMIZATION;
+			Type = bool;
+			DefaultValue = "$(GCC_OPTIMIZATION_LEVEL)";
+			CommandLineArgs = ("-O");
+			Category = CodeGeneration;
+			ConditionFlavors = ( "arch", "sdk" );
+			AppearsOnCommandLineAfter = DMD_ENABLE_RELEASE_CODE;
 		},
 		{
 			Name = DMD_ENABLE_DEBUG_CODE;
@@ -179,32 +190,7 @@
 			ConditionFlavors = ( "arch", "sdk" );
 			CommonOption = YES;
 		},
-		{
-			Name = DMD_INLINE_FUNCTIONS;
-			Type = bool;
-			DefaultValue = NO;
-			CommandLineArgs = { YES = (-inline); NO = (); };
-			Category = CodeGeneration;
-			ConditionFlavors = ( "arch", "sdk" );
-			CommonOption = YES;
-		},
-//		{
-//			Name = DMD_EMIT_TEMPLATES;
-//			Type = enum;
-//			AllowedValues = (normal, private, all, none, auto, full);
-//			DefaultValue = auto;
-//			CommandLineArgs = { none=(-fno-emit-templates) ; "<<otherwise>>"=("-femit-templates=${0}"); };
-//			Category = CodeGeneration;
-//		},
-//		{
-//			Name = GDC_GENERATE_INTERFACE_FILES;
-//			Type = bool;
-//			DefaultValue = YES;
-//			Category = CodeGeneration;
-//			CommonOption = YES;
-//		},
 		
-		// Gode Generation
 		{
 			Name = DMD_GENERATE_DEBUGGING_SYMBOLS;
 			Type = bool;
@@ -212,7 +198,7 @@
 			DefaultValue = "$(GCC_GENERATE_DEBUGGING_SYMBOLS)";
 			Category = CodeGeneration;
 			ConditionFlavors = ( "arch", "sdk" );
-			CommonOption = YES;
+			AppearsOnCommandLineAfter = DMD_ENABLE_DEBUG_CODE;
 		},
 		{
 			Name = DMD_DEBUGGING_SYMBOLS;
@@ -224,79 +210,28 @@
 			Condition = "$(DMD_GENERATE_DEBUGGING_SYMBOLS)";
 			Category = CodeGeneration;
 			ConditionFlavors = ( "arch", "sdk" );
+			AppearsOnCommandLineAfter = DMD_GENERATE_DEBUGGING_SYMBOLS;
 		},
-		{
-			Name = DMD_OPTIMIZATION;
-			Type = bool;
-//			DefaultValue = s;
-			DefaultValue = "$(GCC_OPTIMIZATION_LEVEL)";
-			CommandLineArgs = ("-O");
-			Category = CodeGeneration;
-			ConditionFlavors = ( "arch", "sdk" );
-		},
-//		{
-//			Name = GDC_MODEL_TUNING;
-//			Type = enum;
-//			AllowedValues = ("", G3, G4, G5);
-////			DefaultValue = G4
-//			DefaultValue = "$(GCC_MODEL_TUNING)";
-//			CommandLineArgs = { "" = (); "<<otherwise>>" = ("-mtune=${0}"); };
-//			Architectures = (ppc, ppc7400, ppc7450, ppc970, ppc64);
-//			Category = CodeGeneration;
-//		},
-//		{
-//			Name = GDC_GENERATE_PROFILING_CODE;
-//			Type = bool;
-//			DefaultValue = "$(GENERATE_PROFILING_CODE)";
-//			CommandLineArgs = { YES = (-pg); NO = (); };
-//			Category = CodeGeneration;
-//		},
-//		{
-//			Name = GDC_NO_COMMON_BLOCKS;
-//			Type = bool;
-////			DefaultValue = NO;
-//			DefaultValue = "$(GCC_NO_COMMON_BLOCKS)";
-//			CommandLineArgs = { YES = (-fno-common); NO = (); };
-//			Category = CodeGeneration;
-//		},
-//		{
-//			Name = GDC_REUSE_STRINGS;
-//			Type = bool;
-////			DefaultValue = YES;
-//			DefaultValue = "$(GCC_REUSE_STRINGS)";
-//			CommandLineArgs = { YES = (); NO = (-fwritable-strings); };
-//			Category = CodeGeneration;
-//		},
-//		{
-//			Name = DMD_DYNAMIC_NO_PIC;
-//			Type = bool;
-//			DefaultValue = NO;
-//			DefaultValue = "$(GCC_DYNAMIC_NO_PIC)";
-//			//CommandLineArgs = { YES = (-mdynamic-no-pic); NO = (); };
-//			// Flag mutually exclusive with -fzero-link, handled programatically.
-//			Category = CodeGeneration;
-//		},
 
         // Warnings
 		{
 			Name = DMD_WARNINGS;
 			Type = bool;
 			DefaultValue = NO;
-			CommandLineArgs = { YES = (-w); NO = (); };
-			FileTypes = (sourcecode.c.c, sourcecode.c.objc);
 			Category = Language;
 			CommonOption = YES;
 			ConditionFlavors = ( "arch", "sdk" );
-        },
-//		{
-//			Name = GDC_TREAT_WARNINGS_AS_ERRORS;
-//			Type = bool;
-////			DefaultValue = NO;
-//			DefaultValue = "$(GCC_TREAT_WARNINGS_AS_ERRORS)";
-//			CommandLineArgs = { YES = (-Werror); NO = (); };
-//			AppearsOnCommandLineAfter = GDC_WARNINGS;
-//			Category = Warnings;
-//        },
+		},
+		{
+			Name = DMD_INFORMATIONAL_WARNINGS;
+			Type = bool;
+			DefaultValue = YES;
+			CommandLineArgs = { YES = (-wi); NO = (-w); };
+			Condition = "$(DMD_WARNINGS)";
+			Category = Language;
+			ConditionFlavors = ( "arch", "sdk" );
+			AppearsOnCommandLineAfter = GDC_WARNINGS;
+		},
 	);
 	
 	
