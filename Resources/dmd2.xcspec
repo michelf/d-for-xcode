@@ -1,6 +1,6 @@
 
 // DMD 2.x compiler specification for Xcode 3
-// Copyright (c) 2007-2009  Michel Fortin
+// Copyright (c) 2007-2010  Michel Fortin
 //
 // Based on the D Xcode Compiler Plugin
 // Copyright (c) 2005-2006  Alan West
@@ -30,24 +30,4 @@
 	Description = "Digital Mars D 2.x";
 	ExecPath = "/usr/local/bin/dmd2";
 	Version = "2.x";
-	
-	Options = (
-		{
-			Name = DMD_DISABLE_BOUNDS_CHECK;
-			Type = bool;
-			DefaultValue = YES;
-			CommandLineArgs = { YES = (-noboundscheck); NO = (); };
-			Category = CodeGeneration;
-			CommonOption = YES;
-			AppearsOnCommandLineAfter = DMD_ENABLE_RELEASE_CODE;
-		},
-		{
-			Name = DMD_INFO_TLS;
-			Type = bool;
-			DefaultValue = NO;
-			CommandLineArgs = { YES = (-vtls); NO = (); };
-			Category = Language;
-			CommonOption = NO;
-		},
-	);
 }

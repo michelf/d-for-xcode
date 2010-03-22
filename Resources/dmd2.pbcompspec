@@ -1,12 +1,12 @@
 
 // DMD 2.x compiler specification for Xcode 3
-// Copyright (c) 2007-2009  Michel Fortin
+// Copyright (c) 2007-2010  Michel Fortin
 //
 // Based on the D Xcode Compiler Plugin
 // Copyright (c) 2005-2006  Alan West
 //
 // For use with the Mac OS X DMD Compiler <http://www.digitalmars.com/d/>.
-// Note: the DMD executable is expected to be at: /usr/local/bin/dmd
+// Note: the DMD 2.x executable is expected to be at: /usr/local/bin/dmd2
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
 // under the terms of the GNU General Public License as published by the Free 
@@ -23,6 +23,7 @@
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
 {
+	Type = Compiler;
 	Identifier = com.michelf.dxcode.dmd2;
 	BasedOn = com.michelf.dxcode.dmd;
 	Name = "DMD 2.x";

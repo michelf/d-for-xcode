@@ -47,7 +47,7 @@
 "[DMD_INFORMATIONAL_WARNINGS]-description" = "Display warnings about potential trouble-spots. Any warning will cause the compiler to abort. [DMD_INFORMATIONAL_WARNINGS, -wi]";
 
 "[DMD_INFO_TLS]-name" = "List TLS variables";
-"[DMD_INFO_TLS]-description" = "Display informational messages identifying variables defaulting to thread local storage. Handy for migrating to shared model. [DMD_INFO_TLS, -vtls]";
+"[DMD_INFO_TLS]-description" = "(DMD 2.x only) Display informational messages identifying variables defaulting to thread local storage. Handy for migrating to shared model. [DMD_INFO_TLS, -vtls]";
 
 
 // Documentation
@@ -72,7 +72,7 @@
 "[CodeGeneration]-category" = "Code Generation";
 
 "[DMD_DISABLE_BOUNDS_CHECK]-name" = "Disable Bounds Checking";
-"[DMD_DISABLE_BOUNDS_CHECK]-description" = "Turns off all array bounds checking, even for safe functions. [DMD_DISABLE_BOUNDS_CHECK, -noboundscheck]";
+"[DMD_DISABLE_BOUNDS_CHECK]-description" = "(DMD 2.x only) Turns off all array bounds checking, even for safe functions. [DMD_DISABLE_BOUNDS_CHECK, -noboundscheck]";
 
 "[DMD_ENABLE_RELEASE_CODE]-name" = "Release Code";
 "[DMD_ENABLE_RELEASE_CODE]-description" = "Generate code optimized for 'release', ignoring asserts, debug sections, etc. [DMD_ENABLE_RELEASE_CODE, -release]";

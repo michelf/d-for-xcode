@@ -1,6 +1,6 @@
 
 // D for Xcode: Icon Setup
-// Copyright (c) 2007-2009  Michel Fortin
+// Copyright (c) 2007-2010  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
 // under the terms of the GNU General Public License as published by the Free 
