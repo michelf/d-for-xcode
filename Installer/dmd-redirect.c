@@ -20,12 +20,16 @@
 // symbolic link is not enough.
 
 #include <unistd.h>
+#include <stdio.h>
 
 #ifndef DX_DMD_PATH
 #error Must set DX_DMD_PATH
 #endif
 
 int main(unsigned int argc, char **argv) {
+	char *command = argv[0];
 	argv[0] = DX_DMD_PATH;
-	return execv(DX_DMD_PATH, argv);
+	execv(DX_DMD_PATH, argv);
+	fprintf(stderr, "%s: failed to launch executable at %s.", command, DX_DMD_PATH);
+	return -1;
 }
