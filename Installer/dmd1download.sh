@@ -1,10 +1,31 @@
 #!/bin/sh
 
 DMD_DIR_NAME="dmd"
-DMD_LATEST_URL="http://michelf.com/docs/dmd-info/$DMD_DIR_NAME-latest"
-DMD_ARCHIVE_NAME=$(curl --fail "$DMD_LATEST_URL" -s)
+DMD_FILE_REGEX='dmd.1.(\d+).zip'
+
+# Find latest version on download page
+DMD_ARCHIVE_NAME=$(curl --fail http://www.digitalmars.com/d/download.html -s | perl -e '
+$filename = "";
+$vers = 0;
+while (<>) {
+  if (/\bhttp:\/\/ftp\.digitalmars\.com\/('$DMD_FILE_REGEX')\b/) {
+    if ($2 > $vers) {
+      $vers = $2; $filename = $1;
+    }
+  }
+}
+print "$filename";
+');
 if [ $? != 0 ] || [ "$DMD_ARCHIVE_NAME" == "" ]
-then echo "Error retrieving current DMD version." ; exit -1
+then
+	echo "Error retrieving current DMD version, now trying fallback."
+	# Fallback in case the download page is broken
+	DMD_LATEST_URL="http://michelf.com/docs/dmd-info/$DMD_DIR_NAME-latest"
+	DMD_ARCHIVE_NAME=$(curl --fail "$DMD_LATEST_URL" -s)
+	if [ $? != 0 ] || [ "$DMD_ARCHIVE_NAME" == "" ]
+	then
+		echo "Error retrieving current DMD version." ; exit -1
+	fi
 fi
 
 # Source URL / Destination Dir
