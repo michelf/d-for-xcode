@@ -7,54 +7,55 @@ integrates the DMD and GDC compilers in the build system.
 
 Known Issues:
 
-*	The debugger doesn't work with DMD at this point. It can only show you the 
-	mangled function names from a stack frame. There is no breakpoint support.
+*   Debugger support is mostly lacking. You'll be able to see a backtrace of
+    mangled function names, but that's all the GNU Debugger is able to see from 
+    executables compiled by DMD at this time. Breakpoints are not supported. 
+    Executables compiled with GDC might actually be usable for debugging, but 
+    this hasn't been tested for a while.
 
-*	For code compiled with GDC, the debugger does not display very well the 
-	content of objects.
+*   Syntax-aware indentation is sometime wrong for constructs which are not present
+    in C++/Objective-C, like `foreach`. It's uncertain if this can be fixed. You 
+    can disable syntax-aware indentation from Xcode preferences if this bothers you.
 
-*	Autocompletion and indexing is not implemented. Autocompletion curently 
-	only search for similar words in the same document, which is what Xcode 
-	does by default for files it doesn't know about.
+*   Code completion isn't done very intelligently at this time. It'll just 
+    propose keywords and identifiers found in the same document.
+
+*   There is no indexing support for D source files. It is therefore not possible
+    to use jump to definition or similar commands. 
 
 
-1.1b3 (9 Dec 2009):
+D for Xcode 1.2 (21 Mar 2010)
 
-*	Added support for the DMD compiler. D for Xcode looks at the following 
-	paths for DMD:
+*	Added an installer package. A default install will download and install 
+	the latest version of the DMD 2.x and 1.x compiler in /Library/Compilers/.
 	
-	*	/usr/local/bin/dmd for DMD System Version
-	*	/usr/local/bin/dmd1 for DMD 1.x
-	*	/usr/local/bin/dmd2 for DMD 2.x
-	
-	(Note: a DMD installer with this setup remains to be done.)
-	
-	By default, Xcode projects use the DMD System Version, which can be either 
-	D1 or D2. You can change this by going to each target's settings, under the 
-	Build Rules tab, and adding a custom build rule for D source files using 
-	your prefered compiler.
+	The installer package will add the proper symbolic links in /usr/local/ 
+	to make DMD work properly without fussing with your `PATH` environment 
+	variable. The `dmd2` command invokes DMD 2.x while `dmd1` invokes 
+	DMD 1.x. `dmd` maps to one of these two (`dmd2` by default but you can 
+	change this with `setdmd`).
 
-*	Updated keyword list for syntax highlighting, improved code folding, and 
-	other enhancements in the source scanner.
+*	Updated the keyword list for syntax highlighting, improved code folding, 
+	and other enhancements in the source scanner.
 	
 *	Added special scanner code for strings and comments in Xcode 3. Nested 
-	comment and all D string syntaxes should be highlighted correctly now.
+	comment and all D string syntaxes are now correctly highlighted as strings.
 
 *	D files are now recognized correctly by default in Xcode 3. Previously they
-	were assinged the dtrace.sourcecode type (which shares the same file 
-	extension); now d.sourcecode takes precedence when files are added to a 
+	were assinged the sourcecode.dtrace type (which shares the same file 
+	extension); now sourcecode.d takes precedence when files are added to a 
 	project. You can manually change the file type from the file info panel 
 	in Xcode.
 
-*	Fixed the dependency tree generation under Xcode 3.1.
+*	Fixed the dependency tree generation which was broken by Xcode 3.1.
 
-*	Got rid of the DMD front end, now using a custom lightweight parser for 
-	dependency scanning and a source scanner for syntax highlighing in 
-	Xcode 2.x.
+*	Got rid of the embedded DMD front end for syntax highlighting, now using 
+	a custom lightweight parser for dependency scanning and a custom source 
+	scanner for syntax highlighing in Xcode 2.x.
 
 *	Removed support for the outline menu in Xcode 2.x which was using the DMD
 	front end and was too time-consuming to keep up to date. The outline is 
-	still available in Xcode 3 using the newer source scanning facilities.
+	still available in Xcode 3 based on its newer source scanning facilities.
 
 
 1.1b2 (21 Sep 2008):
