@@ -96,7 +96,7 @@
 	
 	// create compiler command
 	XCDependencyCommand *dep = [context
-		createCommandWithRuleInfo:[NSArray arrayWithObjects:@"CompileD", [context naturalPathForPath:input],nil]
+		createCommandWithRuleInfo:[NSArray arrayWithObjects:@"Compile", [context naturalPathForPath:input],nil]
 		commandPath:[context expandedValueForString:[self path]]
 		arguments:nil
 		forNode:outputNode];
@@ -114,6 +114,10 @@
 	[dep addArgument:@"-c"];
 	[dep addArgument:[@"-of" stringByAppendingString:output]];
 	[dep addArgument:input];
+	
+	// avoid DMD outputing relative path for errors by changing the current dir
+	[dep addArgument:[@"-I" stringByAppendingString:[dep workingDirectoryPath]]];
+	[dep setWorkingDirectoryPath:@"/"];
 	
 	// Create dependency rules (must be done after dependency command creation)
 	[outputNode addDependedNode:inputNode];
