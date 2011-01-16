@@ -1,0 +1,65 @@
+
+// Plugin Data for Xcode 4
+//
+// D for Xcode is free software; you can redistribute it and/or modify it 
+// under the terms of the GNU General Public License as published by the Free 
+// Software Foundation; either version 2 of the License, or (at your option) 
+// any later version.
+//
+// D for Xcode is distributed in the hope that it will be useful, but WITHOUT 
+// ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or 
+// FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for 
+// more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with D for Xcode; if not, write to the Free Software Foundation, 
+// Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
+
+{
+	plug-in = {
+		extensions = {
+			Xcode.FileDataType.D = {
+				_DVTExtensionXML = "<extension point=\"Xcode.FileDataType\" id=\"Xcode.FileDataType.D\" name=\"D File Data Type\" typeIdentifier=\"com.michelf.source.d-source\" localizedDescription=\"D File\" version=\"0.1\"><typeConformedTo typeIdentifier=\"public.source-code\"></typeConformedTo></extension>";
+				id = Xcode.FileDataType.D;
+				localizedDescription = "D File";
+				name = "D File Data Type";
+				point = Xcode.FileDataType;
+				typeConformedTo = (
+					public.source-code
+				);
+				typeIdentifier = com.michelf.source.d-source;
+				version = 0.1;
+			};
+			Xcode.SourceCodeLanguage.D = {
+				_DVTExtensionXML = "<extension point=\"Xcode.SourceCodeLanguage\" id=\"Xcode.SourceCodeLanguage.D\" name=\"D Language\" version=\"1.0\" languageName=\"D\" languageSpecification=\"xcode.lang.d\" documentationAbbreviation=\"d\"><conformsTo identifier=\"Xcode.SourceCodeLanguage.Generic\"></conformsTo><fileDataType identifier=\"com.michelf.dxcode.d-source\"></fileDataType><fileDataType identifier=\"com.michelf.dxcode.d-interface\"></fileDataType></extension>";
+				conformsTo = (
+					{
+						identifier = Xcode.SourceCodeLanguage.Generic;
+					}
+				);
+				documentationAbbreviation = d;
+				fileDataType = (
+					{
+						identifier = com.michelf.dxcode.d-source;
+					},
+					{
+						identifier = com.michelf.dxcode.d-interface;
+					}
+				);
+				id = Xcode.SourceCodeLanguage.D;
+				languageName = "D";
+				languageSpecification = xcode.lang.d;
+				name = "D Language";
+				point = Xcode.SourceCodeLanguage;
+				version = 0.1;
+			};
+		};
+		host-requirements = (
+			build-system
+		);
+	};
+	version = {
+		compiler-build = 1;
+		file-format = 1;
+	};
+}
