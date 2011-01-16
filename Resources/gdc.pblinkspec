@@ -37,7 +37,7 @@
 		Options = (
 			{
 			    Name = LINK_WITH_STANDARD_LIBRARIES;
-                CommandLineArgs = { NO = (); "<<otherwise>>" = ("/usr/lib/libgphobos.a", "-lgcc_eh"); };
+                CommandLineArgs = { NO = (); "<<otherwise>>" = ("-lgphobos", "-lgcc_eh"); };
             }
 		);
 	},
