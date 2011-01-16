@@ -48,6 +48,7 @@
 		1E33C6A60CEF82BE00D4FB11 /* D for Xcode Launcher.app in Resources */ = {isa = PBXBuildFile; fileRef = 1E23D71A0CED5365005859B9 /* D for Xcode Launcher.app */; };
 		1E3428230CEDC8A30072B499 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E3428220CEDC8A30072B499 /* ApplicationServices.framework */; };
 		1E3D305F0DEE4DD800AE867B /* DXScannerTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E01E4920DED70C800CE9033 /* DXScannerTools.m */; };
+		1E42460812BE66E200CF7386 /* D for Xcode.xcplugindata in Resources */ = {isa = PBXBuildFile; fileRef = 1E4245FE12BE650800CF7386 /* D for Xcode.xcplugindata */; };
 		1E65A6390E3192B000AF8BB7 /* PBX-di-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E65A6350E3192A300AF8BB7 /* PBX-di-Icon.png */; };
 		1E65A63A0E3192B000AF8BB7 /* PBX-d-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E65A6360E3192A300AF8BB7 /* PBX-d-Icon.png */; };
 		1E67105C100988A700361CC2 /* DXFileTypeSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E67105B100988A700361CC2 /* DXFileTypeSetup.m */; };
@@ -67,14 +68,14 @@
 		1EAD1BB01019BC1400C21009 /* DXCompilerSpecificationDMD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EAD1BAF1019BC1400C21009 /* DXCompilerSpecificationDMD.m */; };
 		1EAD1BB61019BE1700C21009 /* dmd.pbcompspec in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD1BB41019BE1700C21009 /* dmd.pbcompspec */; };
 		1EAD1BB71019BE1700C21009 /* dmd1.pblinkspec in Resources */ = {isa = PBXBuildFile; fileRef = 1EAD1BB51019BE1700C21009 /* dmd1.pblinkspec */; };
-		1EB39F22129F51DD0023A89F /* DXDSourceLexer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BF3CE0CAF493C0022460C /* DXDSourceLexer.mm */; };
+		1EB39F64129F6B890023A89F /* DXDNumberScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF9B80B0D8A986800AF150C /* DXDNumberScanner.m */; };
+		1EB39F65129F6B8B0023A89F /* DXDSourceLexer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1E6BF3CE0CAF493C0022460C /* DXDSourceLexer.mm */; };
 		1EC647BB0DABA8D400DD52F0 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EC647BA0DABA8D400DD52F0 /* SenTestingKit.framework */; };
 		1EC647D80DABA8FF00DD52F0 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		1ECA60C10CF7CB2F006CECB1 /* DXLauncherRegistration.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E1AC00B0CF68A970014F648 /* DXLauncherRegistration.m */; };
 		1ECD120D107105FD00CFD074 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		1ECD1236107107A800CFD074 /* DXUISetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ECD1235107107A800CFD074 /* DXUISetup.m */; };
 		1ECD12481071092400CFD074 /* D for Xcode UI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1ECD1230107105FD00CFD074 /* D for Xcode UI.bundle */; };
-		1ECD12B8107115B000CFD074 /* DXDNumberScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EF9B80B0D8A986800AF150C /* DXDNumberScanner.m */; };
 		1ECD13211072513D00CFD074 /* DXDCommentScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EED03CE10528687001CA3B8 /* DXDCommentScanner.m */; };
 		1ED40E260CF001C3005C46B3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1ED40E250CF001C3005C46B3 /* InfoPlist.strings */; };
 		1EDC1114105289000087E1DF /* DXDCommentScannerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EDC1111105287FB0087E1DF /* DXDCommentScannerTest.m */; };
@@ -166,6 +167,7 @@
 		1E3076541078EE1F00ED4D31 /* DXDStringScannerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DXDStringScannerTest.h; sourceTree = "<group>"; };
 		1E3076551078EE1F00ED4D31 /* DXDStringScannerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DXDStringScannerTest.m; sourceTree = "<group>"; };
 		1E3428220CEDC8A30072B499 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
+		1E4245FE12BE650800CF7386 /* D for Xcode.xcplugindata */ = {isa = PBXFileReference; explicitFileType = text.plist; fileEncoding = 4; lineEnding = 0; path = "D for Xcode.xcplugindata"; sourceTree = "<group>"; };
 		1E536EEA0CEC76F2002E86F7 /* dfile.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = dfile.icns; sourceTree = "<group>"; };
 		1E536EF50CEC8A1E002E86F7 /* difile.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = difile.icns; sourceTree = "<group>"; };
 		1E655FD20D39CF8A00141EEC /* d.xclangspec */ = {isa = PBXFileReference; explicitFileType = text.plist.xcspec; fileEncoding = 4; path = d.xclangspec; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				1E68F1FD0D4B6E58008144DB /* gdc.xcspec */,
 				6DB1DD8708B3A289004F6FFB /* gdc.pbcompspec */,
 				6DB1DD8408B3A289004F6FFB /* gdc.pblinkspec */,
+				1E4245FE12BE650800CF7386 /* D for Xcode.xcplugindata */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -684,6 +687,7 @@
 				1E7857A3101F6FA000FA2061 /* dmd2.pblinkspec in Resources */,
 				1E1D9D5C10222B8D006DE134 /* com.michelf.dxcode.dmd.strings in Resources */,
 				1ECD12481071092400CFD074 /* D for Xcode UI.bundle in Resources */,
+				1E42460812BE66E200CF7386 /* D for Xcode.xcplugindata in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,10 +778,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1ECD12B8107115B000CFD074 /* DXDNumberScanner.m in Sources */,
 				1ECD13211072513D00CFD074 /* DXDCommentScanner.m in Sources */,
 				1E3077BC1079A56D00ED4D31 /* DXDStringScanner.m in Sources */,
-				1EB39F22129F51DD0023A89F /* DXDSourceLexer.mm in Sources */,
+				1EB39F64129F6B890023A89F /* DXDNumberScanner.m in Sources */,
+				1EB39F65129F6B8B0023A89F /* DXDSourceLexer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
