@@ -24,7 +24,7 @@ Known Issues:
     to use jump to definition or similar commands. 
 
 
-D for Xcode 1.2.1 (16 Jan 2010)
+D for Xcode 1.2.1 (16 Jan 2011)
 
 *	Fixed a link failure complaining about a missing "druntime" library on 
 	some systems.
