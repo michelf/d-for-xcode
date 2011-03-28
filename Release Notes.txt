@@ -24,6 +24,11 @@ Known Issues:
     to use jump to definition or similar commands. 
 
 
+D for Xcode 1.2.2 (28 Mar 2011)
+
+*	Fixed an issue with the directory layout of DMD 2.052.
+
+
 D for Xcode 1.2.1 (16 Jan 2011)
 
 *	Fixed a link failure complaining about a missing "druntime" library on 
