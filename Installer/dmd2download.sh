@@ -64,6 +64,14 @@ fi
 # Set executable bit
 chmod +x "$DX_EXTRACT_PATH/osx/bin/"{dmd,dumpobj,obj2asm,rdmd}
 
+# Add lib -> lib32 symlink if lib is missing (like DMD 2.052)
+if [[ -e "$DX_EXTRACT_PATH/osx/lib32/" && ! -e "$DX_EXTRACT_PATH/osx/lib" ]]
+then
+	pushd "$DX_EXTRACT_PATH/osx/"
+	ln -s "lib32" "lib"
+	popd
+fi
+
 # Install
 echo "Installing at $DX_INSTALL_PATH/"
 if [ -e "$DX_INSTALL_PATH" ]
