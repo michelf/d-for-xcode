@@ -1,6 +1,6 @@
 
 // D for Xcode: UI-only code loader to play nice with command line tool
-// Copyright (c) 2007-2010  Michel Fortin
+// Copyright (c) 2007-2011  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
 // under the terms of the GNU General Public License as published by the Free 
@@ -16,25 +16,38 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
-#import "DXUISetup.h"
+#import "DXPlugin.h"
 
 
-@implementation DXUISetup
+@implementation DXPlugin
 
-+ (void)load {
-	if (objc_lookUpClass("XCRegExScanner")) {
++ (BOOL)pluginAttemptLoadingUI:(NSNotification *)notification
+{
+	NSLog(@"Notification: %@", notification);
+	if (objc_lookUpClass("DVTSourceScanner"))
+	{
 		// Source scanning primitives present, can load dependent classes
 		NSString *path = [[NSBundle bundleForClass:[self class]] resourcePath];
 		path = [path stringByAppendingPathComponent:@"D for Xcode UI.bundle"];
+		NSLog(@"Loading D fox Xcode UI components from %@", path);
+		[[NSNotificationCenter defaultCenter] removeObserver:self name:NSBundleDidLoadNotification object:nil];
 		[[NSBundle bundleWithPath:path] load];
-		//NSLog(@"Loading D fox Xcode UI components %@", path);
+		return YES;
 	}
 	else {
-		// We're likely loaded inside xcodebuild command line tool, don't need
-		// source scanner
-		//NSLog(@"Loading D fox Xcode UI components");
+		// We're likely loaded inside xcodebuild command line tool, 
+		// can't load source scanners and UI stuff
+		//NSLog(@"NOT loading D fox Xcode UI components !!");
+		return NO;
 	}
+}
 
++ (void)pluginDidLoad:(NSBundle *)plugin
+{
+	if ([self pluginAttemptLoadingUI:nil] == NO)
+	{
+		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pluginAttemptLoadingUI:) name:NSBundleDidLoadNotification object:nil];
+	}
 }
 
 @end

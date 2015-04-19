@@ -16,7 +16,9 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
-#import <XCPSpecifications.h>
+#import <DevToolsCore/XCCompilerSpecification.h>
+#import <DevToolsCore/PBXTargetBuildContext.h>
+#import <DevToolsCore/PBXFileType.h>
 
 @interface DXCompilerSpecificationGDC : XCCompilerSpecification {
 

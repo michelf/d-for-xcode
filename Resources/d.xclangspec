@@ -280,6 +280,7 @@
 		Description = "D Coloring";
 		BasedOn = "xcode.lang.simpleColoring";
 		IncludeInMenu = YES;
+        UsesCLikeIndentation = YES;
 		Name = "D";
 		Syntax = {
 			Tokenizer = "xcode.lang.d.lexer";

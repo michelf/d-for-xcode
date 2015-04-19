@@ -18,9 +18,8 @@
 
 #import "DXDStringScanner.h"
 #import "DXScannerTools.h"
-#import "XCSourceModelItem.h"
-#import "XCCharStream.h"
-#import "XCPSupport.h"
+#import <XcodeEdit/XCSourceModelItem.h>
+#import <XcodeEdit/XCCharStream.h>
 
 enum Response { notoken = -1, token = 65542 };
 

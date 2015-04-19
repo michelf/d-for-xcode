@@ -18,11 +18,8 @@
 
 #import "DXCompilerSpecificationDMD.h"
 #import "DXDependencyScanner.h"
-
-#import "XCPBuildSystem.h"
-#import "XCPDependencyGraph.h"
-#import "XCPSupport.h"
-
+#import <DevToolsCore/XCDependencyNode.h>
+#import <DevToolsCore/XCDependencyCommand.h>
 
 @implementation DXCompilerSpecificationDMD
 

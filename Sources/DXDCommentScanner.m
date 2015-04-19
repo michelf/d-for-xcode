@@ -18,15 +18,15 @@
 
 #import "DXDCommentScanner.h"
 #import "DXScannerTools.h"
-#import "XCSourceModelItem.h"
-#import "XCCharStream.h"
-#import "XCPSupport.h"
+#import <DVTFoundation/DVTSourceModelItem.h>
+#import <DVTFoundation/DVTCharStream.h>
+#import <DVTFoundation/DVTSourceModelItem.h>
 
 enum Response { notoken = -1, token = 65542 };
 
 @implementation DXDCommentScanner
 
-- (id)parse:(id)a withContext:(id)b initialToken:(int)c inputStream:(XCCharStream *)d range:(NSRange)e dirtyRange:(NSRange *)f {
+- (id)parse:(id)a withContext:(id)b initialToken:(int)c inputStream:(DVTCharStream *)d range:(NSRange)e dirtyRange:(NSRange *)f {
 	
 	NSString *str = [d stringWithRange:e];
 	str = [str stringByDeletingLeadingWhitespace];
@@ -50,14 +50,14 @@ enum Response { notoken = -1, token = 65542 };
 
 		size_t oldLoc = [d location];
 
-		XCSourceModelItem *r = [super parse:a withContext:b initialToken:c inputStream:d range:e dirtyRange:f];
+		DVTSourceModelItem *r = [super parse:a withContext:b initialToken:c inputStream:d range:e dirtyRange:f];
 
 		return r;
 	}
 	return nil;
 }
 
-- (BOOL)predictsRule:(int)tokenType inputStream:(XCCharStream *)stream {
+- (BOOL)predictsRule:(NSInteger)tokenType inputStream:(DVTCharStream *)stream {
 	if (tokenType & 0x20000) return NO;
 	size_t location = [stream location]-1;
 	BOOL result = NO;
