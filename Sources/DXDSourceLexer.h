@@ -18,7 +18,7 @@
 
 #import <XCPSourceParsing.h>
 
-
+/*
 /*!
  * Lexer class used by Xcode for syntax highlighting.
  */
@@ -59,3 +59,4 @@
 - (void)scanForDocKeywordsBetweenStart:(const unsigned char *)start andEnd:(const unsigned char *)end startingAt:(unsigned int)pos;
 
 @end
+*/

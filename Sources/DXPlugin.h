@@ -1,6 +1,6 @@
 
-// D for Xcode: Launcher Application Registration
-// Copyright (c) 2007-2010  Michel Fortin
+// D for Xcode: UI-only code loader to play nice with command line tool
+// Copyright (c) 2007-2011  Michel Fortin
 //
 // D for Xcode is free software; you can redistribute it and/or modify it 
 // under the terms of the GNU General Public License as published by the Free 
@@ -16,26 +16,11 @@
 // along with D for Xcode; if not, write to the Free Software Foundation, 
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
-#import "DXLauncherRegistration.h"
+#import <Cocoa/Cocoa.h>
 
 
-@implementation DXLauncherRegistration
+@interface DXPlugin : NSObject {
 
-+ (void)load {
-	// Register launcher application with launch services.
-	NSString *dir = [[NSBundle bundleForClass:[self class]] resourcePath];
-	NSString *application_path = [dir stringByAppendingString:@"/D for Xcode Launcher.app"];
-	
-	// Create FSRef for application path.
-	OSErr err;
-	FSRef app;
-	Boolean isDir;
-	err = FSPathMakeRef((unsigned char *)[application_path cString], &app, &isDir);
-	
-	// Register application with Launch Services.
-	if (err == noErr) {
-		OSStatus status = LSRegisterFSRef(&app, 1);
-	}
 }
 
 @end

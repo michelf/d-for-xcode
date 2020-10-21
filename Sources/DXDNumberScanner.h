@@ -17,9 +17,9 @@
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
 #import <Cocoa/Cocoa.h>
-#import "XC3PSourceParsing.h"
+#import <DVTFoundation/DVTRegExScanner.h>
 
-@interface DXDNumberScanner : XCRegExScanner {
+@interface DXDNumberScanner : DVTRegExScanner {
 }
 
 - (int)tokenForString:(NSString *)fp8 forRange:(NSRange *)fp12 subItems:(id *)fp16;

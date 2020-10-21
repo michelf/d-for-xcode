@@ -2,10 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPrincipalClass</key>
+	<string>DXPlugin</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
-	<key>CFBundleDocumentTypes</key>
-	<array/>
 	<key>CFBundleExecutable</key>
 	<string>D for Xcode</string>
 	<key>CFBundleIconFile</key>
@@ -26,6 +26,8 @@
 	<string>YES</string>
 	<key>XCGCReady</key>
 	<string>YES</string>
+	<key>XC4Compatible</key>
+	<true/>
 	<key>XCPluginHasUI</key>
 	<string>NO</string>
 </dict>

@@ -17,14 +17,13 @@
 // Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA.
 
 #import <Cocoa/Cocoa.h>
-#import "XC3PSourceParsing.h"
+#import <DVTFoundation/DVTSourceScanner.h>
+#import <DVTFoundation/DVTCharStream.h>
 
-@class XCCharStream;
-
-@interface DXDCommentScanner : XCSourceScanner {
+@interface DXDCommentScanner : DVTSourceScanner {
 }
 
-- (id)parse:(id)fp8 withContext:(id)fp12 initialToken:(int)fp16 inputStream:(XCCharStream *)fp20 range:(NSRange)fp24 dirtyRange:(NSRange *)fp32;
+- (id)parse:(id)fp8 withContext:(id)fp12 initialToken:(int)fp16 inputStream:(DVTCharStream *)fp20 range:(NSRange)fp24 dirtyRange:(NSRange *)fp32;
 
 - (BOOL)ddocOnly;
 
